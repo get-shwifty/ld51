@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=3 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="PackedScene" path="res://world/character.tscn" id="1_x6ywh"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_xmf3l"]
 
 [node name="World" type="Node"]
+process_mode = 1
+script = ExtResource("1_xmf3l")
 
 [node name="Character" parent="." instance=ExtResource("1_x6ywh")]
 position = Vector2(64, 24)

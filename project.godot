@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Control",
+"class": &"MenuBindings",
+"language": &"GDScript",
+"path": "res://ui/menu_bindings.gd"
+}, {
+"base": "Control",
 "class": &"MenuMain",
 "language": &"GDScript",
 "path": "res://ui/menu_main.gd"
@@ -18,10 +23,17 @@ _global_script_classes=[{
 "class": &"MenuPause",
 "language": &"GDScript",
 "path": "res://ui/menu_pause.gd"
+}, {
+"base": "Node",
+"class": &"World",
+"language": &"GDScript",
+"path": "res://world/world.gd"
 }]
 _global_script_class_icons={
+"MenuBindings": "",
 "MenuMain": "",
-"MenuPause": ""
+"MenuPause": "",
+"World": ""
 }
 
 [application]
