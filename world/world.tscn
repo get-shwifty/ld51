@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clf4fwpa5msnv"]
+
+[ext_resource type="PackedScene" path="res://world/character.tscn" id="1_x6ywh"]
+
+[node name="World" type="Node"]
+
+[node name="Character" parent="." instance=ExtResource("1_x6ywh")]
+position = Vector2(64, 24)
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Character2" parent="." instance=ExtResource("1_x6ywh")]
+position = Vector2(64, 24)

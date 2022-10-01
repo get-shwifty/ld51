@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmcnw4dtujqs4"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_n5s6f"]
-[ext_resource type="Script" path="res://character.gd" id="1_v85us"]
+[ext_resource type="Script" path="res://world/character.gd" id="1_tv6xs"]
+[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="2_06rcd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vcic"]
 radius = 8.0
 height = 32.0
 
 [node name="Character" type="CharacterBody2D"]
-script = ExtResource("1_v85us")
+script = ExtResource("1_tv6xs")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(0, -9.53674e-07)
 rotation = 1.5708
 scale = Vector2(0.25, 0.125)
-texture = ExtResource("1_n5s6f")
+texture = ExtResource("2_06rcd")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vcic")
