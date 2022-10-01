@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpjaxle47dy1o"]
+
+[ext_resource type="Script" path="res://ui/menu_main.gd" id="1_v4wqm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v4wqm")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Presto cafe
+"
+
+[node name="SoloButton" type="Button" parent="."]
+offset_left = 36.0
+offset_top = 84.0
+offset_right = 76.0
+offset_bottom = 115.0
+text = "solo
+"
+
+[node name="MultiButton" type="Button" parent="."]
+offset_left = 38.0
+offset_top = 144.0
+offset_right = 127.0
+offset_bottom = 175.0
+text = "local multi
+"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 214.0
+offset_right = 82.0
+offset_bottom = 245.0
+text = "Quit"
+
+[connection signal="pressed" from="SoloButton" to="." method="_on_solo_button_pressed"]
+[connection signal="pressed" from="MultiButton" to="." method="_on_multi_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
