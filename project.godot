@@ -13,3 +13,12 @@ config_version=5
 config/name="ld51"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=320
+window/size/borderless=true
+window/size/window_width_override=1152
+window/size/window_height_override=640
+window/stretch/mode="canvas_items"
