@@ -1,15 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc4xeua2oob5j"]
+[gd_scene load_steps=7 format=3 uid="uid://cc4xeua2oob5j"]
 
 [ext_resource type="Script" path="res://world/table.gd" id="1_rfeft"]
+[ext_resource type="PackedScene" uid="uid://crrr8t57x5bwi" path="res://world/chair.tscn" id="2_637c5"]
 [ext_resource type="Texture2D" uid="uid://brluyxftnjols" path="res://assets/graphics/table.png" id="2_tbbdu"]
+[ext_resource type="Theme" uid="uid://dhan0yuikdimg" path="res://ui/ui_theme.tres" id="3_1chtd"]
+[ext_resource type="Texture2D" uid="uid://ib0ag6ua6de3" path="res://assets/graphics/grosse_bulle.png" id="3_3q4l2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xe63l"]
 radius = 28.0
 
-[node name="Table" type="StaticBody2D"]
+[node name="Table" type="StaticBody2D" groups=["table"]]
 collision_layer = 34
 collision_mask = 0
 script = ExtResource("1_rfeft")
+
+[node name="Chairs" type="Node2D" parent="."]
+
+[node name="Chair" parent="Chairs" instance=ExtResource("2_637c5")]
+
+[node name="Chair2" parent="Chairs" instance=ExtResource("2_637c5")]
+position = Vector2(0, -38)
+rotation = 1.5708
+
+[node name="Chair3" parent="Chairs" instance=ExtResource("2_637c5")]
+position = Vector2(38, 0)
+rotation = -3.14159
+
+[node name="Chair4" parent="Chairs" instance=ExtResource("2_637c5")]
+position = Vector2(0, 38)
+rotation = -1.5708
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("2_tbbdu")
@@ -18,3 +37,25 @@ texture = ExtResource("2_tbbdu")
 shape = SubResource("CircleShape2D_xe63l")
 
 [node name="InfoBulle" type="Node2D" parent="."]
+
+[node name="Sprite2d" type="Sprite2D" parent="InfoBulle"]
+position = Vector2(0.5, -1.5)
+scale = Vector2(0.840909, 0.74)
+texture = ExtResource("3_3q4l2")
+
+[node name="Label" type="Label" parent="InfoBulle"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 48.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme = ExtResource("3_1chtd")
+theme_override_colors/font_color = Color(0.498039, 0.333333, 0.223529, 1)
+text = "Espresso"
+horizontal_alignment = 1
+vertical_alignment = 1

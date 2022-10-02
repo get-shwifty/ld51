@@ -1,14 +1,19 @@
 extends Node
 class_name World
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const SPAWN_INTERVAL = 10000
 
+@onready var tables : Node2D = $Tables
+@onready var time = Time.new()
+@onready var last_clients_spawn = time.get_ticks_msec()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if time.get_ticks_msec() - last_clients_spawn > SPAWN_INTERVAL:
+		var indexes = []
+		for i in range(tables.get_child_count()):
+			if tables.get_child(i).current_clients == null:
+				indexes.push_back(i)
 
 func set_players_devices(devices):
 	pass

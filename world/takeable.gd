@@ -1,7 +1,7 @@
 extends Area2D
 class_name Takeable
 
-@onready var current_object = $Coffee
+@onready var current_object = $MenuItem
 
 func is_takeable():
 	return current_object == null

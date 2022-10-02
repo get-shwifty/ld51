@@ -1,6 +1,9 @@
 extends Interactable
+class_name World_Table
 
 @onready var infoBulle:Node2D = $InfoBulle
+
+var current_clients = null
 
 func _ready():
 	infoBulle.visible = false

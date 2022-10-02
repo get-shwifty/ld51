@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
-[ext_resource type="PackedScene" uid="uid://ebvq5xg1q47c" path="res://world/coffee.tscn" id="3_0s4qg"]
+[ext_resource type="PackedScene" uid="uid://cpylw2yq3igv6" path="res://world/menu_item.tscn" id="3_pfl80"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ivm8"]
 radius = 8.0
@@ -33,5 +33,5 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2d" type="CollisionShape2D" parent="TakeablePos"]
 shape = SubResource("RectangleShape2D_ftmsb")
 
-[node name="Coffee" parent="TakeablePos" instance=ExtResource("3_0s4qg")]
-scale = Vector2(1, 1)
+[node name="MenuItem" parent="TakeablePos" instance=ExtResource("3_pfl80")]
+menu_item_name = "espresso"

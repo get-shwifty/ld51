@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ebvq5xg1q47c"]
+[gd_scene load_steps=15 format=3 uid="uid://dej5rvg1poasl"]
 
 [ext_resource type="Texture2D" uid="uid://cn3oofcmws2ee" path="res://assets/graphics/coffee.png" id="1_4ob30"]
 [ext_resource type="Script" path="res://world/coffee.gd" id="2_y70ky"]
@@ -56,8 +56,6 @@ animations = [{
 }]
 
 [node name="Coffee" type="AnimatedSprite2D"]
-position = Vector2(-2.38419e-07, -2.38419e-07)
-scale = Vector2(0.0625, 0.0625)
 frames = SubResource("SpriteFrames_o5rig")
 playing = true
 script = ExtResource("2_y70ky")
