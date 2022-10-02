@@ -48,6 +48,9 @@ func add_object(obj):
 
 func remove_object(place):
 	var obj = objects[place]
+	if objects[place] == null:
+		return null
+
 	objects[place] = null
 	
 	var container = objects_poses.get_child(place)

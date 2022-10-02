@@ -25,36 +25,66 @@ func _ready():
 	infoBulle.visible = false
 
 func is_empty():
-	return len(current_clients) == 0
+	return current_clients.size() == 0
 
 func is_interact_free():
 	return super() and !is_empty()
 
-func on_interact_start():
-	print("interact table")
+func _process(delta):
+	if current_character != null and !is_empty():
+		var buttons_pressed = []
+		if Input.is_action_just_pressed(get_input_name("up")):
+			buttons_pressed.push_back(0)
+		if Input.is_action_just_pressed(get_input_name("down")):
+			buttons_pressed.push_back(2)
+		if Input.is_action_just_pressed(get_input_name("left")):
+			buttons_pressed.push_back(3)
+		if Input.is_action_just_pressed(get_input_name("right")):
+			buttons_pressed.push_back(1)
+		
+		if buttons_pressed.size() > 0:
+			for button in buttons_pressed:
+				var menu_item = current_character.tray.remove_object(button)
+				if menu_item != null:
+					var remove_index = current_clients.find(menu_item.menu_item_name)
+					if remove_index >= 0:
+						current_clients.remove_at(remove_index)
+					else:
+						print("TODO feedback bad menu item delivered")
 
-func on_interact_end():
-	print("quit table")
+			update_infobulle()
+			current_character.update_infobulle()
+
+			if current_clients.size() == 0:
+				# table is done!
+				for i in range(chairs.size()):
+					if chairs[i].client_scene != null:
+						chairs[i].remove_child(chairs[i].client_scene)
+						chairs[i].client_scene = null
+				current_character.end_interact()
+			elif current_character.tray.is_empty():
+				current_character.end_interact()
 
 func create_clients(nb_clients):
 	current_clients = []
 	for i in range(nb_clients):
 		current_clients.push_back(receipes[randi() % len(receipes)])
 		var client_scene = clients_scenes[randi() % len(clients_scenes)].instantiate()
+		chairs[i].client_scene = client_scene
 		chairs[i].add_child(client_scene)
 	
-	infoBulleLabel.text = ""
-	for client in current_clients:
-		infoBulleLabel.text += client + "\n"
-	
-	check_visibility()
+	update_infobulle()
 
-func check_visibility():
+func update_infobulle():
 	infoBulle.visible = !is_empty() and \
 		len(characterDetector.get_overlapping_bodies()) > 0
+	if infoBulle.visible:
+		infoBulleLabel.text = ""
+		for client in current_clients:
+			infoBulleLabel.text += client + "\n"
 
 func _on_character_detector_body_entered(body):
-	check_visibility()
+	update_infobulle()
 
 func _on_character_detector_body_exited(body):
-	check_visibility()
+	update_infobulle()
