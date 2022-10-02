@@ -2,31 +2,40 @@
 
 [ext_resource type="Script" path="res://ui/menu_bindings.gd" id="1_rnsii"]
 
-[node name="menu_bindings" type="Control"]
-layout_mode = 3
+[node name="menu_bindings" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 script = ExtResource("1_rnsii")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = 85.0
+offset_right = 576.0
+offset_bottom = 111.0
 text = "Choose your bindings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 50)
+offset_top = 115.0
+offset_right = 576.0
+offset_bottom = 165.0
 
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 26.0
-offset_top = 41.0
-offset_right = 67.0
-offset_bottom = 72.0
+offset_top = 169.0
+offset_right = 576.0
+offset_bottom = 200.0
 text = "Play
 "
 
 [node name="ReturnButton" type="Button" parent="."]
-offset_left = 19.0
-offset_top = 96.0
-offset_right = 80.0
-offset_bottom = 127.0
+offset_top = 204.0
+offset_right = 576.0
+offset_bottom = 235.0
 text = "Return"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
