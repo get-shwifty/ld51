@@ -18,7 +18,7 @@ func refresh_bindings_display():
 	$LabelBindingDescription.set_text(bindings_list[current_binding_index]["description"]);
 
 func get_current_binding_id():
-	return bindings_list[current_binding_index];
+	return bindings_list[current_binding_index]["id"];
 
 func _on_button_left_pressed():
 	current_binding_index -= 1

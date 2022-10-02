@@ -4,7 +4,7 @@ class_name MenuBindings
 const BINDING_SELECTION = preload("res://ui/binding_selection.tscn")
 
 signal return_to_main_menu
-signal launch_game
+signal launch_game(bindings)
 
 var bindings = [
 	{
@@ -46,7 +46,8 @@ func set_number_of_players(nb):
 		
 
 func _on_play_button_pressed():
-	launch_game.emit()
+	var res = selection_widgets.map(func(x): return x.get_current_binding_id())
+	launch_game.emit(res)
 
 
 func _on_return_button_pressed():

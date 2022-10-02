@@ -13,7 +13,7 @@ var game_slot : Node = null;
 
 #var ui_main_menu : MenuMain = null;
 #var ui_pause_menu : MenuPause = null;
-var game_world = null;
+var game_world : World = null;
 
 enum GameState { BOOTING, MENU_MAIN, MENU_BINDINGS, MENU_PAUSE, GAME}
 var game_state : GameState = GameState.BOOTING;
@@ -59,7 +59,7 @@ func open_menu_bindings(nb_of_players):
 	if game_state == GameState.MENU_MAIN:
 		clear_ui_center_slot()
 		var ui_bindings_menu : MenuBindings = UI_MENU_BINDINGS.instantiate()
-		ui_bindings_menu.launch_game.connect(launch_solo_game)
+		ui_bindings_menu.launch_game.connect(launch_game)
 		ui_bindings_menu.return_to_main_menu.connect(return_to_main_menu)
 		ui_bindings_menu.set_number_of_players(nb_of_players)
 		ui_center_slot.add_child(ui_bindings_menu)
@@ -78,8 +78,9 @@ func pause_game():
 	else:
 		push_error("cannot pause game in the current game state")
 
-func launch_solo_game():
+func launch_game(bindings):
 	clear_ui_center_slot()
+	game_world.set_players_devices(bindings)
 	game_state = GameState.GAME
 
 func return_to_main_menu():
