@@ -35,13 +35,13 @@ var selection_widgets = []
 
 func set_number_of_players(nb):
 	players_nb = nb
-	for child in $HBoxContainer.get_children():
+	for child in $PanelContainer/HBoxContainer/HBoxContainer.get_children():
 		child.queue_free()
 	selection_widgets.clear()
 	for i  in range(0, players_nb):
 		var current_widget = BINDING_SELECTION.instantiate()
 		current_widget.set_bindings_list(bindings)
-		$HBoxContainer.add_child(current_widget)
+		$PanelContainer/HBoxContainer/HBoxContainer.add_child(current_widget)
 		selection_widgets.push_back(current_widget)
 		
 
