@@ -11,7 +11,7 @@ height = 32.0
 radius = 12.0
 
 [node name="Character" type="CharacterBody2D"]
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_tv6xs")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
@@ -25,7 +25,7 @@ shape = SubResource("CapsuleShape2D_4vcic")
 
 [node name="ActionArea" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 32
+collision_mask = 96
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="ActionArea"]
 position = Vector2(16, 0)
@@ -79,3 +79,6 @@ metadata/_edit_group_ = true
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos4"]
 scale = Vector2(0.13, 0.1)
 texture = ExtResource("2_06rcd")
+
+[node name="TakeMarker" type="Marker2D" parent="."]
+position = Vector2(32, 8)

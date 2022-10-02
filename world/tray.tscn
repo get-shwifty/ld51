@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgs5g1keivlnc"]
+
+[ext_resource type="Script" path="res://world/tray.gd" id="1_c32ht"]
+[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_loewq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqupl"]
+radius = 16.0
+
+[node name="Tray" type="StaticBody2D"]
+collision_layer = 68
+collision_mask = 0
+script = ExtResource("1_c32ht")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_loewq")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uqupl")

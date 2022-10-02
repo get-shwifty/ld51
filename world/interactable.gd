@@ -1,26 +1,23 @@
 extends StaticBody2D
 class_name Interactable
 
-var current_device = null
-
-func set_device_mode(new_device:DevicesHelper):
-	current_device = new_device
+var current_character = null
 
 func get_input_name(suffix):
-	return DevicesHelper.get_device_prefix(current_device) + suffix
+	return DevicesHelper.get_device_prefix(current_character.current_device) + suffix
 
 func is_interact_free():
-	return current_device == null
+	return current_character == null
 
-func start_interact(new_device):
-	current_device = new_device
+func start_interact(character):
+	current_character = current_character
 	on_interact_start()
 
 func on_interact_start():
 	pass
 
 func end_interact():
-	current_device = null
+	current_character = null
 	on_interact_end()
 
 func on_interact_end():

@@ -8,8 +8,10 @@ const SPEED = 200.0
 
 @onready var action_area: Area2D = $ActionArea
 @onready var infoBulle: Node2D = $InfoBulle
+@onready var takePosition: Marker2D = $TakeMarker
 
 var current_interact_body = null
+var current_object_taken = null
 
 
 ### Device Management
@@ -31,27 +33,41 @@ func _ready():
 	infoBulle.visible = false
 
 func _process(delta):
-	if current_interact_body == null:
-		if Input.is_action_just_pressed(get_input_name("action")):
-			var bodies = action_area.get_overlapping_bodies()
-			# todo sort by distance
+	if Input.is_action_just_pressed(get_input_name("action")):
+		var bodies = action_area.get_overlapping_bodies()
+		# todo sort by distance
+		
+		if current_interact_body == null:
 			for body in bodies:
 				if body.has_method("is_interact_free") and body.is_interact_free():
 					start_interact(body)
 					break
-	else:
-		if Input.is_action_just_pressed(get_input_name("action")):
+				if current_object_taken == null and \
+					body.has_method("is_takeable") and body.is_takeable():
+					take(body)
+				if current_object_taken != null and \
+					body.has_method("is_posable") and body.is_posable():
+					untake(body)
+		else:
 			end_interact()
 
 func start_interact(body):
 	infoBulle.visible = true
-	body.start_interact(current_device)
+	body.start_interact(self)
 	current_interact_body = body
 
 func end_interact():
 	infoBulle.visible = false
 	current_interact_body.end_interact()
 	current_interact_body = null
+
+func take(body):
+	current_object_taken = body
+	body.take(self)
+
+func untake(pose_body):
+	current_object_taken.untake(pose_body)
+	current_object_taken = null
 
 ### Physics
 
