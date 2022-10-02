@@ -82,31 +82,33 @@ position = Vector2(312, 217)
 [node name="Table2" parent="Tables" instance=ExtResource("2_6ndcl")]
 position = Vector2(160, 216)
 
-[node name="Tray" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Trays" type="Node2D" parent="."]
+
+[node name="Tray" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 96)
 
-[node name="Tray2" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray2" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(464, 96)
 
-[node name="Tray3" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray3" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 128)
 
-[node name="Tray4" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray4" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 160)
 
-[node name="Tray5" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray5" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 192)
 
-[node name="Tray6" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray6" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 224)
 
-[node name="Tray7" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray7" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 256)
 
-[node name="Tray8" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray8" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(528, 256)
 
-[node name="Tray9" parent="." instance=ExtResource("3_wgn7p")]
+[node name="Tray9" parent="Trays" instance=ExtResource("3_wgn7p")]
 position = Vector2(528, 96)
 
 [node name="CoffeeMachine" parent="." instance=ExtResource("5_cryh4")]
