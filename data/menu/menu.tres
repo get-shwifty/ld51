@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bpuh40qruqfy3"]
+
+[ext_resource type="Resource" uid="uid://p4664050s1te" path="res://data/menu/menu_items/espresso.tres" id="1_6guax"]
+[ext_resource type="Script" path="res://data/menu/menu_ressource.gd" id="1_xj60i"]
+
+[resource]
+script = ExtResource("1_xj60i")
+dishes = [ExtResource("1_6guax")]
