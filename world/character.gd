@@ -7,10 +7,10 @@ const SPEED = 130.0
 
 @onready var rotationNode: Node2D = $Rotation
 @onready var actionArea: Area2D = $Rotation/ActionArea
-@onready var infoBulle: Node2D = $InfoBulle
 @onready var tray: Tray = $Rotation/Tray
 @onready var animatedSprite2D: AnimatedSprite2D = $Rotation/AnimatedSprite2D
 @onready var infoBullePos: Marker2D = $Rotation/InfoBullePos
+@onready var infoBulleMenuItems: Node2D = $InfoBulleMenuItems
 
 var current_interact_body = null
 
@@ -29,9 +29,8 @@ func get_input_name(suffix):
 
 ### Interactions
 
-
 func _ready():
-	infoBulle.visible = false
+	infoBulleMenuItems.visible = false
 
 func comp_nearest(a, b):
 	return to_local(a.global_position).length() < to_local(b.global_position).length()
@@ -66,15 +65,23 @@ func _process(delta):
 					break
 		else:
 			end_interact()
+	
+	update_graphics(delta)
 
 func start_interact(body):
-	infoBulle.visible = true
 	body.start_interact(self)
 	current_interact_body = body
+	
+	if current_interact_body.is_in_group("table"):
+		if !tray.is_empty():
+			infoBulleMenuItems.visible = true
 
 func end_interact():
-	infoBulle.visible = false
 	current_interact_body.end_interact()
+	
+	if current_interact_body.is_in_group("table"):
+		infoBulleMenuItems.visible = false
+
 	current_interact_body = null
 
 func take(body):
@@ -93,7 +100,28 @@ func put_objects_on(other_tray: Tray):
 		var obj = tray.remove_object(obj_idx)
 		other_tray.add_object(obj)
 
+
+### Graphics
+
+
+func update_graphics(delta):
+	var positions = infoBulleMenuItems.find_children("pos?")
+	for i in range(len(tray.objects)):
+		var menu_item = tray.get_object_at(i)
+		if menu_item == null:
+			if positions[i].get_child_count() > 0:
+				positions[i].remove_child(positions[i].get_child(0))
+		else:
+			if positions[i].get_child_count() > 0:
+				var icon_obj = positions[i].get_child(0)
+				# TODO remove icon_obj if !(icon_obj is menu_item.icon_scene)
+				
+			if positions[i].get_child_count() == 0:
+				pass # instantiate new menu_item.icon_scene
+
+
 ### Physics
+
 
 func _physics_process(delta):
 	if current_interact_body != null:
@@ -102,7 +130,7 @@ func _physics_process(delta):
 	var direction = get_direction()
 	if direction:
 		rotationNode.rotation = direction.angle()
-		infoBulle.global_position = infoBullePos.global_position
+		infoBulleMenuItems.global_position = infoBullePos.global_position
 		velocity = direction * SPEED
 		animatedSprite2D.play("walk")
 	else:

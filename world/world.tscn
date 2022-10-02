@@ -74,11 +74,13 @@ shape = SubResource("RectangleShape2D_jguxc")
 position = Vector2(352, 48)
 shape = SubResource("RectangleShape2D_4wox6")
 
-[node name="Table" parent="." instance=ExtResource("2_6ndcl")]
-position = Vector2(320, 224)
+[node name="Tables" type="Node2D" parent="."]
 
-[node name="Table2" parent="." instance=ExtResource("2_6ndcl")]
-position = Vector2(176, 224)
+[node name="Table" parent="Tables" instance=ExtResource("2_6ndcl")]
+position = Vector2(312, 217)
+
+[node name="Table2" parent="Tables" instance=ExtResource("2_6ndcl")]
+position = Vector2(160, 216)
 
 [node name="Tray" parent="." instance=ExtResource("3_wgn7p")]
 position = Vector2(432, 96)

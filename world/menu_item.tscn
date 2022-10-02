@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpylw2yq3igv6"]
+
+[ext_resource type="Script" path="res://world/menu_item.gd" id="2_ouejx"]
+[ext_resource type="PackedScene" uid="uid://dej5rvg1poasl" path="res://world/coffee.tscn" id="2_tmhd5"]
+
+[node name="MenuItem" type="Node2D"]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+script = ExtResource("2_ouejx")
+
+[node name="Coffee" parent="." instance=ExtResource("2_tmhd5")]

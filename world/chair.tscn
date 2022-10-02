@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crrr8t57x5bwi"]
+
+[ext_resource type="Texture2D" uid="uid://b0wrpvc71gt10" path="res://assets/graphics/chaise.png" id="1_xypf5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxtrf"]
+
+[node name="Chair" type="StaticBody2D"]
+position = Vector2(-38, 0)
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("1_xypf5")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rxtrf")
