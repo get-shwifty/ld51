@@ -18,7 +18,7 @@ var current_interact_body = null
 ### Device Management
 
 
-var current_device = DevicesHelper.CONTROLLER1
+var current_device = DevicesHelper.KEYBOARD_ARROWS
 
 func set_device_mode(new_device:DevicesHelper):
 	current_device = new_device
