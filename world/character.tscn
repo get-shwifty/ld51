@@ -1,14 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c08qvudql1a8s"]
+[gd_scene load_steps=16 format=3 uid="uid://c08qvudql1a8s"]
 
 [ext_resource type="Script" path="res://world/character.gd" id="1_tv6xs"]
 [ext_resource type="Texture2D" uid="uid://bxaruckojtmav" path="res://assets/graphics/perso_walk.png" id="2_gniaq"]
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_eohyh"]
 [ext_resource type="Texture2D" uid="uid://ib0ag6ua6de3" path="res://assets/graphics/grosse_bulle.png" id="3_wsu55"]
 [ext_resource type="Texture2D" uid="uid://cdrlwjhwbh7y3" path="res://assets/graphics/touches_manettes.png" id="4_7tvo3"]
-[ext_resource type="Texture2D" uid="uid://5c3noova3mtd" path="res://assets/graphics/expresso.png" id="5_otwkc"]
 [ext_resource type="Texture2D" uid="uid://dv5lkcg32yp57" path="res://assets/graphics/double.png" id="6_weiov"]
 [ext_resource type="Texture2D" uid="uid://bi1bhdfhj7v1t" path="res://assets/graphics/chocolat_chaud.png" id="7_o6miq"]
-[ext_resource type="Texture2D" uid="uid://bvho4ie7jw03k" path="res://assets/graphics/cappucino.png" id="8_odf1v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjwuc"]
 atlas = ExtResource("2_gniaq")
@@ -47,7 +45,7 @@ animations = [{
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhu7m"]
-radius = 7.0
+radius = 9.0
 
 [node name="Character" type="CharacterBody2D"]
 collision_mask = 3
@@ -56,15 +54,17 @@ script = ExtResource("1_tv6xs")
 [node name="Rotation" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rotation"]
-position = Vector2(6, 0)
+position = Vector2(7, 2.27374e-13)
 rotation = 3.14159
+scale = Vector2(1.35, 1.35)
 frames = SubResource("SpriteFrames_0vcue")
 animation = &"idle"
 playing = true
 offset = Vector2(5, 0)
 
 [node name="Tray" parent="Rotation" instance=ExtResource("3_eohyh")]
-position = Vector2(24, 8)
+position = Vector2(16, 6)
+scale = Vector2(0.6, 0.6)
 collision_layer = 0
 
 [node name="ActionArea" type="Area2D" parent="Rotation"]
@@ -75,16 +75,19 @@ collision_mask = 224
 position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_y2voq")
 
+[node name="InfoBullePos" type="Marker2D" parent="Rotation"]
+position = Vector2(-40, 0)
+
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mhu7m")
 
 [node name="InfoBulle" type="Node2D" parent="."]
-position = Vector2(-32, 0)
+position = Vector2(-40, 0)
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulle"]
-position = Vector2(1, 0)
-scale = Vector2(1.04545, 1)
+position = Vector2(-0.499999, -0.500001)
+scale = Vector2(1.29545, 1.1)
 texture = ExtResource("3_wsu55")
 
 [node name="Background_arrows" type="Sprite2D" parent="InfoBulle"]
@@ -92,30 +95,30 @@ position = Vector2(-1.78814e-07, -2.08616e-07)
 texture = ExtResource("4_7tvo3")
 
 [node name="pos1" type="Node2D" parent="InfoBulle"]
-position = Vector2(-1, -19)
+position = Vector2(-1, -22)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos1"]
 position = Vector2(-4.76837e-07, 0)
-texture = ExtResource("5_otwkc")
+texture = ExtResource("6_weiov")
 
 [node name="pos2" type="Node2D" parent="InfoBulle"]
-position = Vector2(14, -1)
+position = Vector2(18, -1)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos2"]
-texture = ExtResource("6_weiov")
+texture = ExtResource("7_o6miq")
 
 [node name="pos3" type="Node2D" parent="InfoBulle"]
-position = Vector2(-1, 18)
+position = Vector2(-1, 15)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos3"]
-texture = ExtResource("7_o6miq")
+texture = ExtResource("6_weiov")
 
 [node name="pos4" type="Node2D" parent="InfoBulle"]
-position = Vector2(-14, 0)
+position = Vector2(-20, 0)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos4"]
-texture = ExtResource("8_odf1v")
+texture = ExtResource("7_o6miq")

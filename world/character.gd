@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 130.0
 
 
 ### Variables
 
 @onready var rotationNode: Node2D = $Rotation
-@onready var action_area: Area2D = $Rotation/ActionArea
+@onready var actionArea: Area2D = $Rotation/ActionArea
 @onready var infoBulle: Node2D = $InfoBulle
 @onready var tray: Tray = $Rotation/Tray
 @onready var animatedSprite2D: AnimatedSprite2D = $Rotation/AnimatedSprite2D
+@onready var infoBullePos: Marker2D = $Rotation/InfoBullePos
 
 var current_interact_body = null
 
@@ -17,7 +18,7 @@ var current_interact_body = null
 ### Device Management
 
 
-var current_device = DevicesHelper.KEYBOARD_ARROWS
+var current_device = DevicesHelper.CONTROLLER1
 
 func set_device_mode(new_device:DevicesHelper):
 	current_device = new_device
@@ -32,11 +33,15 @@ func get_input_name(suffix):
 func _ready():
 	infoBulle.visible = false
 
+func comp_nearest(a, b):
+	return to_local(a.global_position).length() < to_local(b.global_position).length()
+
 func _process(delta):
 	if Input.is_action_just_pressed(get_input_name("action")):
-		var areas = action_area.get_overlapping_areas()
-		var bodies = action_area.get_overlapping_bodies()
-		# todo sort by distance
+		var areas = actionArea.get_overlapping_areas()
+		areas.sort_custom(comp_nearest)
+		var bodies = actionArea.get_overlapping_bodies()
+		bodies.sort_custom(comp_nearest)
 		
 		if current_interact_body == null:
 			for body in areas + bodies:
@@ -97,6 +102,7 @@ func _physics_process(delta):
 	var direction = get_direction()
 	if direction:
 		rotationNode.rotation = direction.angle()
+		infoBulle.global_position = infoBullePos.global_position
 		velocity = direction * SPEED
 		animatedSprite2D.play("walk")
 	else:
@@ -110,6 +116,6 @@ func get_direction():
 	var direction = Vector2(
 				Input.get_axis(get_input_name("left"), get_input_name("right")),
 				Input.get_axis(get_input_name("up"), get_input_name("down")))
-	direction.limit_length()
+	direction = direction.limit_length()
 	
 	return direction
