@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=3 format=3 uid="uid://clf4fwpa5msnv"]
 
-[ext_resource type="PackedScene" path="res://world/character.tscn" id="1_x6ywh"]
+[ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
+[ext_resource type="PackedScene" uid="uid://cc4xeua2oob5j" path="res://world/table.tscn" id="2_6ndcl"]
 
 [node name="World" type="Node"]
 
@@ -9,5 +10,8 @@ position = Vector2(64, 24)
 motion_mode = 1
 platform_on_leave = 2
 
-[node name="Character2" parent="." instance=ExtResource("1_x6ywh")]
-position = Vector2(64, 24)
+[node name="Table" parent="." instance=ExtResource("2_6ndcl")]
+position = Vector2(96, 160)
+
+[node name="Table2" parent="." instance=ExtResource("2_6ndcl")]
+position = Vector2(224, 96)

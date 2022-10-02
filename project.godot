@@ -8,6 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"DevicesHelper",
+"language": &"GDScript",
+"path": "res://world/devices_helper.gd"
+}, {
+"base": "StaticBody2D",
+"class": &"Interactable",
+"language": &"GDScript",
+"path": "res://world/interactable.gd"
+}]
+_global_script_class_icons={
+"DevicesHelper": "",
+"Interactable": ""
+}
+
 [application]
 
 config/name="ld51"
@@ -106,3 +122,10 @@ ctrl2_right={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Character"
+2d_physics/layer_2="Objects"
+2d_physics/layer_5="CharacterAction"
+2d_physics/layer_6="Actionables"

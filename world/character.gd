@@ -1,15 +1,64 @@
 extends CharacterBody2D
 
 const SPEED = 200.0
-const DEC = 2000.0
 
-enum DeviceMap { KEYBOARD_ZQSD, KEYBOARD_ARROWS, CONTROLLER1, CONTROLLER2 }
-var current_device = DeviceMap.KEYBOARD_ARROWS
 
-func set_device_mode(new_device:DeviceMap):
+### Variables
+
+
+@onready var action_area: Area2D = $ActionArea
+@onready var infoBulle: Node2D = $InfoBulle
+
+var current_interact_body = null
+
+
+### Device Management
+
+
+var current_device = DevicesHelper.KEYBOARD_ARROWS
+
+func set_device_mode(new_device:DevicesHelper):
 	current_device = new_device
 
+func get_input_name(suffix):
+	return DevicesHelper.get_device_prefix(current_device) + suffix
+
+
+### Interactions
+
+
+func _ready():
+	infoBulle.visible = false
+
+func _process(delta):
+	if current_interact_body == null:
+		if Input.is_action_just_pressed("ui_accept"):
+			var bodies = action_area.get_overlapping_bodies()
+			# todo sort by distance
+			for body in bodies:
+				if body.has_method("is_interact_free") and body.is_interact_free():
+					start_interact(body)
+					break
+	else:
+		if Input.is_action_just_pressed("ui_accept"):
+			end_interact()
+
+func start_interact(body):
+	infoBulle.visible = true
+	body.start_interact(current_device)
+	current_interact_body = body
+
+func end_interact():
+	infoBulle.visible = false
+	current_interact_body.end_interact()
+	current_interact_body = null
+
+### Physics
+
 func _physics_process(delta):
+	if current_interact_body != null:
+		return
+
 	var direction = get_direction()
 	if direction:
 		rotation = direction.angle()
@@ -19,23 +68,11 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
-	
-func get_device_prefix():
-	match current_device:
-		DeviceMap.KEYBOARD_ZQSD:
-			return "zqsd"
-		DeviceMap.KEYBOARD_ARROWS:
-			return "arrows"
-		DeviceMap.CONTROLLER1:
-			return "ctrl1"
-		DeviceMap.CONTROLLER2:
-			return "ctrl2"
 
 func get_direction():
-	var prefix = get_device_prefix()
 	var direction = Vector2(
-				Input.get_axis(prefix+"_left", prefix+"_right"),
-				Input.get_axis(prefix+"_up", prefix+"_down"))
+				Input.get_axis(get_input_name("left"), get_input_name("right")),
+				Input.get_axis(get_input_name("up"), get_input_name("down")))
 	direction.limit_length()
 	
 	return direction

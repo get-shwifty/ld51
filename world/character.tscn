@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://c08qvudql1a8s"]
 
 [ext_resource type="Script" path="res://world/character.gd" id="1_tv6xs"]
 [ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="2_06rcd"]
@@ -7,7 +7,11 @@
 radius = 8.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2voq"]
+radius = 12.0
+
 [node name="Character" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_tv6xs")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
@@ -18,3 +22,60 @@ texture = ExtResource("2_06rcd")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vcic")
+
+[node name="ActionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="ActionArea"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_y2voq")
+
+[node name="InfoBulle" type="Node2D" parent="."]
+position = Vector2(-40, 0)
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="InfoBulle"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_06rcd")
+
+[node name="Background_arrows" type="Sprite2D" parent="InfoBulle"]
+modulate = Color(0.87451, 0, 0.258824, 1)
+position = Vector2(-1.78814e-07, -2.08616e-07)
+scale = Vector2(0.078125, 0.140625)
+texture = ExtResource("2_06rcd")
+
+[node name="pos1" type="Node2D" parent="InfoBulle"]
+position = Vector2(0, -16)
+metadata/_edit_group_ = true
+
+[node name="Espresso" type="Sprite2D" parent="InfoBulle/pos1"]
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(0.13, 0.1)
+texture = ExtResource("2_06rcd")
+
+[node name="pos2" type="Node2D" parent="InfoBulle"]
+position = Vector2(14, 0)
+metadata/_edit_group_ = true
+
+[node name="Espresso" type="Sprite2D" parent="InfoBulle/pos2"]
+scale = Vector2(0.13, 0.1)
+texture = ExtResource("2_06rcd")
+
+[node name="pos3" type="Node2D" parent="InfoBulle"]
+position = Vector2(0, 16)
+metadata/_edit_group_ = true
+
+[node name="Espresso" type="Sprite2D" parent="InfoBulle/pos3"]
+scale = Vector2(0.13, 0.1)
+texture = ExtResource("2_06rcd")
+
+[node name="pos4" type="Node2D" parent="InfoBulle"]
+position = Vector2(-14, 0)
+metadata/_edit_group_ = true
+
+[node name="Espresso" type="Sprite2D" parent="InfoBulle/pos4"]
+scale = Vector2(0.13, 0.1)
+texture = ExtResource("2_06rcd")
