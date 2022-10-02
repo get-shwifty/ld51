@@ -1,19 +1,12 @@
 extends Control
+class_name MenuPause
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+signal resume_game
+signal return_to_main_menu
 
 func _on_resume_button_pressed():
-	Main.resume_game()
+	resume_game.emit()
 
 
 func _on_main_menu_button_pressed():
-	Main.return_to_main_menu()
+	return_to_main_menu.emit()

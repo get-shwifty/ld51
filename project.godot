@@ -9,6 +9,26 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Control",
+"class": &"MenuBindings",
+"language": &"GDScript",
+"path": "res://ui/menu_bindings.gd"
+}, {
+"base": "Control",
+"class": &"MenuMain",
+"language": &"GDScript",
+"path": "res://ui/menu_main.gd"
+}, {
+"base": "Control",
+"class": &"MenuPause",
+"language": &"GDScript",
+"path": "res://ui/menu_pause.gd"
+}, {
+"base": "Node",
+"class": &"World",
+"language": &"GDScript",
+"path": "res://world/world.gd"
+}, {
 "base": "Node",
 "class": &"DevicesHelper",
 "language": &"GDScript",
@@ -20,6 +40,10 @@ _global_script_classes=[{
 "path": "res://world/interactable.gd"
 }]
 _global_script_class_icons={
+"MenuBindings": "",
+"MenuMain": "",
+"MenuPause": "",
+"World": "",
 "DevicesHelper": "",
 "Interactable": ""
 }
@@ -27,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ld51"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://main/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

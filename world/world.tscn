@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cc4xeua2oob5j" path="res://world/table.tscn" id="2_6ndcl"]
 
 [node name="World" type="Node"]
+process_mode = 1
+script = ExtResource("1_xmf3l")
 
 [node name="Character" parent="." instance=ExtResource("1_x6ywh")]
 position = Vector2(64, 24)

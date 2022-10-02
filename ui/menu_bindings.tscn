@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh4x3lodslo3h"]
+
+[ext_resource type="Script" path="res://ui/menu_bindings.gd" id="1_rnsii"]
+
+[node name="menu_bindings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_rnsii")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Choose your bindings"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 67.0
+offset_bottom = 72.0
+text = "Play
+"
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 96.0
+offset_right = 80.0
+offset_bottom = 127.0
+text = "Return"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
