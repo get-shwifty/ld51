@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://tuakcxd1le3a"]
+[gd_scene load_steps=8 format=3 uid="uid://tuakcxd1le3a"]
 
 [ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
+[ext_resource type="Script" path="res://world/coffee_machine.gd" id="1_g1lg8"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
-[ext_resource type="PackedScene" uid="uid://cpylw2yq3igv6" path="res://world/menu_item.tscn" id="3_pfl80"]
+[ext_resource type="Texture2D" uid="uid://crmq1ypd5c2pt" path="res://assets/graphics/petite_bulle.png" id="5_ycf31"]
+[ext_resource type="Texture2D" uid="uid://5c3noova3mtd" path="res://assets/graphics/expresso.png" id="6_kq6qm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ivm8"]
 radius = 8.0
@@ -10,9 +12,10 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftmsb"]
 size = Vector2(16, 16)
 
-[node name="CoffeeMachine" type="Area2D"]
+[node name="CoffeeMachine" type="StaticBody2D"]
 collision_layer = 36
 collision_mask = 0
+script = ExtResource("1_g1lg8")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(8, 0)
@@ -33,5 +36,12 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2d" type="CollisionShape2D" parent="TakeablePos"]
 shape = SubResource("RectangleShape2D_ftmsb")
 
-[node name="MenuItem" parent="TakeablePos" instance=ExtResource("3_pfl80")]
-menu_item_name = "espresso"
+[node name="InfoBubble" type="Node2D" parent="."]
+position = Vector2(23, 0)
+
+[node name="Background" type="Sprite2D" parent="InfoBubble"]
+position = Vector2(-1, 0)
+texture = ExtResource("5_ycf31")
+
+[node name="BrewingIcon" type="Sprite2D" parent="InfoBubble"]
+texture = ExtResource("6_kq6qm")
