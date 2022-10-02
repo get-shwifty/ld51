@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8udsl6mq6c48"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_wwcjs"]
-[ext_resource type="Theme" uid="uid://b16hlihcnw410" path="res://ui/ui_theme.tres" id="2_x7jhr"]
+[ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="2_x7jhr"]
 
 [node name="Game" type="Node"]
 process_mode = 3
