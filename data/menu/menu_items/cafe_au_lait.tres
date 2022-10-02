@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://0vppcrdfmai8"]
+
+[ext_resource type="PackedScene" uid="uid://djbkn4c06fbe3" path="res://data/menu/menu_items/scenes/cafe_au_lait_icon.tscn" id="1_k34mg"]
+[ext_resource type="Resource" path="res://data/menu/ingredients/water.tres" id="2_s6l51"]
+[ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="3_gcmbn"]
+[ext_resource type="Resource" uid="uid://d27uf80nceqht" path="res://data/menu/ingredients/coffee.tres" id="4_h4a2v"]
+[ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="5_sowoq"]
+[ext_resource type="Script" path="res://data/menu/menu_item_ressource.gd" id="6_8cicy"]
+
+[sub_resource type="Resource" id="Resource_qhu23"]
+script = ExtResource("3_gcmbn")
+ingredient = ExtResource("2_s6l51")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_wlwjf"]
+script = ExtResource("3_gcmbn")
+ingredient = ExtResource("4_h4a2v")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_vxxap"]
+script = ExtResource("3_gcmbn")
+ingredient = ExtResource("5_sowoq")
+quantity = 1
+
+[resource]
+script = ExtResource("6_8cicy")
+name = "Cafe au lait"
+icon = ExtResource("1_k34mg")
+ingredient = [SubResource("Resource_qhu23"), SubResource("Resource_wlwjf"), SubResource("Resource_vxxap")]

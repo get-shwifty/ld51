@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7r11mp5hmejy"]
+[gd_resource type="Resource" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://data/menu/ingredient_ressource.gd" id="1_74co4"]
-[ext_resource type="PackedScene" uid="uid://ctacsn4ysuqb8" path="res://world/ingredients/water.tscn" id="1_rv8yt"]
+[ext_resource type="PackedScene" path="res://data/menu/ingredients/scenes/water_icon.tscn" id="1_rv8yt"]
 
 [resource]
 script = ExtResource("1_74co4")
