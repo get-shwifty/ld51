@@ -9,34 +9,34 @@
 texture = ExtResource("1_x7l7m")
 margin_left = 7.74943
 margin_top = 8.00774
-margin_right = 13.4323
-margin_bottom = 6.19954
-region_rect = Rect2(0, 0, 174, 30)
+margin_right = 8.22558
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 169, 30)
 modulate_color = Color(0.647059, 0.533333, 0.54902, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypmm6"]
 texture = ExtResource("2_87gep")
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 13.0
-margin_bottom = 6.0
-region_rect = Rect2(0, 0, 174, 30)
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 169, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbjme"]
 texture = ExtResource("1_x7l7m")
 margin_left = 7.85658
-margin_top = 8.0
-margin_right = 13.0
-margin_bottom = 6.0
-region_rect = Rect2(0, 0, 174, 30)
+margin_top = 16.0
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 169, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5o6c"]
 texture = ExtResource("1_x7l7m")
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 13.0
-margin_bottom = 6.0
-region_rect = Rect2(0, 0, 174, 30)
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 169, 30)
 modulate_color = Color(0.384314, 0.188235, 0.4, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mys70"]
