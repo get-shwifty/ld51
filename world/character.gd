@@ -5,13 +5,11 @@ const SPEED = 200.0
 
 ### Variables
 
-
 @onready var action_area: Area2D = $ActionArea
 @onready var infoBulle: Node2D = $InfoBulle
-@onready var takePosition: Marker2D = $TakeMarker
+@onready var tray: Tray = $Tray
 
 var current_interact_body = null
-var current_object_taken = null
 
 
 ### Device Management
@@ -34,21 +32,29 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed(get_input_name("action")):
+		var areas = action_area.get_overlapping_areas()
 		var bodies = action_area.get_overlapping_bodies()
 		# todo sort by distance
 		
 		if current_interact_body == null:
-			for body in bodies:
+			for body in areas + bodies:
+				# interact with something
 				if body.has_method("is_interact_free") and body.is_interact_free():
 					start_interact(body)
 					break
-				if current_object_taken == null and \
-					body.has_method("is_takeable") and body.is_takeable():
+					
+				if body.is_in_group("tray"):
+					# take objects from tray
+					if tray.has_free_place() and !body.is_empty():
+						take_objects_from(body)
+						break
+					# put objects on tray
+					elif !tray.is_empty() and body.has_free_place():
+						put_objects_on(body)
+						break
+				# take an object
+				elif tray.has_free_place() and body.has_method("is_takeable") and !body.is_takeable():
 					take(body)
-					break
-				if current_object_taken != null and \
-					body.has_method("is_posable") and body.is_posable():
-					untake(body)
 					break
 		else:
 			end_interact()
@@ -64,12 +70,20 @@ func end_interact():
 	current_interact_body = null
 
 func take(body):
-	current_object_taken = body
-	body.take(self)
+	var obj = body.remove_object()
+	tray.add_object(obj)
 
-func untake(pose_body):
-	current_object_taken.untake(pose_body)
-	current_object_taken = null
+func take_objects_from(other_tray: Tray):
+	while tray.has_free_place() and !other_tray.is_empty():
+		var obj_idx = other_tray.get_last_object_idx()
+		var obj = other_tray.remove_object(obj_idx)
+		tray.add_object(obj)
+
+func put_objects_on(other_tray: Tray):
+	while !tray.is_empty() and other_tray.has_free_place():
+		var obj_idx = tray.get_last_object_idx()
+		var obj = tray.remove_object(obj_idx)
+		other_tray.add_object(obj)
 
 ### Physics
 

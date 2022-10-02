@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ebvq5xg1q47c"]
+
+[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_wesrf"]
+
+[node name="Coffee" type="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("1_wesrf")

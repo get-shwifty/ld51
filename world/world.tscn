@@ -1,16 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=6 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
 [ext_resource type="PackedScene" uid="uid://cc4xeua2oob5j" path="res://world/table.tscn" id="2_6ndcl"]
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_wgn7p"]
-[ext_resource type="PackedScene" uid="uid://c7o6dmfcuiilq" path="res://world/poseable.tscn" id="4_t1oja"]
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="6_j0bg8"]
+[ext_resource type="PackedScene" uid="uid://tuakcxd1le3a" path="res://world/coffee_machine.tscn" id="5_cryh4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_042s5"]
-radius = 4.0
-
-[node name="World" type="Node"]
+[node name="World" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_k0fyf")
 
 [node name="Character" parent="." instance=ExtResource("1_x6ywh")]
@@ -25,22 +22,7 @@ position = Vector2(96, 160)
 position = Vector2(224, 160)
 
 [node name="Tray" parent="." instance=ExtResource("3_wgn7p")]
-position = Vector2(144, 24)
+position = Vector2(272, 80)
 
-[node name="Poseable" parent="." instance=ExtResource("4_t1oja")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(224, 24)
-
-[node name="Poseable2" parent="." instance=ExtResource("4_t1oja")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(224, 72)
-
-[node name="Coffee" type="StaticBody2D" parent="."]
-
-[node name="Sprite2d" type="Sprite2D" parent="Coffee"]
-modulate = Color(0.898039, 0, 0, 1)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("6_j0bg8")
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Coffee"]
-shape = SubResource("CircleShape2D_042s5")
+[node name="CoffeeMachine" parent="." instance=ExtResource("5_cryh4")]
+position = Vector2(268, 20)
