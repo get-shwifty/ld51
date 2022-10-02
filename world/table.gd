@@ -18,7 +18,7 @@ var Menu: MenuRessource = preload("res://data/menu/menu.tres")
 var current_clients: Array = []
 
 func _ready():
-	for dish in Menu.dishes:
+	for dish in Menu.recipes:
 		if dish.name == "Failed coffee":
 			continue
 		receipes.push_back(dish.name)
