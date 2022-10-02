@@ -1,7 +1,8 @@
 extends Interactable
 class_name World_Table
 
-@onready var infoBulle:Node2D = $InfoBulle
+@onready var infoBulle: Node2D = $InfoBulle
+@onready var chairs: Array = $Chairs.get_children()
 
 var current_clients = null
 
@@ -15,3 +16,6 @@ func on_interact_start():
 func on_interact_end():
 	infoBulle.visible = false
 	print("quit table")
+
+func create_clients(nb_clients):
+	
