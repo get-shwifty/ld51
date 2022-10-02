@@ -45,9 +45,11 @@ func _process(delta):
 				if current_object_taken == null and \
 					body.has_method("is_takeable") and body.is_takeable():
 					take(body)
+					break
 				if current_object_taken != null and \
 					body.has_method("is_posable") and body.is_posable():
 					untake(body)
+					break
 		else:
 			end_interact()
 

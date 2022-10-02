@@ -25,7 +25,7 @@ shape = SubResource("CapsuleShape2D_4vcic")
 
 [node name="ActionArea" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 96
+collision_mask = 224
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="ActionArea"]
 position = Vector2(16, 0)
