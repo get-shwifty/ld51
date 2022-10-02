@@ -44,8 +44,13 @@ func _process(delta):
 		
 		if current_interact_body == null:
 			for body in areas + bodies:
-				# interact with something
-				if body.has_method("is_interact_free") and body.is_interact_free():
+				# interact with table only if tray is not empty
+				if body.is_in_group("table"):
+					if body.is_interact_free() and !tray.is_empty():
+						start_interact(body)
+						break
+				# interact with something else
+				elif body.has_method("is_interact_free") and body.is_interact_free():
 					start_interact(body)
 					break
 					
@@ -60,7 +65,7 @@ func _process(delta):
 						break
 					
 				# take an object
-				elif tray.has_free_place() and body.has_method("is_takeable") and !body.is_takeable():
+				if tray.has_free_place() and body.has_method("is_takeable") and !body.is_takeable():
 					take(body)
 					break
 		else:
