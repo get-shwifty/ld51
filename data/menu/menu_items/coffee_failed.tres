@@ -1,10 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://48qalbstd0d"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://48qalbstd0d"]
 
 [ext_resource type="PackedScene" uid="uid://c2dtfnoim020r" path="res://data/menu/menu_items/scenes/coffee_failed_icon.tscn" id="1_yc1ib"]
 [ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_6dbe3"]
+[ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="3_2s068"]
+
+[sub_resource type="Resource" id="Resource_7n868"]
+script = ExtResource("3_2s068")
+ingredients = null
+preparationTime = 3
 
 [resource]
 script = ExtResource("2_6dbe3")
 name = "Failed coffee"
 icon = ExtResource("1_yc1ib")
-steps = null
+steps = [SubResource("Resource_7n868")]

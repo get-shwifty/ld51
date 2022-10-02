@@ -116,15 +116,6 @@ position = Vector2(528, 96)
 [node name="CoffeeMachine" parent="." instance=ExtResource("5_cryh4")]
 position = Vector2(528, 128)
 
-[node name="CoffeeMachine2" parent="." instance=ExtResource("5_cryh4")]
-position = Vector2(528, 160)
-
-[node name="CoffeeMachine3" parent="." instance=ExtResource("5_cryh4")]
-position = Vector2(528, 192)
-
-[node name="CoffeeMachine4" parent="." instance=ExtResource("5_cryh4")]
-position = Vector2(528, 224)
-
 [node name="Character" parent="." instance=ExtResource("1_x6ywh")]
 position = Vector2(288, 120)
 motion_mode = 1
