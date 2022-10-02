@@ -32,7 +32,7 @@ func _ready():
 
 func _process(delta):
 	if current_interact_body == null:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed(get_input_name("action")):
 			var bodies = action_area.get_overlapping_bodies()
 			# todo sort by distance
 			for body in bodies:
@@ -40,7 +40,7 @@ func _process(delta):
 					start_interact(body)
 					break
 	else:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed(get_input_name("action")):
 			end_interact()
 
 func start_interact(body):
