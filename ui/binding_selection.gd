@@ -23,7 +23,7 @@ func get_current_binding_id():
 func _on_button_left_pressed():
 	current_binding_index -= 1
 	if current_binding_index < 0:
-		current_binding_index = bindings_list.size()
+		current_binding_index = bindings_list.size() - 1
 	refresh_bindings_display()
 
 
