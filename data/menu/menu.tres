@@ -7,4 +7,4 @@
 
 [resource]
 script = ExtResource("1_xj60i")
-dishes = [ExtResource("1_6guax"), ExtResource("2_b3nin"), ExtResource("3_inhqf")]
+recipes = [ExtResource("1_6guax"), ExtResource("3_inhqf"), ExtResource("2_b3nin")]
