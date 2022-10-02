@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 150.0
 
 
 ### Variables
 
-@onready var action_area: Area2D = $ActionArea
+@onready var rotationNode: Node2D = $Rotation
+@onready var action_area: Area2D = $Rotation/ActionArea
 @onready var infoBulle: Node2D = $InfoBulle
-@onready var tray: Tray = $Tray
+@onready var tray: Tray = $Rotation/Tray
+@onready var animatedSprite2D: AnimatedSprite2D = $Rotation/AnimatedSprite2D
 
 var current_interact_body = null
 
@@ -94,11 +96,13 @@ func _physics_process(delta):
 
 	var direction = get_direction()
 	if direction:
-		rotation = direction.angle()
+		rotationNode.rotation = direction.angle()
 		velocity = direction * SPEED
+		animatedSprite2D.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		animatedSprite2D.play("idle")
 
 	move_and_slide()
 

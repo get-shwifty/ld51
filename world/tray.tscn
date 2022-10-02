@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgs5g1keivlnc"]
 
 [ext_resource type="Script" path="res://world/tray.gd" id="1_c32ht"]
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_loewq"]
+[ext_resource type="Texture2D" uid="uid://bjrcqhapu61et" path="res://assets/graphics/plateau.png" id="2_cvuts"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqupl"]
-radius = 16.0
+radius = 15.0
 
 [node name="Tray" type="StaticBody2D" groups=["tray"]]
 collision_layer = 68
@@ -12,9 +12,8 @@ collision_mask = 0
 script = ExtResource("1_c32ht")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_loewq")
+texture = ExtResource("2_cvuts")
+offset = Vector2(2, 0)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uqupl")
@@ -22,13 +21,13 @@ shape = SubResource("CircleShape2D_uqupl")
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Marker2d" type="Marker2D" parent="Objects"]
-position = Vector2(0, -12)
+position = Vector2(0, -7)
 
 [node name="Marker2d2" type="Marker2D" parent="Objects"]
-position = Vector2(12, 0)
+position = Vector2(7, 0)
 
 [node name="Marker2d3" type="Marker2D" parent="Objects"]
-position = Vector2(0, 12)
+position = Vector2(0, 8)
 
 [node name="Marker2d4" type="Marker2D" parent="Objects"]
-position = Vector2(-12, 0)
+position = Vector2(-8, 0)

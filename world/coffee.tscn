@@ -1,9 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://ebvq5xg1q47c"]
+[gd_scene load_steps=15 format=3 uid="uid://ebvq5xg1q47c"]
 
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_wesrf"]
+[ext_resource type="Texture2D" uid="uid://cn3oofcmws2ee" path="res://assets/graphics/coffee.png" id="1_4ob30"]
+[ext_resource type="Script" path="res://world/coffee.gd" id="2_y70ky"]
 
-[node name="Coffee" type="Sprite2D"]
-modulate = Color(1, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl1jq"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndcue"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlay7"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxkhs"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv3a4"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7nfa"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hypp"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5o23"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svboo"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35n6j"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mlxo"]
+atlas = ExtResource("1_4ob30")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5rig"]
+animations = [{
+"frames": [SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_ndcue"), SubResource("AtlasTexture_mlay7"), SubResource("AtlasTexture_kxkhs"), SubResource("AtlasTexture_qv3a4"), SubResource("AtlasTexture_e7nfa"), SubResource("AtlasTexture_5hypp"), SubResource("AtlasTexture_h5o23"), SubResource("AtlasTexture_svboo"), SubResource("AtlasTexture_35n6j"), SubResource("AtlasTexture_5mlxo"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq")],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Coffee" type="AnimatedSprite2D"]
 position = Vector2(-2.38419e-07, -2.38419e-07)
 scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("1_wesrf")
+frames = SubResource("SpriteFrames_o5rig")
+playing = true
+script = ExtResource("2_y70ky")

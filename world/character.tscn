@@ -1,86 +1,121 @@
-[gd_scene load_steps=6 format=3 uid="uid://c08qvudql1a8s"]
+[gd_scene load_steps=18 format=3 uid="uid://c08qvudql1a8s"]
 
 [ext_resource type="Script" path="res://world/character.gd" id="1_tv6xs"]
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="2_06rcd"]
+[ext_resource type="Texture2D" uid="uid://bxaruckojtmav" path="res://assets/graphics/perso_walk.png" id="2_gniaq"]
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_eohyh"]
+[ext_resource type="Texture2D" uid="uid://ib0ag6ua6de3" path="res://assets/graphics/grosse_bulle.png" id="3_wsu55"]
+[ext_resource type="Texture2D" uid="uid://cdrlwjhwbh7y3" path="res://assets/graphics/touches_manettes.png" id="4_7tvo3"]
+[ext_resource type="Texture2D" uid="uid://5c3noova3mtd" path="res://assets/graphics/expresso.png" id="5_otwkc"]
+[ext_resource type="Texture2D" uid="uid://dv5lkcg32yp57" path="res://assets/graphics/double.png" id="6_weiov"]
+[ext_resource type="Texture2D" uid="uid://bi1bhdfhj7v1t" path="res://assets/graphics/chocolat_chaud.png" id="7_o6miq"]
+[ext_resource type="Texture2D" uid="uid://bvho4ie7jw03k" path="res://assets/graphics/cappucino.png" id="8_odf1v"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vcic"]
-radius = 8.0
-height = 32.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjwuc"]
+atlas = ExtResource("2_gniaq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3fal"]
+atlas = ExtResource("2_gniaq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_228jh"]
+atlas = ExtResource("2_gniaq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41rwo"]
+atlas = ExtResource("2_gniaq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oln5m"]
+atlas = ExtResource("2_gniaq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vcue"]
+animations = [{
+"frames": [SubResource("AtlasTexture_gjwuc")],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m")],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y2voq"]
 radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhu7m"]
+radius = 7.0
 
 [node name="Character" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_tv6xs")
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
-position = Vector2(0, -9.53674e-07)
-rotation = 1.5708
-scale = Vector2(0.25, 0.125)
-texture = ExtResource("2_06rcd")
+[node name="Rotation" type="Node2D" parent="."]
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_4vcic")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rotation"]
+position = Vector2(6, 0)
+rotation = 3.14159
+frames = SubResource("SpriteFrames_0vcue")
+animation = &"idle"
+playing = true
+offset = Vector2(5, 0)
 
-[node name="ActionArea" type="Area2D" parent="."]
+[node name="Tray" parent="Rotation" instance=ExtResource("3_eohyh")]
+position = Vector2(24, 8)
+collision_layer = 0
+
+[node name="ActionArea" type="Area2D" parent="Rotation"]
 collision_layer = 16
 collision_mask = 224
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="ActionArea"]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Rotation/ActionArea"]
 position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_y2voq")
 
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mhu7m")
+
 [node name="InfoBulle" type="Node2D" parent="."]
-position = Vector2(-40, 0)
+position = Vector2(-32, 0)
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulle"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1.90735e-06, 0)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_06rcd")
+position = Vector2(1, 0)
+scale = Vector2(1.04545, 1)
+texture = ExtResource("3_wsu55")
 
 [node name="Background_arrows" type="Sprite2D" parent="InfoBulle"]
-modulate = Color(0.87451, 0, 0.258824, 1)
 position = Vector2(-1.78814e-07, -2.08616e-07)
-scale = Vector2(0.078125, 0.140625)
-texture = ExtResource("2_06rcd")
+texture = ExtResource("4_7tvo3")
 
 [node name="pos1" type="Node2D" parent="InfoBulle"]
-position = Vector2(0, -16)
+position = Vector2(-1, -19)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos1"]
 position = Vector2(-4.76837e-07, 0)
-scale = Vector2(0.13, 0.1)
-texture = ExtResource("2_06rcd")
+texture = ExtResource("5_otwkc")
 
 [node name="pos2" type="Node2D" parent="InfoBulle"]
-position = Vector2(14, 0)
+position = Vector2(14, -1)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos2"]
-scale = Vector2(0.13, 0.1)
-texture = ExtResource("2_06rcd")
+texture = ExtResource("6_weiov")
 
 [node name="pos3" type="Node2D" parent="InfoBulle"]
-position = Vector2(0, 16)
+position = Vector2(-1, 18)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos3"]
-scale = Vector2(0.13, 0.1)
-texture = ExtResource("2_06rcd")
+texture = ExtResource("7_o6miq")
 
 [node name="pos4" type="Node2D" parent="InfoBulle"]
 position = Vector2(-14, 0)
 metadata/_edit_group_ = true
 
 [node name="Espresso" type="Sprite2D" parent="InfoBulle/pos4"]
-scale = Vector2(0.13, 0.1)
-texture = ExtResource("2_06rcd")
-
-[node name="Tray" parent="." instance=ExtResource("3_eohyh")]
-position = Vector2(24, 8)
-collision_layer = 0
+texture = ExtResource("8_odf1v")

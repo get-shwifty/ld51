@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://tuakcxd1le3a"]
 
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_0oh6y"]
+[ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
 [ext_resource type="PackedScene" uid="uid://ebvq5xg1q47c" path="res://world/coffee.tscn" id="3_0s4qg"]
 
@@ -15,16 +15,16 @@ collision_layer = 36
 collision_mask = 0
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-position = Vector2(-8, -2.38419e-07)
-scale = Vector2(0.125, 0.1875)
-texture = ExtResource("1_0oh6y")
+position = Vector2(8, 0)
+rotation = 3.14159
+texture = ExtResource("1_0mj3o")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 0)
+position = Vector2(8, 0)
 shape = SubResource("CircleShape2D_2ivm8")
 
 [node name="TakeablePos" type="Area2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(-8, 0)
 collision_layer = 68
 collision_mask = 0
 script = ExtResource("2_57xlb")
@@ -34,3 +34,4 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_ftmsb")
 
 [node name="Coffee" parent="TakeablePos" instance=ExtResource("3_0s4qg")]
+scale = Vector2(1, 1)
