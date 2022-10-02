@@ -26,3 +26,9 @@ position = Vector2(272, 80)
 
 [node name="CoffeeMachine" parent="." instance=ExtResource("5_cryh4")]
 position = Vector2(268, 20)
+
+[node name="CoffeeMachine2" parent="." instance=ExtResource("5_cryh4")]
+position = Vector2(208, 20)
+
+[node name="CoffeeMachine3" parent="." instance=ExtResource("5_cryh4")]
+position = Vector2(144, 20)

@@ -44,14 +44,15 @@ func _process(delta):
 					break
 					
 				if body.is_in_group("tray"):
-					# take objects from tray
-					if tray.has_free_place() and !body.is_empty():
-						take_objects_from(body)
-						break
 					# put objects on tray
-					elif !tray.is_empty() and body.has_free_place():
+					if !tray.is_empty() and body.has_free_place():
 						put_objects_on(body)
 						break
+					# take objects from tray
+					elif tray.is_empty() and !body.is_empty():
+						take_objects_from(body)
+						break
+					
 				# take an object
 				elif tray.has_free_place() and body.has_method("is_takeable") and !body.is_takeable():
 					take(body)
