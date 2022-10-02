@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b16hlihcnw410"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cqr3y35uwudr6"]
 
 [ext_resource type="Texture2D" uid="uid://7h7h0a4xjcuf" path="res://assets/graphics/bouton.png" id="1_x7l7m"]
 [ext_resource type="Texture2D" uid="uid://c7cxlg7qo0pxt" path="res://assets/graphics/bouton_hover.png" id="2_87gep"]
 [ext_resource type="Texture2D" uid="uid://budbkd6dyy3pj" path="res://assets/graphics/fond_menu.png" id="3_frms4"]
+[ext_resource type="FontFile" uid="uid://bfaircmxfidlc" path="res://externals/fonts/Fibberish v1.0/fibberish.ttf" id="4_a5dcm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcw8y"]
 texture = ExtResource("1_x7l7m")
@@ -47,6 +48,7 @@ margin_bottom = 45.1105
 region_rect = Rect2(0, 0, 306, 207)
 
 [resource]
+default_font = ExtResource("4_a5dcm")
 Button/styles/disabled = SubResource("StyleBoxTexture_pcw8y")
 Button/styles/hover = SubResource("StyleBoxTexture_ypmm6")
 Button/styles/normal = SubResource("StyleBoxTexture_pbjme")
