@@ -125,8 +125,7 @@ func update_infobulle():
 			if positions[i].get_child_count() > 0:
 				positions[i].remove_child(positions[i].get_child(0))
 		else:
-			var dishes = Menu.dishes
-			var menu_item = Menu.dishes.filter(func(dish):
+			var menu_item = Menu.recipes.filter(func(dish):
 				return dish.name == menu_item_instance.menu_item_name).front()
 			if menu_item:
 				if positions[i].get_child_count() > 0:
