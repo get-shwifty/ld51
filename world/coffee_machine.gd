@@ -74,12 +74,20 @@ func on_interact_end():
 		print(recipe.name)
 	
 	if current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
+		var preparation_name = "unknown"
 		
+		if recipes.size() == 0:
+			preparation_name = FAILED_RECIPE.name
+		elif recipes.size() == 1:
+			preparation_name = recipes[0].name
+		else:
+			push_error("Too many recipes are matching, this should not be possible")
+			
 		var menu_item_instance = MENU_ITEM_SCENE.instantiate()
-		menu_item_instance.menu_item_name = "espresso"
+		menu_item_instance.menu_item_name = preparation_name
 		drop_zone.add_object(menu_item_instance)
 		
-		print("preparation ready")
+		print(preparation_name + " ready")
 		reset_prepation()
 	
 
@@ -89,12 +97,22 @@ func get_recipes_matching_current_preparation(recipe_list : Array[RecipeRessourc
 	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r, check_until_step))
 
 func do_preparation_match_recipe(preparation, recipe : RecipeRessource, check_until_step: int):
-	var limit = recipe.steps.size()
-	if check_until_step != 1:
+	print("evaluating match for " + recipe.name)
+	var limit = max(recipe.steps.size(), preparation.size())
+	if check_until_step != -1:
 		limit = min(limit,check_until_step+1)
+	print("    step limit is " + str(limit))
 	for i in range(0, limit):
+		print("    evaluating step " + str(i))
 		if preparation.size() <= i:
+			print("        preparation has fewer steps than recipe")
 			return false
+		if recipe.steps.size() <= i:
+			if preparation[i].size() != 0:
+				print("        preparation has more steps than recipe")
+				return false
+			else:
+				continue
 		if not do_ingredients_match_step(preparation[i], recipe.steps[i]):
 			return false
 	return true
