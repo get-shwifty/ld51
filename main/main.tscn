@@ -1,15 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8udsl6mq6c48"]
+[gd_scene load_steps=3 format=3 uid="uid://b8udsl6mq6c48"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_wwcjs"]
+[ext_resource type="Theme" uid="uid://b16hlihcnw410" path="res://ui/ui_theme.tres" id="2_x7jhr"]
 
 [node name="Game" type="Node"]
 process_mode = 3
 script = ExtResource("1_wwcjs")
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="UICenterContainer" type="CenterContainer" parent="UICanvas"]
-offset_right = 115.0
-offset_bottom = 88.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.125
+anchor_right = 0.5
+anchor_bottom = 0.125
+grow_horizontal = 2
+theme = ExtResource("2_x7jhr")
 
 [node name="GameSlot" type="Node" parent="."]

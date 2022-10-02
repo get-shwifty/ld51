@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpjaxle47dy1o"]
+[gd_scene load_steps=3 format=3 uid="uid://dpjaxle47dy1o"]
 
 [ext_resource type="Script" path="res://ui/menu_main.gd" id="1_v4wqm"]
+[ext_resource type="Theme" uid="uid://b16hlihcnw410" path="res://ui/ui_theme.tres" id="2_3c0jp"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
+[node name="MainMenu" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,34 +12,50 @@ grow_vertical = 2
 script = ExtResource("1_v4wqm")
 
 [node name="Title" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 576.0
+offset_bottom = 26.0
 text = "Presto cafe
 "
+horizontal_alignment = 1
 
-[node name="SoloButton" type="Button" parent="."]
-offset_left = 36.0
-offset_top = 84.0
-offset_right = 76.0
-offset_bottom = 115.0
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 25)
+offset_top = 30.0
+offset_right = 576.0
+offset_bottom = 55.0
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_top = 59.0
+offset_right = 576.0
+offset_bottom = 260.0
+theme = ExtResource("2_3c0jp")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
+offset_left = 53.4233
+offset_top = 37.1263
+offset_right = 524.083
+offset_bottom = 156.126
+
+[node name="SoloButton" type="Button" parent="Panel/HBoxContainer"]
+offset_right = 470.0
+offset_bottom = 37.0
 text = "solo
 "
 
-[node name="MultiButton" type="Button" parent="."]
-offset_left = 38.0
-offset_top = 144.0
-offset_right = 127.0
-offset_bottom = 175.0
+[node name="MultiButton" type="Button" parent="Panel/HBoxContainer"]
+offset_top = 41.0
+offset_right = 470.0
+offset_bottom = 78.0
 text = "local multi
 "
 
-[node name="QuitButton" type="Button" parent="."]
-offset_left = 40.0
-offset_top = 214.0
-offset_right = 82.0
-offset_bottom = 245.0
+[node name="QuitButton" type="Button" parent="Panel/HBoxContainer"]
+offset_top = 82.0
+offset_right = 470.0
+offset_bottom = 119.0
 text = "Quit"
 
-[connection signal="pressed" from="SoloButton" to="." method="_on_solo_button_pressed"]
-[connection signal="pressed" from="MultiButton" to="." method="_on_multi_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/SoloButton" to="." method="_on_solo_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/MultiButton" to="." method="_on_multi_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -200,3 +200,7 @@ ctrl2_action={
 2d_physics/layer_6="Actionables"
 2d_physics/layer_7="Takeable"
 2d_physics/layer_8="Posable"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

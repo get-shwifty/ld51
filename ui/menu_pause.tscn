@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/menu_pause.gd" id="1_p1oup"]
 
-[node name="MenuPause" type="Control"]
-layout_mode = 3
+[node name="MenuPause" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,26 +11,40 @@ grow_vertical = 2
 script = ExtResource("1_p1oup")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 576.0
+offset_bottom = 26.0
 text = "Pause
 "
+horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="."]
-offset_left = 32.0
-offset_top = 73.0
-offset_right = 128.0
-offset_bottom = 104.0
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 25)
+offset_top = 30.0
+offset_right = 576.0
+offset_bottom = 55.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_top = 59.0
+offset_right = 576.0
+offset_bottom = 125.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+offset_right = 576.0
+offset_bottom = 66.0
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+offset_right = 576.0
+offset_bottom = 31.0
 text = "Resume
 "
 
-[node name="MainMenuButton" type="Button" parent="."]
-offset_left = 33.0
-offset_top = 130.0
-offset_right = 129.0
-offset_bottom = 161.0
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+offset_top = 35.0
+offset_right = 576.0
+offset_bottom = 66.0
 text = "Main Menu
 "
 
-[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
