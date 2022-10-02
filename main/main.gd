@@ -43,17 +43,25 @@ func quit_application():
 func open_main_menu():
 	clear_ui_center_slot()
 	var ui_main_menu = UI_MENU_MAIN.instantiate()
-	ui_main_menu.launch_solo_game.connect(open_menu_bindings)
+	ui_main_menu.launch_solo_game.connect(open_solo_bindings)
+	ui_main_menu.launch_multi_game.connect(open_multi_bindings)
 	ui_main_menu.quit_game.connect(quit_application)
 	ui_center_slot.add_child(ui_main_menu)
 	game_state = GameState.MENU_MAIN
 
-func open_menu_bindings():
+func open_solo_bindings():
+	open_menu_bindings(1)
+
+func open_multi_bindings():
+	open_menu_bindings(2)
+
+func open_menu_bindings(nb_of_players):
 	if game_state == GameState.MENU_MAIN:
 		clear_ui_center_slot()
-		var ui_bindings_menu = UI_MENU_BINDINGS.instantiate()
+		var ui_bindings_menu : MenuBindings = UI_MENU_BINDINGS.instantiate()
 		ui_bindings_menu.launch_game.connect(launch_solo_game)
 		ui_bindings_menu.return_to_main_menu.connect(return_to_main_menu)
+		ui_bindings_menu.set_number_of_players(nb_of_players)
 		ui_center_slot.add_child(ui_bindings_menu)
 		game_state = GameState.MENU_BINDINGS
 	else:

@@ -8,13 +8,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 script = ExtResource("1_p1oup")
 
 [node name="Label" type="Label" parent="."]
-offset_top = 85.0
 offset_right = 576.0
-offset_bottom = 111.0
+offset_bottom = 26.0
 text = "Pause
 "
 horizontal_alignment = 1
@@ -22,21 +20,21 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="."]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2i(0, 50)
-offset_top = 115.0
+offset_top = 30.0
 offset_right = 576.0
-offset_bottom = 165.0
+offset_bottom = 80.0
 
 [node name="ResumeButton" type="Button" parent="."]
-offset_top = 169.0
+offset_top = 84.0
 offset_right = 576.0
-offset_bottom = 200.0
+offset_bottom = 115.0
 text = "Resume
 "
 
 [node name="MainMenuButton" type="Button" parent="."]
-offset_top = 204.0
+offset_top = 119.0
 offset_right = 576.0
-offset_bottom = 235.0
+offset_bottom = 150.0
 text = "Main Menu
 "
 
