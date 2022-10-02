@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc4xeua2oob5j"]
+[gd_scene load_steps=9 format=3 uid="uid://cc4xeua2oob5j"]
 
 [ext_resource type="Script" path="res://world/table.gd" id="1_rfeft"]
 [ext_resource type="PackedScene" uid="uid://crrr8t57x5bwi" path="res://world/chair.tscn" id="2_637c5"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xe63l"]
 radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdy8o"]
+radius = 55.0
 
 [node name="Table" type="StaticBody2D" groups=["table"]]
 collision_layer = 34
@@ -57,3 +60,12 @@ theme_override_fonts/font = ExtResource("6_eyau7")
 text = "Espresso"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CharacterDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterDetector"]
+shape = SubResource("CircleShape2D_pdy8o")
+
+[connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]
+[connection signal="body_exited" from="CharacterDetector" to="." method="_on_character_detector_body_exited"]
