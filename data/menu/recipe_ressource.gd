@@ -1,5 +1,5 @@
 extends Resource
-class_name MenuItemRessource
+class_name RecipeRessource
 
 @export 
 var name : String
@@ -8,4 +8,4 @@ var name : String
 var icon : PackedScene
 
 @export 
-var ingredient : Array[IngredientQuantityRessource] 
+var steps : Array[RecipeStepRessource] 
