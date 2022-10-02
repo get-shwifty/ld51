@@ -34,11 +34,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://ui/menu_bindings.gd"
 }, {
-"base": "Resource",
-"class": &"MenuItemRessource",
-"language": &"GDScript",
-"path": "res://data/menu/menu_item_ressource.gd"
-}, {
 "base": "Control",
 "class": &"MenuMain",
 "language": &"GDScript",
@@ -59,6 +54,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://world/posable.gd"
 }, {
+"base": "Resource",
+"class": &"RecipeRessource",
+"language": &"GDScript",
+"path": "res://data/menu/recipe_ressource.gd"
+}, {
+"base": "Resource",
+"class": &"RecipeStepRessource",
+"language": &"GDScript",
+"path": "res://data/menu/recipe_step_ressource.gd"
+}, {
 "base": "Area2D",
 "class": &"Takeable",
 "language": &"GDScript",
@@ -73,6 +78,11 @@ _global_script_classes=[{
 "class": &"World",
 "language": &"GDScript",
 "path": "res://world/world.gd"
+}, {
+"base": "Interactable",
+"class": &"World_Table",
+"language": &"GDScript",
+"path": "res://world/table.gd"
 }]
 _global_script_class_icons={
 "DevicesHelper": "",
@@ -80,14 +90,16 @@ _global_script_class_icons={
 "IngredientRessource": "",
 "Interactable": "",
 "MenuBindings": "",
-"MenuItemRessource": "",
 "MenuMain": "",
 "MenuPause": "",
 "MenuRessource": "",
 "Posable": "",
+"RecipeRessource": "",
+"RecipeStepRessource": "",
 "Takeable": "",
 "Tray": "",
-"World": ""
+"World": "",
+"World_Table": ""
 }
 
 [application]

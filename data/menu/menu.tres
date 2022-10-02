@@ -1,9 +1,9 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://bpuh40qruqfy3"]
 
-[ext_resource type="Resource" uid="uid://1rnf41vypvdd" path="res://data/menu/menu_items/espresso.tres" id="1_6guax"]
+[ext_resource type="Resource" uid="uid://cwgufalsi8l52" path="res://data/menu/menu_items/espresso.tres" id="1_6guax"]
 [ext_resource type="Script" path="res://data/menu/menu_ressource.gd" id="1_xj60i"]
-[ext_resource type="Resource" uid="uid://dm122o2ikd8op" path="res://data/menu/menu_items/coffee_failed.tres" id="2_b3nin"]
-[ext_resource type="Resource" uid="uid://0vppcrdfmai8" path="res://data/menu/menu_items/cafe_au_lait.tres" id="3_inhqf"]
+[ext_resource type="Resource" uid="uid://48qalbstd0d" path="res://data/menu/menu_items/coffee_failed.tres" id="2_b3nin"]
+[ext_resource type="Resource" uid="uid://ujojis702qfj" path="res://data/menu/menu_items/cafe_au_lait.tres" id="3_inhqf"]
 
 [resource]
 script = ExtResource("1_xj60i")
