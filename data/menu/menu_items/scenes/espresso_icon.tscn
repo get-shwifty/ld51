@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ch4h01gsh8jvg"]
+[gd_scene load_steps=2 format=3 uid="uid://ch4h01gsh8jvg"]
+
+[ext_resource type="Texture2D" uid="uid://5c3noova3mtd" path="res://assets/graphics/expresso.png" id="1_pvmwf"]
 
 [node name="espresso" type="Sprite2D"]
+texture = ExtResource("1_pvmwf")

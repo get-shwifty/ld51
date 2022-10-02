@@ -15,6 +15,6 @@ func on_interact_start():
 func on_interact_end():
 	info_bubble.visible = false
 	var menu_item_instance = menu_item_scene.instantiate()
-	menu_item_instance.menu_item_name = "espresso"
+	menu_item_instance.menu_item_name = "Espresso"
 	drop_zone.add_object(menu_item_instance)
 	print("quit coffee machine")

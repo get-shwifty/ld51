@@ -10,7 +10,7 @@ func is_interact_free():
 	return current_character == null
 
 func start_interact(character):
-	current_character = current_character
+	current_character = character
 	on_interact_start()
 
 func on_interact_start():

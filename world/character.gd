@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 
+const Menu: MenuRessource = preload("res://data/menu/menu.tres")
 
 ### Variables
 
@@ -70,8 +71,6 @@ func _process(delta):
 					break
 		else:
 			end_interact()
-	
-	update_graphics(delta)
 
 func start_interact(body):
 	body.start_interact(self)
@@ -81,6 +80,8 @@ func start_interact(body):
 		if !tray.is_empty():
 			infoBulleMenuItems.visible = true
 
+	update_infobulle()
+
 func end_interact():
 	current_interact_body.end_interact()
 	
@@ -89,9 +90,13 @@ func end_interact():
 
 	current_interact_body = null
 
+	update_infobulle()
+
 func take(body):
 	var obj = body.remove_object()
 	tray.add_object(obj)
+
+	update_infobulle()
 
 func take_objects_from(other_tray: Tray):
 	while tray.has_free_place() and !other_tray.is_empty():
@@ -99,30 +104,41 @@ func take_objects_from(other_tray: Tray):
 		var obj = other_tray.remove_object(obj_idx)
 		tray.add_object(obj)
 
+	update_infobulle()
+
 func put_objects_on(other_tray: Tray):
 	while !tray.is_empty() and other_tray.has_free_place():
 		var obj_idx = tray.get_last_object_idx()
 		var obj = tray.remove_object(obj_idx)
 		other_tray.add_object(obj)
 
+	update_infobulle()
 
 ### Graphics
 
-
-func update_graphics(delta):
+func update_infobulle():
 	var positions = infoBulleMenuItems.find_children("pos?")
 	for i in range(len(tray.objects)):
-		var menu_item = tray.get_object_at(i)
-		if menu_item == null:
+		var menu_item_instance = tray.get_object_at(i)
+		
+		if menu_item_instance == null:
 			if positions[i].get_child_count() > 0:
 				positions[i].remove_child(positions[i].get_child(0))
 		else:
-			if positions[i].get_child_count() > 0:
-				var icon_obj = positions[i].get_child(0)
-				# TODO remove icon_obj if !(icon_obj is menu_item.icon_scene)
-				
-			if positions[i].get_child_count() == 0:
-				pass # instantiate new menu_item.icon_scene
+			var dishes = Menu.dishes
+			var menu_item = Menu.dishes.filter(func(dish):
+				return dish.name == menu_item_instance.menu_item_name).front()
+			if menu_item:
+				if positions[i].get_child_count() > 0:
+					var icon_obj = positions[i].get_child(0)
+					# if !(icon_obj is menu_item.icon):
+					# TODO how to check if instance of a packedScene ?
+					positions[i].remove_child(icon_obj)
+					
+				if positions[i].get_child_count() == 0:
+					positions[i].add_child(menu_item.icon.instantiate())
+			else:
+				print_debug(menu_item_instance.menu_item_name + " not found")
 
 
 ### Physics
