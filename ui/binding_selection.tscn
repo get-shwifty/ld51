@@ -10,20 +10,17 @@ alignment = 1
 script = ExtResource("1_08gfy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
 offset_right = 144.0
 offset_bottom = 31.0
 alignment = 1
 
 [node name="ButtonLeft" type="Button" parent="HBoxContainer"]
-layout_mode = 2
 offset_right = 18.0
 offset_bottom = 31.0
 text = "<"
 
 [node name="LabelBindingName" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_left = 22.0
 offset_top = 2.0
 offset_right = 122.0
@@ -33,14 +30,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonRight" type="Button" parent="HBoxContainer"]
-layout_mode = 2
 offset_left = 126.0
 offset_right = 144.0
 offset_bottom = 31.0
 text = ">"
 
 [node name="LabelBindingDescription" type="Label" parent="."]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 144.0
 offset_bottom = 87.0

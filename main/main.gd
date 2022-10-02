@@ -7,8 +7,8 @@ const UI_MENU_BINDINGS : PackedScene = preload("res://ui/menu_bindings.tscn")
 
 const GAME_WORLD : PackedScene = preload("res://world/world.tscn")
 
-var main_scene : Node = null;
 var ui_center_slot : CenterContainer = null;
+var ui_background : TextureRect = null;
 var game_slot : Node = null;
 
 #var ui_main_menu : MenuMain = null;
@@ -20,9 +20,9 @@ var game_state : GameState = GameState.BOOTING;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main_scene = get_tree().get_current_scene()
-	ui_center_slot = main_scene.get_node("UICanvas/UICenterContainer")
-	game_slot = main_scene.get_node("GameSlot");
+	ui_center_slot = $UICanvas/UICenterContainer
+	ui_background = $UICanvas/UIBackground
+	game_slot = $GameSlot
 	create_game()
 	open_main_menu()
 	game_state = GameState.MENU_MAIN
@@ -47,6 +47,7 @@ func open_main_menu():
 	ui_main_menu.launch_multi_game.connect(open_multi_bindings)
 	ui_main_menu.quit_game.connect(quit_application)
 	ui_center_slot.add_child(ui_main_menu)
+	ui_background.visible = true
 	game_state = GameState.MENU_MAIN
 
 func open_solo_bindings():
@@ -63,6 +64,7 @@ func open_menu_bindings(nb_of_players):
 		ui_bindings_menu.return_to_main_menu.connect(return_to_main_menu)
 		ui_bindings_menu.set_number_of_players(nb_of_players)
 		ui_center_slot.add_child(ui_bindings_menu)
+		ui_background.visible = true
 		game_state = GameState.MENU_BINDINGS
 	else:
 		push_error("cannot open bindings menu with the current game state")
@@ -74,6 +76,7 @@ func pause_game():
 		ui_pause_menu.return_to_main_menu.connect(return_to_main_menu)
 		ui_center_slot.add_child(ui_pause_menu)
 		game_world.pause_game()
+		ui_background.visible = true
 		game_state = GameState.MENU_PAUSE
 	else:
 		push_error("cannot pause game in the current game state")
@@ -81,6 +84,7 @@ func pause_game():
 func launch_game(bindings):
 	clear_ui_center_slot()
 	game_world.set_players_devices(bindings)
+	ui_background.visible = false
 	game_state = GameState.GAME
 
 func return_to_main_menu():
@@ -96,6 +100,7 @@ func resume_game():
 	if game_state == GameState.MENU_PAUSE:
 		clear_ui_center_slot()
 		game_world.resume_game()
+		ui_background.visible = false
 		game_state = GameState.GAME
 	else:
 		push_error("cannot resume game because it isn't paused")

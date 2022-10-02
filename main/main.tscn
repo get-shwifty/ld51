@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8udsl6mq6c48"]
+[gd_scene load_steps=5 format=3 uid="uid://b8udsl6mq6c48"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_wwcjs"]
 [ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="2_x7jhr"]
+
+[sub_resource type="Gradient" id="Gradient_s1ltj"]
+offsets = PackedFloat32Array(0.517321)
+colors = PackedColorArray(1, 1, 1, 0.705882)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ft6et"]
+gradient = SubResource("Gradient_s1ltj")
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -9,6 +16,14 @@ script = ExtResource("1_wwcjs")
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="UIBackground" type="TextureRect" parent="UICanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ft6et")
 
 [node name="UICenterContainer" type="CenterContainer" parent="UICanvas"]
 anchors_preset = -1

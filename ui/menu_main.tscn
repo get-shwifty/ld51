@@ -28,32 +28,32 @@ offset_bottom = 55.0
 [node name="Panel" type="PanelContainer" parent="."]
 offset_top = 59.0
 offset_right = 576.0
-offset_bottom = 260.0
+offset_bottom = 263.0
 theme = ExtResource("2_3c0jp")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
 offset_left = 53.4233
 offset_top = 37.1263
 offset_right = 524.083
-offset_bottom = 156.126
+offset_bottom = 159.126
 
 [node name="SoloButton" type="Button" parent="Panel/HBoxContainer"]
 offset_right = 470.0
-offset_bottom = 37.0
+offset_bottom = 38.0
 text = "solo
 "
 
 [node name="MultiButton" type="Button" parent="Panel/HBoxContainer"]
-offset_top = 41.0
+offset_top = 42.0
 offset_right = 470.0
-offset_bottom = 78.0
+offset_bottom = 80.0
 text = "local multi
 "
 
 [node name="QuitButton" type="Button" parent="Panel/HBoxContainer"]
-offset_top = 82.0
+offset_top = 84.0
 offset_right = 470.0
-offset_bottom = 119.0
+offset_bottom = 122.0
 text = "Quit"
 
 [connection signal="pressed" from="Panel/HBoxContainer/SoloButton" to="." method="_on_solo_button_pressed"]
