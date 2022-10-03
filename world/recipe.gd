@@ -26,8 +26,9 @@ func set_receipe(receipe_name):
 	var i = 0
 	for step in recipe.steps:
 		for ing in step.ingredients:
-			var ing_scene = ing.ingredient.icon.instantiate()
-			ing_scene.position.x = i * 8
-			i += 1
-			ingredientsMarker.add_child(ing_scene)
+			for j in range(ing.quantity):
+				var ing_scene = ing.ingredient.icon.instantiate()
+				ing_scene.position.x = i * 8
+				i += 1
+				ingredientsMarker.add_child(ing_scene)
 		i += 1
