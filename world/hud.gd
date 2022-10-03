@@ -1,5 +1,5 @@
 extends Control
-
+class_name HUD
 
 @onready var combo_label : Label = $ComboLabel;
 @onready var time_label : Label = $TimeLabel;
