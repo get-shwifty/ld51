@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=11 format=3 uid="uid://c2kvpe2st561m"]
 
-[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="PackedScene" uid="uid://h8t22cwq0qwe" path="res://data/menu/menu_items/scenes/doppio_latte_icon.tscn" id="1_0spff"]
 [ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
 [ext_resource type="Resource" uid="uid://db8tv5dyojsa0" path="res://data/menu/menu_items/recipe_steps/double_espresso_step.tres" id="3_8a2xe"]
 [ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="4_j7l6x"]
@@ -26,5 +26,5 @@ preparationTime = null
 [resource]
 script = ExtResource("2_4jfic")
 name = "Double Latte"
-icon = ExtResource("1_r12ry")
+icon = ExtResource("1_0spff")
 steps = [ExtResource("3_8a2xe"), SubResource("Resource_kqbno")]

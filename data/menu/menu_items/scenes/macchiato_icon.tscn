@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dgx1g504f2w4p" path="res://assets/graphics/cortado.png" id="1_mg5be"]
+
+[node name="cortado_icon" type="Sprite2D"]
+texture = ExtResource("1_mg5be")

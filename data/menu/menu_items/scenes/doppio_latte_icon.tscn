@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h8t22cwq0qwe"]
+
+[ext_resource type="Texture2D" uid="uid://bk1clpmflddr4" path="res://assets/graphics/double_latte.png" id="1_jyynp"]
+
+[node name="doppio_latte_icon" type="Sprite2D"]
+texture = ExtResource("1_jyynp")

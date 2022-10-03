@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=9 format=3 uid="uid://b1ds226g4psia"]
 
-[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="PackedScene" uid="uid://bnbex7ci0ex1g" path="res://data/menu/menu_items/scenes/noisette_icon.tscn" id="1_tw2js"]
 [ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
 [ext_resource type="Resource" uid="uid://bn0wdgoyp6ggf" path="res://data/menu/menu_items/recipe_steps/espresso_step.tres" id="3_vmjkx"]
 [ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="4_ggg1e"]
@@ -20,5 +20,5 @@ preparationTime = null
 [resource]
 script = ExtResource("2_4jfic")
 name = "Noisette"
-icon = ExtResource("1_r12ry")
+icon = ExtResource("1_tw2js")
 steps = [ExtResource("3_vmjkx"), SubResource("Resource_upva6")]
