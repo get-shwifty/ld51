@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://tuakcxd1le3a"]
+[gd_scene load_steps=7 format=3 uid="uid://tuakcxd1le3a"]
 
 [ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
 [ext_resource type="Script" path="res://world/coffee_machine.gd" id="1_g1lg8"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
 [ext_resource type="Texture2D" uid="uid://crmq1ypd5c2pt" path="res://assets/graphics/petite_bulle.png" id="5_ycf31"]
-[ext_resource type="Texture2D" uid="uid://5c3noova3mtd" path="res://assets/graphics/expresso.png" id="6_kq6qm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ivm8"]
 radius = 8.0
@@ -43,9 +42,11 @@ position = Vector2(23, 0)
 position = Vector2(-1, 0)
 texture = ExtResource("5_ycf31")
 
-[node name="BrewingIcon" type="Sprite2D" parent="InfoBubble"]
-visible = false
-texture = ExtResource("6_kq6qm")
+[node name="BackgroundLoading" type="Sprite2D" parent="InfoBubble"]
+modulate = Color(0.690196, 0.415686, 0.188235, 0.415686)
+position = Vector2(-1, -9.53674e-07)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_ycf31")
 
 [node name="IngredientsIcons" type="GridContainer" parent="InfoBubble"]
 clip_contents = true
