@@ -59,12 +59,12 @@ animations = [{
 "name": &"idle1",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m")],
+"frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_228jh")],
 "loop": true,
 "name": &"walk0",
 "speed": 8.0
 }, {
-"frames": [SubResource("AtlasTexture_jikc7"), SubResource("AtlasTexture_0r0h5"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_1gpge")],
+"frames": [SubResource("AtlasTexture_jikc7"), SubResource("AtlasTexture_0r0h5"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_1gpge"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_0r0h5")],
 "loop": true,
 "name": &"walk1",
 "speed": 8.0

@@ -1,8 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://m0pjwkrhosvh"]
+[gd_scene load_steps=8 format=3 uid="uid://m0pjwkrhosvh"]
 
-[ext_resource type="Texture2D" uid="uid://cptuumeawi5ft" path="res://assets/graphics/clien_2t.png" id="1_gty7b"]
+[ext_resource type="Texture2D" uid="uid://cptuumeawi5ft" path="res://assets/graphics/client_2.png" id="1_8tv43"]
 
-[node name="Sprite2d" type="Sprite2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e61k8"]
+atlas = ExtResource("1_8tv43")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ehu4"]
+atlas = ExtResource("1_8tv43")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwuv7"]
+atlas = ExtResource("1_8tv43")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v5a4"]
+atlas = ExtResource("1_8tv43")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pfk2"]
+atlas = ExtResource("1_8tv43")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5vkm"]
+animations = [{
+"frames": [SubResource("AtlasTexture_e61k8")],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_3ehu4"), SubResource("AtlasTexture_iwuv7"), SubResource("AtlasTexture_6v5a4"), SubResource("AtlasTexture_8pfk2"), SubResource("AtlasTexture_6v5a4"), SubResource("AtlasTexture_iwuv7")],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Sprite2d" type="AnimatedSprite2D"]
 rotation = 3.14159
-texture = ExtResource("1_gty7b")
-hframes = 4
+frames = SubResource("SpriteFrames_q5vkm")
+animation = &"walk"
+playing = true
