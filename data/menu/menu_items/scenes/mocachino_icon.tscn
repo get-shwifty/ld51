@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xgny6lkffijo"]
+
+[ext_resource type="Texture2D" uid="uid://cl3gsee8yesp1" path="res://assets/graphics/mocachino.png" id="1_3h2as"]
+
+[node name="mocachino_icon" type="Sprite2D"]
+texture = ExtResource("1_3h2as")
