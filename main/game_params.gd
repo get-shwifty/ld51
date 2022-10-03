@@ -25,6 +25,9 @@ var bindings = [
 	},
 ]
 
+
+signal difficulty_changed
+
 var difficulties = [
 	{
 		"name" : "First time behind the counter",
@@ -39,7 +42,7 @@ var difficulties = [
 	{
 		"name" : "Brewing chef",
 		"id" : "hard",
-		"menu" : preload("res://data/menu/menu.tres")
+		"menu" : preload("res://data/menu/menu_full.tres")
 	},
 ]
 var current_difficulty_index = 0;
@@ -54,8 +57,10 @@ func increment_difficulty():
 	current_difficulty_index += 1
 	if current_difficulty_index >= difficulties.size():
 		current_difficulty_index = 0
+	difficulty_changed.emit()
 
 func decrement_difficulty():
 	current_difficulty_index -= 1
 	if current_difficulty_index < 0:
 		current_difficulty_index = difficulties.size() - 1
+	difficulty_changed.emit()
