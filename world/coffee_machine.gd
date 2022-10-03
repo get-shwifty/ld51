@@ -27,8 +27,12 @@ var current_preparation_step = -1
 var loading_time_total = 0
 var loading_time_remaining = 0
 
+func is_coffe_in_front():
+	#todo ugly, refactor this
+	return drop_zone.get_child_count() > 1
+
 func is_interact_free():
-	return super() and loading_time_remaining <= 0 
+	return super() and loading_time_remaining <= 0 and not is_coffe_in_front()
 
 func reset_prepation():
 	current_preparation = []
@@ -125,7 +129,11 @@ func on_interact_end():
 			
 		var menu_item_instance = MENU_ITEM_SCENE.instantiate()
 		menu_item_instance.menu_item_name = preparation_name
-		drop_zone.add_object(menu_item_instance)
+		
+		if current_character.tray.has_free_place():
+			current_character.tray.add_object(menu_item_instance)
+		else:
+			drop_zone.add_object(menu_item_instance)
 		
 		print(preparation_name + " ready")
 		reset_prepation()
