@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c2dtfnoim020r"]
+[gd_scene load_steps=2 format=3 uid="uid://c2dtfnoim020r"]
+
+[ext_resource type="Texture2D" uid="uid://cph326yt0freg" path="res://assets/graphics/café_raté.png" id="1_j482o"]
 
 [node name="coffee_failed" type="Sprite2D"]
+texture = ExtResource("1_j482o")
