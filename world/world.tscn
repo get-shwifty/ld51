@@ -122,12 +122,54 @@ script = ExtResource("1_k0fyf")
 [node name="groupe_gouttes" type="Node2D" parent="gouttes"]
 
 [node name="Rain" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
-position = Vector2(74, 21)
-skew = -0.450295
+position = Vector2(28, 55)
+rotation = -0.675442
+scale = Vector2(-1, 1)
+skew = -0.359538
+
+[node name="Rain11" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(31, 71)
+rotation = -1.19206
+scale = Vector2(-1, 1)
+skew = 0.0767945
+
+[node name="Rain12" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(32, 99)
+rotation = -1.57778
+scale = Vector2(-1, 1)
+skew = 0.331613
+
+[node name="Rain14" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(31, 208)
+rotation = -1.57778
+scale = Vector2(-1, 1)
+skew = -0.235619
+
+[node name="Rain15" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(23, 229)
+rotation = -1.57778
+scale = Vector2(-1, 1)
+skew = -0.235619
+
+[node name="Rain16" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(27, 232)
+rotation = -1.57778
+scale = Vector2(-1, 1)
+skew = -0.235619
+
+[node name="Rain17" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(29, 258)
+rotation = -1.57778
+scale = Vector2(-1, 1)
+skew = -0.488692
 
 [node name="Rain2" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
 position = Vector2(138, 28)
 skew = -0.294961
+
+[node name="Rain13" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(72, 26)
+skew = -0.534071
 
 [node name="Rain3" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
 position = Vector2(210, 20)
