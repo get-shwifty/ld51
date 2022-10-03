@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dngmn70kndugw"]
+[gd_scene load_steps=12 format=3 uid="uid://dngmn70kndugw"]
 
 [ext_resource type="Script" path="res://world/door.gd" id="1_s8f07"]
 [ext_resource type="Texture2D" uid="uid://d2wexe8mb5lon" path="res://assets/graphics/porte.png" id="1_yhv2n"]
+[ext_resource type="AudioStream" uid="uid://b7t1prpsbj56t" path="res://assets/sounds/cloche.ogg" id="3_onkbo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6std6"]
 atlas = ExtResource("1_yhv2n")
@@ -56,6 +57,10 @@ collision_mask = 8
 position = Vector2(8, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_shdwt")
+
+[node name="Ring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_onkbo")
+volume_db = 1.817
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2d" to="." method="_on_area_2d_body_exited"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dej5rvg1poasl"]
+[gd_scene load_steps=27 format=3 uid="uid://dej5rvg1poasl"]
 
 [ext_resource type="Texture2D" uid="uid://cn3oofcmws2ee" path="res://assets/graphics/coffee.png" id="1_4ob30"]
+[ext_resource type="Texture2D" uid="uid://cfsohjerni54b" path="res://assets/graphics/coffee_failed.png" id="2_k8kmx"]
 [ext_resource type="Script" path="res://world/coffee.gd" id="2_y70ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl1jq"]
@@ -47,16 +48,66 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("1_4ob30")
 region = Rect2(160, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_81eoe"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7wos"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8084f"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1fai"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mcvr"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qrbi"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhx2s"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mao6o"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txkgx"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3eu"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryq35"]
+atlas = ExtResource("2_k8kmx")
+region = Rect2(160, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o5rig"]
 animations = [{
 "frames": [SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_ndcue"), SubResource("AtlasTexture_mlay7"), SubResource("AtlasTexture_kxkhs"), SubResource("AtlasTexture_qv3a4"), SubResource("AtlasTexture_e7nfa"), SubResource("AtlasTexture_5hypp"), SubResource("AtlasTexture_h5o23"), SubResource("AtlasTexture_svboo"), SubResource("AtlasTexture_35n6j"), SubResource("AtlasTexture_5mlxo"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq"), SubResource("AtlasTexture_nl1jq")],
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_a7wos"), SubResource("AtlasTexture_8084f"), SubResource("AtlasTexture_x1fai"), SubResource("AtlasTexture_0mcvr"), SubResource("AtlasTexture_1qrbi"), SubResource("AtlasTexture_vhx2s"), SubResource("AtlasTexture_mao6o"), SubResource("AtlasTexture_txkgx"), SubResource("AtlasTexture_tc3eu"), SubResource("AtlasTexture_ryq35"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe"), SubResource("AtlasTexture_81eoe")],
+"loop": true,
+"name": &"failed",
+"speed": 5.0
 }]
 
 [node name="Coffee" type="AnimatedSprite2D"]
 z_index = 3
 frames = SubResource("SpriteFrames_o5rig")
+animation = &"failed"
 playing = true
 script = ExtResource("2_y70ky")
