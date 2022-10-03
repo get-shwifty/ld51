@@ -7,10 +7,7 @@ const TIMER_DRINKING_MAX = 8.0
 var receipes: Array[String] = []
 
 var clients_scenes: Array[PackedScene] = [
-	preload("res://world/client1.tscn"),
-	preload("res://world/client2.tscn"),
-	preload("res://world/client3.tscn"),
-	preload("res://world/client4.tscn")
+	preload("res://world/client1.tscn")
 ]
 
 signal coffee_served(coffee_name)

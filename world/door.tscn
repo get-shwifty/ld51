@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dngmn70kndugw"]
+
+[ext_resource type="Script" path="res://world/door.gd" id="1_s8f07"]
+[ext_resource type="Texture2D" uid="uid://d2wexe8mb5lon" path="res://assets/graphics/porte.png" id="1_yhv2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6std6"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(0, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv8da"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(56, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_actgp"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(112, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y87x"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(168, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e61oj"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(224, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vbbj"]
+atlas = ExtResource("1_yhv2n")
+region = Rect2(280, 0, 56, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tifal"]
+animations = [{
+"frames": [SubResource("AtlasTexture_6std6"), SubResource("AtlasTexture_kv8da"), SubResource("AtlasTexture_actgp"), SubResource("AtlasTexture_6y87x"), SubResource("AtlasTexture_e61oj"), SubResource("AtlasTexture_0vbbj")],
+"loop": false,
+"name": &"open",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shdwt"]
+radius = 32.0
+height = 88.0
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_s8f07")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_tifal")
+animation = &"open"
+speed_scale = -1.0
+playing = true
+
+[node name="Area2d" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+position = Vector2(8, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_shdwt")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2d" to="." method="_on_area_2d_body_exited"]
