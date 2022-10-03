@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2u2j2fytgy32"]
+[gd_scene load_steps=18 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_wgn7p"]
 [ext_resource type="PackedScene" uid="uid://c3ccxj4w7hmgi" path="res://world/small_table.tscn" id="4_g0efd"]
 [ext_resource type="PackedScene" uid="uid://tuakcxd1le3a" path="res://world/coffee_machine.tscn" id="5_cryh4"]
+[ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="8_7m88b"]
 [ext_resource type="PackedScene" uid="uid://bkyinapyyyua5" path="res://world/manual.tscn" id="8_bv1ey"]
+[ext_resource type="Script" path="res://world/hud.gd" id="9_jxdwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuepd"]
 size = Vector2(576, 48)
@@ -152,3 +154,42 @@ position = Vector2(208, 128)
 
 [node name="Manual" parent="." instance=ExtResource("8_bv1ey")]
 position = Vector2(0, 320)
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 576.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_7m88b")
+script = ExtResource("9_jxdwe")
+
+[node name="ComboLabel" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 10.0
+offset_right = 491.0
+offset_bottom = 36.0
+text = "Combo x1"
+
+[node name="TimeLabel" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 10.0
+offset_right = 527.0
+offset_bottom = 27.0
+text = "07:00"
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 25.0
+offset_right = 517.0
+offset_bottom = 42.0
+text = "100$"
+horizontal_alignment = 2

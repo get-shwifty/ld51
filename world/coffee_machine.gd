@@ -2,7 +2,7 @@ extends Interactable
 
 const MENU_ITEM_SCENE = preload("res://world/menu_item.tscn")
 
-const MENU : MenuRessource = preload("res://data/menu/menu.tres")
+@onready var Menu: MenuRessource = GameParams.get_current_menu()
 const FAILED_RECIPE = preload("res://data/menu/menu_items/coffee_failed.tres")
 
 const INGREDIENTS_AVAILABLE_BY_STEPS = [
@@ -109,7 +109,7 @@ func on_interact_start():
 	print("interact coffee machine : prepation step " + str(current_preparation_step))
 
 func on_interact_end():
-	var recipes = get_recipes_matching_current_preparation(MENU.recipes, current_preparation_step)
+	var recipes = get_recipes_matching_current_preparation(Menu.recipes, current_preparation_step)
 	
 	current_character.hide_infobubble_coffee_machine()
 	

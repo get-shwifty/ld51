@@ -6,30 +6,6 @@ const BINDING_SELECTION = preload("res://ui/binding_selection.tscn")
 signal return_to_main_menu
 signal launch_game(bindings)
 
-var bindings = [
-	{
-		"name" : "WASD/ZQSD",
-		"id" : DevicesHelper.KEYBOARD_ZQSD,
-		"description" : "Move: WASD\\ZQSD\nSelection : WASD\\ZQSD\nInteract: Tab"
-	},
-	{
-		"name" : "Arrow keys",
-		"id" : DevicesHelper.KEYBOARD_ARROWS,
-		"description" : "Move: Arrow Keys\nSelection : Arrow Keys\nInteract: Tab"
-	},
-	{
-		"name" : "Controller 1",
-		"id" : DevicesHelper.CONTROLLER1,
-		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
-	},
-	{
-		"name" : "Controller 2",
-		"id" : DevicesHelper.CONTROLLER2,
-		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
-	},
-]
-
-
 var players_nb = 1
 var selection_widgets = []
 
@@ -41,12 +17,14 @@ func set_number_of_players(nb):
 	for i  in range(0, players_nb):
 		var current_widget = BINDING_SELECTION.instantiate()
 		current_widget.set_player_index(i +1)
-		current_widget.set_bindings_list(bindings)
+		current_widget.set_bindings_list(GameParams.bindings)
 		current_widget.current_binding_index = i
 		current_widget.refresh_bindings_display()
 		$PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer.add_child(current_widget)
 		selection_widgets.push_back(current_widget)
-		
+
+func _ready():
+	refresh_difficulty_display();
 
 func _on_play_button_pressed():
 	var res = selection_widgets.map(func(x): return x.get_current_binding_id())
@@ -56,4 +34,16 @@ func _on_play_button_pressed():
 func _on_return_button_pressed():
 	return_to_main_menu.emit()
 
+
+func refresh_difficulty_display():
+	$PanelContainer/VBoxContainer/HBoxContainerDifficulty/LabelDifficultyName.set_text(GameParams.get_current_difficulty()["name"]);
+
+func _on_button_left_pressed():
+	GameParams.decrement_difficulty()
+	refresh_difficulty_display()
+
+
+func _on_button_right_pressed():
+	GameParams.increment_difficulty()
+	refresh_difficulty_display()
 

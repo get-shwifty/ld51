@@ -8,6 +8,14 @@ var character_scene: PackedScene = preload("res://world/character.tscn")
 
 @onready var tables : Node2D = $Tables
 @onready var last_clients_spawn = Time.get_ticks_msec() - SPAWN_INTERVAL + START_FIRST_CLIENT
+@onready var hud : HUD
+
+var score = 0
+var combo = 0
+var time_passed = 0
+
+func refresh_HUD():
+	$HUD.set_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
