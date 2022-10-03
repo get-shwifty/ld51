@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnhg08w2n5d3e"]
+[gd_scene load_steps=10 format=3 uid="uid://bnhg08w2n5d3e"]
 
+[ext_resource type="Script" path="res://world/client.gd" id="1_2g2w0"]
 [ext_resource type="Texture2D" uid="uid://cvnf3yxjt182d" path="res://assets/graphics/client_4.png" id="1_5yfkp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6xot"]
@@ -40,6 +41,9 @@ radius = 12.0
 
 [node name="Client4" type="CharacterBody2D"]
 rotation = 3.14159
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_2g2w0")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_ygvny")
