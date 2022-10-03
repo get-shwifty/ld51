@@ -42,6 +42,8 @@ func set_number_of_players(nb):
 		var current_widget = BINDING_SELECTION.instantiate()
 		current_widget.set_player_index(i +1)
 		current_widget.set_bindings_list(bindings)
+		current_widget.current_binding_index = i
+		current_widget.refresh_bindings_display()
 		$PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer.add_child(current_widget)
 		selection_widgets.push_back(current_widget)
 		
