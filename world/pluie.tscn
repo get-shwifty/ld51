@@ -1,0 +1,94 @@
+[gd_scene load_steps=23 format=3 uid="uid://bbmkiijoud7kr"]
+
+[ext_resource type="Texture2D" uid="uid://cwk35d5ktd7tv" path="res://assets/graphics/goutte.png" id="1_0lg4a"]
+[ext_resource type="Script" path="res://world/pluie.gd" id="2_kcia1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb02o"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4du31"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j35n1"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp7je"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx53h"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7auv"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(100, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmk8o"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(120, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hd28"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(140, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgmr2"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(160, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srup2"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(180, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20twf"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(200, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g5lw"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(220, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npote"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(240, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esk02"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(260, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3wo8"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(280, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywpg2"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(300, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tjui"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(320, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixrb0"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(340, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22v8p"]
+atlas = ExtResource("1_0lg4a")
+region = Rect2(360, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ibep"]
+animations = [{
+"frames": [SubResource("AtlasTexture_pb02o"), SubResource("AtlasTexture_4du31"), SubResource("AtlasTexture_j35n1"), SubResource("AtlasTexture_kp7je"), SubResource("AtlasTexture_vx53h"), SubResource("AtlasTexture_s7auv"), SubResource("AtlasTexture_mmk8o"), SubResource("AtlasTexture_2hd28"), SubResource("AtlasTexture_rgmr2"), SubResource("AtlasTexture_srup2"), SubResource("AtlasTexture_20twf"), SubResource("AtlasTexture_6g5lw"), SubResource("AtlasTexture_npote"), SubResource("AtlasTexture_esk02"), SubResource("AtlasTexture_l3wo8"), SubResource("AtlasTexture_ywpg2"), SubResource("AtlasTexture_1tjui"), SubResource("AtlasTexture_ixrb0"), SubResource("AtlasTexture_22v8p")],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Rain" type="AnimatedSprite2D"]
+top_level = true
+frames = SubResource("SpriteFrames_1ibep")
+playing = true
+script = ExtResource("2_kcia1")
