@@ -114,6 +114,7 @@ _data = {
 point_count = 9
 
 [node name="World" type="Node2D"]
+process_mode = 1
 texture_filter = 1
 script = ExtResource("1_k0fyf")
 
