@@ -8,7 +8,9 @@ var receipes: Array[String] = []
 
 var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client1.tscn"),
-	preload("res://world/client2.tscn")
+	preload("res://world/client2.tscn"),
+	preload("res://world/client3.tscn"),
+	preload("res://world/client4.tscn")
 ]
 
 signal coffee_served(coffee_name)
@@ -52,6 +54,7 @@ func _process(delta):
 			buttons_pressed.push_back(1)
 		
 		if buttons_pressed.size() > 0:
+			$Serve.play()
 			for button in buttons_pressed:
 				var menu_item = current_character.tray.remove_object(button)
 				if menu_item != null:

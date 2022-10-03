@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=24 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
 [ext_resource type="PackedScene" uid="uid://cc4xeua2oob5j" path="res://world/table.tscn" id="2_6ndcl"]
 [ext_resource type="Texture2D" uid="uid://dowvdebtbfl20" path="res://assets/graphics/background.png" id="2_3747c"]
+[ext_resource type="PackedScene" uid="uid://bbmkiijoud7kr" path="res://world/pluie.tscn" id="2_pxo52"]
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_wgn7p"]
 [ext_resource type="PackedScene" uid="uid://c3ccxj4w7hmgi" path="res://world/small_table.tscn" id="4_g0efd"]
 [ext_resource type="PackedScene" uid="uid://tuakcxd1le3a" path="res://world/coffee_machine.tscn" id="5_cryh4"]
@@ -44,6 +45,46 @@ size = Vector2(64, 32)
 texture_filter = 1
 script = ExtResource("1_k0fyf")
 
+[node name="gouttes" type="Node2D" parent="."]
+
+[node name="groupe_gouttes" type="Node2D" parent="gouttes"]
+
+[node name="Rain" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(74, 21)
+skew = -0.450295
+
+[node name="Rain2" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(138, 28)
+skew = -0.294961
+
+[node name="Rain3" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(210, 20)
+
+[node name="Rain4" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(264, 28)
+
+[node name="Rain5" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(256, 31)
+
+[node name="Rain6" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(510, 29)
+skew = 0.561996
+
+[node name="Rain7" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(442, 23)
+skew = 0.434587
+
+[node name="Rain8" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(383, 24)
+skew = 0.211185
+
+[node name="Rain9" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(375, 29)
+skew = 0.211185
+
+[node name="Rain10" parent="gouttes/groupe_gouttes" instance=ExtResource("2_pxo52")]
+position = Vector2(305, 20)
+
 [node name="ShaderContainer" type="Node2D" parent="."]
 z_index = 1000
 z_as_relative = false
@@ -53,9 +94,10 @@ material = SubResource("ShaderMaterial_otvvd")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 576.0
-offset_bottom = 320.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 571.0
+offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_k283k")
