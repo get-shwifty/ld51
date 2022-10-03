@@ -1,9 +1,9 @@
 extends Control
 class_name HUD
 
-@onready var combo_label : Label = $ComboLabel;
-@onready var time_label : Label = $TimeLabel;
-@onready var score_label : Label = $ScoreLabel;
+@onready var combo_label : Label = $Node2d2/ComboLabel;
+@onready var time_label : Label = $Node2d/TimeLabel;
+@onready var score_label : Label = $Node2d2/ScoreLabel;
 
 func format_time_string(time):
 	time = int(floor(time))

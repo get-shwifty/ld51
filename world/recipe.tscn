@@ -20,13 +20,13 @@ theme_override_fonts/font = ExtResource("3_kuy0d")
 text = "Espresso"
 
 [node name="Icon" type="Marker2D" parent="."]
-position = Vector2(10, 21.6667)
+position = Vector2(10, 27.1429)
 scale = Vector2(1.8, 1.8)
 
 [node name="espresso" parent="Icon" instance=ExtResource("4_b1tjk")]
 
 [node name="Ingredients" type="Marker2D" parent="."]
-position = Vector2(31.6667, 23.3333)
+position = Vector2(32.8571, 27.1429)
 metadata/_edit_group_ = true
 
 [node name="coffee" parent="Ingredients" instance=ExtResource("5_iycoc")]

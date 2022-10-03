@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://tuakcxd1le3a"]
+[gd_scene load_steps=10 format=3 uid="uid://tuakcxd1le3a"]
 
 [ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
 [ext_resource type="Script" path="res://world/coffee_machine.gd" id="1_g1lg8"]
+[ext_resource type="Texture2D" uid="uid://c422wuup4atrg" path="res://assets/graphics/contour_machine.png" id="2_4fgi4"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
 [ext_resource type="AudioStream" uid="uid://bduucqg22er3l" path="res://assets/sounds/ingredient.ogg" id="5_kd3x8"]
 [ext_resource type="Texture2D" uid="uid://crmq1ypd5c2pt" path="res://assets/graphics/petite_bulle.png" id="5_ycf31"]
@@ -17,6 +18,12 @@ size = Vector2(16, 16)
 collision_layer = 36
 collision_mask = 0
 script = ExtResource("1_g1lg8")
+
+[node name="contour" type="Sprite2D" parent="."]
+position = Vector2(10.5118, -0.039372)
+rotation = 3.14159
+scale = Vector2(0.981251, 0.997375)
+texture = ExtResource("2_4fgi4")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(8, 0)
@@ -38,7 +45,9 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_ftmsb")
 
 [node name="InfoBubble" type="Node2D" parent="."]
+visible = false
 position = Vector2(23, 0)
+z_index = 1002
 
 [node name="Background" type="Sprite2D" parent="InfoBubble"]
 position = Vector2(-1, 0)

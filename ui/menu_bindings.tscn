@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh4x3lodslo3h"]
+[gd_scene load_steps=3 format=3 uid="uid://bh4x3lodslo3h"]
 
 [ext_resource type="Script" path="res://ui/menu_bindings.gd" id="1_rnsii"]
+[ext_resource type="Theme" uid="uid://ciomvgnj3qbbo" path="res://ui/title_theme.tres" id="2_fooua"]
 
 [node name="menu_bindings" type="VBoxContainer"]
 anchors_preset = 15
@@ -10,9 +11,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rnsii")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 15)
 offset_right = 576.0
-offset_bottom = 153.0
+offset_bottom = 15.0
+
+[node name="Title" type="Label" parent="."]
+offset_top = 19.0
+offset_right = 576.0
+offset_bottom = 75.0
+theme = ExtResource("2_fooua")
+theme_override_font_sizes/font_size = 60
+text = "Game Parameters
+"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_top = 79.0
+offset_right = 576.0
+offset_bottom = 232.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 offset_right = 576.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgf13lb05ow4y"]
+
+[ext_resource type="Texture2D" uid="uid://cj484w8n408l0" path="res://assets/graphics/flat_white.png" id="1_8e22f"]
+
+[node name="flatwhite_icon" type="Sprite2D"]
+texture = ExtResource("1_8e22f")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnbex7ci0ex1g"]
+
+[ext_resource type="Texture2D" uid="uid://bgrnrqgg8wxfs" path="res://assets/graphics/noisette.png" id="1_fdb4i"]
+
+[node name="noisette_icon" type="Sprite2D"]
+texture = ExtResource("1_fdb4i")
