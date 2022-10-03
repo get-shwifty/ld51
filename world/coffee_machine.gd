@@ -9,9 +9,11 @@ const INGREDIENTS_AVAILABLE_BY_STEPS = [
 	[
 		preload("res://data/menu/ingredients/coffee.tres"),
 		preload("res://data/menu/ingredients/water.tres"),
+		preload("res://data/menu/ingredients/chocolate.tres")
 	],
 	[
 		preload("res://data/menu/ingredients/milk.tres"),
+		preload("res://data/menu/ingredients/foamed_milk.tres")
 	],
 ]
 

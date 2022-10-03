@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkyinapyyyua5"]
+
+[ext_resource type="PackedScene" uid="uid://chotcx7805h2j" path="res://world/recipe.tscn" id="1_r343m"]
+[ext_resource type="Script" path="res://world/recipes.gd" id="1_ua00c"]
+
+[sub_resource type="Gradient" id="Gradient_upn3h"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.772549, 0.407843, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_27sl1"]
+gradient = SubResource("Gradient_upn3h")
+
+[node name="Manual" type="Node2D"]
+top_level = true
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(288, 32.25)
+scale = Vector2(2.25, 64.5)
+texture = SubResource("GradientTexture1D_27sl1")
+
+[node name="Recipes" type="Node2D" parent="."]
+position = Vector2(8, 4)
+script = ExtResource("1_ua00c")
+metadata/_edit_group_ = true
+
+[node name="Recipe" parent="Recipes" instance=ExtResource("1_r343m")]
+position = Vector2(0, 0.25)

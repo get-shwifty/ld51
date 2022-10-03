@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_7n868"]
 script = ExtResource("3_2s068")
-ingredients = null
+ingredients = []
 preparationTime = 3
 
 [resource]

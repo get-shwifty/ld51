@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=14 format=3 uid="uid://c3nl46ylbn1e"]
+
+[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
+[ext_resource type="Resource" uid="uid://d27uf80nceqht" path="res://data/menu/ingredients/coffee.tres" id="3_5ewh6"]
+[ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_l1mle"]
+[ext_resource type="Resource" uid="uid://ci4rky4irf27g" path="res://data/menu/ingredients/foamed_milk.tres" id="4_ve3ty"]
+[ext_resource type="Resource" uid="uid://l85cn10y5swh" path="res://data/menu/ingredients/chocolate.tres" id="5_nko5a"]
+[ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="5_s8m6n"]
+
+[sub_resource type="Resource" id="Resource_qgqbd"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("3_5ewh6")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_arjue"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("5_nko5a")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_hpkww"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("5_nko5a")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_rlhxf"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_qgqbd"), SubResource("Resource_arjue"), SubResource("Resource_hpkww")]
+preparationTime = 5
+
+[sub_resource type="Resource" id="Resource_30xpc"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("4_ve3ty")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_y402o"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_30xpc")]
+preparationTime = null
+
+[resource]
+script = ExtResource("2_4jfic")
+name = "Mocha"
+icon = ExtResource("1_r12ry")
+steps = [SubResource("Resource_rlhxf"), SubResource("Resource_y402o")]

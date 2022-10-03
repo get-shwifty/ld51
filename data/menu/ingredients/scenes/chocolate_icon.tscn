@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmo8emuxid0jt"]
+
+[ext_resource type="Texture2D" uid="uid://bhifjmb6314df" path="res://assets/graphics/chocolat.png" id="1_ysm3d"]
+
+[node name="chocolate" type="Sprite2D"]
+position = Vector2(1.19209e-07, 1.19209e-07)
+texture = ExtResource("1_ysm3d")

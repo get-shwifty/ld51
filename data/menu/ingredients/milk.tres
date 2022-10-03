@@ -6,6 +6,6 @@
 
 [resource]
 script = ExtResource("1_qfb6r")
-name = "milk"
+name = "Milk"
 icon = ExtResource("1_pdott")
 icon_texture = ExtResource("2_m4hm1")

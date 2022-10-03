@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da8jymehltwaj"]
+
+[ext_resource type="Texture2D" uid="uid://bi1bhdfhj7v1t" path="res://assets/graphics/chocolat_chaud.png" id="1_2ddle"]
+
+[node name="hot_chocolate" type="Sprite2D"]
+texture = ExtResource("1_2ddle")

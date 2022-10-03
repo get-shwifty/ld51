@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=16 format=3 uid="uid://2u2j2fytgy32"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_wgn7p"]
 [ext_resource type="PackedScene" uid="uid://c3ccxj4w7hmgi" path="res://world/small_table.tscn" id="4_g0efd"]
 [ext_resource type="PackedScene" uid="uid://tuakcxd1le3a" path="res://world/coffee_machine.tscn" id="5_cryh4"]
+[ext_resource type="PackedScene" uid="uid://bkyinapyyyua5" path="res://world/manual.tscn" id="8_bv1ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuepd"]
 size = Vector2(576, 48)
@@ -148,3 +149,6 @@ position = Vector2(343, 126)
 
 [node name="CharacterPos1" type="Marker2D" parent="."]
 position = Vector2(208, 128)
+
+[node name="Manual" parent="." instance=ExtResource("8_bv1ey")]
+position = Vector2(0, 320)

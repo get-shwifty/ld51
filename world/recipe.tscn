@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://chotcx7805h2j"]
+
+[ext_resource type="Script" path="res://world/recipe.gd" id="1_udsq4"]
+[ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="2_4qeyi"]
+[ext_resource type="FontFile" uid="uid://70ra10ub5hsj" path="res://externals/fonts/Abaddon_Fonts_v1.2/Abaddon Light.ttf" id="3_kuy0d"]
+[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="4_b1tjk"]
+[ext_resource type="PackedScene" uid="uid://cqfauyr2446s3" path="res://data/menu/ingredients/scenes/coffee_icon.tscn" id="5_iycoc"]
+[ext_resource type="PackedScene" uid="uid://ctacsn4ysuqb8" path="res://data/menu/ingredients/scenes/water_icon.tscn" id="6_d8i51"]
+[ext_resource type="PackedScene" uid="uid://43gydkbxwip4" path="res://data/menu/ingredients/scenes/milk_icon.tscn" id="7_x6gvq"]
+
+[node name="Recipe" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_udsq4")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 59.0
+offset_bottom = 21.0
+theme = ExtResource("2_4qeyi")
+theme_override_fonts/font = ExtResource("3_kuy0d")
+text = "Espresso"
+
+[node name="Icon" type="Marker2D" parent="."]
+position = Vector2(12, 20)
+scale = Vector2(1.5, 1.5)
+
+[node name="espresso" parent="Icon" instance=ExtResource("4_b1tjk")]
+
+[node name="Ingredients" type="Marker2D" parent="."]
+position = Vector2(32, 20)
+
+[node name="coffee" parent="Ingredients" instance=ExtResource("5_iycoc")]
+
+[node name="water" parent="Ingredients" instance=ExtResource("6_d8i51")]
+position = Vector2(8, 0)
+
+[node name="milk_icon" parent="Ingredients" instance=ExtResource("7_x6gvq")]
+position = Vector2(24, 0)

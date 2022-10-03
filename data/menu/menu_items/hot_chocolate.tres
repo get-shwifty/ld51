@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=11 format=3 uid="uid://dd0prr3v16nbh"]
+
+[ext_resource type="PackedScene" uid="uid://da8jymehltwaj" path="res://data/menu/menu_items/scenes/hot_chocolate_icon.tscn" id="1_am5j4"]
+[ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
+[ext_resource type="Resource" path="res://data/menu/ingredients/water.tres" id="3_gpxwj"]
+[ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="4_j7l6x"]
+[ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_l1mle"]
+[ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="5_s8m6n"]
+
+[sub_resource type="Resource" id="Resource_arjue"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("3_gpxwj")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_vu7nv"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_arjue")]
+preparationTime = 3
+
+[sub_resource type="Resource" id="Resource_jrg5u"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("4_j7l6x")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_fc2xd"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_jrg5u")]
+preparationTime = null
+
+[resource]
+script = ExtResource("2_4jfic")
+name = "Hot Chocolate"
+icon = ExtResource("1_am5j4")
+steps = [SubResource("Resource_vu7nv"), SubResource("Resource_fc2xd")]

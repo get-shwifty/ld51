@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://l85cn10y5swh"]
+
+[ext_resource type="Script" path="res://data/menu/ingredient_ressource.gd" id="1_74co4"]
+[ext_resource type="PackedScene" uid="uid://dmo8emuxid0jt" path="res://data/menu/ingredients/scenes/chocolate_icon.tscn" id="1_k1wpg"]
+[ext_resource type="Texture2D" uid="uid://bhifjmb6314df" path="res://assets/graphics/chocolat.png" id="2_7cqwd"]
+
+[resource]
+script = ExtResource("1_74co4")
+name = "Chocolate"
+icon = ExtResource("1_k1wpg")
+icon_texture = ExtResource("2_7cqwd")

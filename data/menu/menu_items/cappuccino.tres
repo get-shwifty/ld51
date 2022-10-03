@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=11 format=3 uid="uid://benye4dud0lsf"]
+
+[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
+[ext_resource type="Resource" uid="uid://bn0wdgoyp6ggf" path="res://data/menu/menu_items/recipe_steps/espresso_step.tres" id="3_vmjkx"]
+[ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="4_j7l6x"]
+[ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_l1mle"]
+[ext_resource type="Resource" uid="uid://ci4rky4irf27g" path="res://data/menu/ingredients/foamed_milk.tres" id="4_ve3ty"]
+[ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="5_s8m6n"]
+
+[sub_resource type="Resource" id="Resource_jrg5u"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("4_j7l6x")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_30xpc"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("4_ve3ty")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_4p6ne"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_jrg5u"), SubResource("Resource_30xpc")]
+preparationTime = null
+
+[resource]
+script = ExtResource("2_4jfic")
+name = "Cappuccino"
+icon = ExtResource("1_r12ry")
+steps = [ExtResource("3_vmjkx"), SubResource("Resource_4p6ne")]

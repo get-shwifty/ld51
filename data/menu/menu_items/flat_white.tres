@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bdj487jo0qixs"]
+
+[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
+[ext_resource type="Resource" uid="uid://bn0wdgoyp6ggf" path="res://data/menu/menu_items/recipe_steps/espresso_step.tres" id="3_vmjkx"]
+[ext_resource type="Resource" uid="uid://cco24jp45at0h" path="res://data/menu/ingredients/milk.tres" id="4_ggg1e"]
+[ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_l1mle"]
+[ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="5_s8m6n"]
+
+[sub_resource type="Resource" id="Resource_30xpc"]
+script = ExtResource("5_s8m6n")
+ingredient = ExtResource("4_ggg1e")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_2h481"]
+script = ExtResource("4_l1mle")
+ingredients = [SubResource("Resource_30xpc")]
+preparationTime = null
+
+[resource]
+script = ExtResource("2_4jfic")
+name = "Flat White"
+icon = ExtResource("1_r12ry")
+steps = [ExtResource("3_vmjkx"), SubResource("Resource_2h481")]
