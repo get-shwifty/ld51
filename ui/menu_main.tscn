@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpjaxle47dy1o"]
+[gd_scene load_steps=4 format=3 uid="uid://dpjaxle47dy1o"]
 
 [ext_resource type="Script" path="res://ui/menu_main.gd" id="1_v4wqm"]
 [ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="2_3c0jp"]
+[ext_resource type="Theme" uid="uid://ciomvgnj3qbbo" path="res://ui/title_theme.tres" id="2_fqwub"]
 
 [node name="MainMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -13,22 +14,23 @@ script = ExtResource("1_v4wqm")
 
 [node name="Title" type="Label" parent="."]
 offset_right = 576.0
-offset_bottom = 26.0
-text = "Presto cafe
+offset_bottom = 73.0
+theme = ExtResource("2_fqwub")
+text = "Over brewed
 "
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="."]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2i(0, 25)
-offset_top = 30.0
+offset_top = 77.0
 offset_right = 576.0
-offset_bottom = 55.0
+offset_bottom = 102.0
 
 [node name="Panel" type="PanelContainer" parent="."]
-offset_top = 59.0
+offset_top = 106.0
 offset_right = 576.0
-offset_bottom = 263.0
+offset_bottom = 310.0
 theme = ExtResource("2_3c0jp")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
