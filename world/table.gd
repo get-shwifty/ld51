@@ -8,7 +8,9 @@ var receipes: Array[String] = []
 
 var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client1.tscn"),
-	preload("res://world/client2.tscn")
+	preload("res://world/client2.tscn"),
+	preload("res://world/client3.tscn"),
+	preload("res://world/client4.tscn")
 ]
 
 @onready var Menu: MenuRessource = GameParams.get_current_menu()
