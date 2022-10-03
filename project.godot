@@ -34,6 +34,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://ui/menu_bindings.gd"
 }, {
+"base": "Resource",
+"class": &"MenuItemRessource",
+"language": &"GDScript",
+"path": "res://data/menu/menu_item_ressource.gd"
+}, {
 "base": "Control",
 "class": &"MenuMain",
 "language": &"GDScript",
@@ -90,6 +95,7 @@ _global_script_class_icons={
 "IngredientRessource": "",
 "Interactable": "",
 "MenuBindings": "",
+"MenuItemRessource": "",
 "MenuMain": "",
 "MenuPause": "",
 "MenuRessource": "",

@@ -2,4 +2,4 @@ extends Resource
 class_name MenuRessource
 
 @export 
-var recipes : Array[RecipeRessource]
+var recipes : Array[MenuItemRessource]

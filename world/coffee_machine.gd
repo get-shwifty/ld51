@@ -113,7 +113,7 @@ func on_interact_end():
 	
 	print("quiting coffee machine, recipes available below :")
 	for recipe in recipes:
-		print(recipe.name)
+		print(recipe.recipe.name)
 	
 	if current_preparation_step == 0 and current_preparation[0].size() == 0:
 		info_bubble.visible = false
@@ -124,7 +124,7 @@ func on_interact_end():
 		if recipes.size() == 0:
 			preparation_name = FAILED_RECIPE.name
 		elif recipes.size() == 1:
-			preparation_name = recipes[0].name
+			preparation_name = recipes[0].recipe.name
 		else:
 			push_error("Too many recipes are matching, this should not be possible")
 			
@@ -146,8 +146,8 @@ func on_interact_end():
 
 
 
-func get_recipes_matching_current_preparation(recipe_list : Array[RecipeRessource], check_until_step: int = -1):
-	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r, check_until_step))
+func get_recipes_matching_current_preparation(recipe_list : Array[MenuItemRessource], check_until_step: int = -1):
+	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r.recipe, check_until_step))
 
 func do_preparation_match_recipe(preparation, recipe : RecipeRessource, check_until_step: int):
 #	print("evaluating match for " + recipe.name)

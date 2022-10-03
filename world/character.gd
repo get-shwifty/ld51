@@ -131,7 +131,7 @@ func update_infobulle():
 				positions[i].remove_child(positions[i].get_child(0))
 		else:
 			var menu_item = Menu.recipes.filter(func(dish):
-				return dish.name == menu_item_instance.menu_item_name).front()
+				return dish.recipe.name == menu_item_instance.menu_item_name).front()
 			if menu_item:
 				if positions[i].get_child_count() > 0:
 					var icon_obj = positions[i].get_child(0)
@@ -140,7 +140,7 @@ func update_infobulle():
 					positions[i].remove_child(icon_obj)
 					
 				if positions[i].get_child_count() == 0:
-					positions[i].add_child(menu_item.icon.instantiate())
+					positions[i].add_child(menu_item.recipe.icon.instantiate())
 			else:
 				print_debug(menu_item_instance.menu_item_name + " not found")
 
