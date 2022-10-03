@@ -17,17 +17,46 @@ const INGREDIENTS_AVAILABLE_BY_STEPS = [
 
 @onready var info_bubble:Node2D = $InfoBubble
 @onready var info_bubble_ingredients: GridContainer = $InfoBubble/IngredientsIcons
+@onready var info_bubble_loading: Node2D = $InfoBubble/BackgroundLoading
 @onready var drop_zone: Takeable = $TakeablePos
 
 #Array[Array[IngredientRessource]] is the type but nested typed collection aren't supported
 var current_preparation = []
 var current_preparation_step = -1
 
+var loading_time_total = 0
+var loading_time_remaining = 0
+
+func is_coffe_in_front():
+	#todo ugly, refactor this
+	return drop_zone.get_child_count() > 1
+
+func is_interact_free():
+	return super() and loading_time_remaining <= 0 and not is_coffe_in_front()
+
 func reset_prepation():
 	current_preparation = []
 	current_preparation_step = -1
 	for child in info_bubble_ingredients.get_children():
 		child.queue_free()
+	reset_loading()
+
+func reset_loading():
+	loading_time_total = 0
+	loading_time_remaining = 0
+	refresh_loading_ratio()
+
+func refresh_loading_ratio():
+	var loading_scale = info_bubble_loading.scale
+	if loading_time_total == 0:
+		loading_scale.y = 0
+	else:
+		loading_scale.y = 1 - loading_time_remaining/loading_time_total;
+	info_bubble_loading.scale = loading_scale
+
+func start_loading(total):
+	loading_time_total = total
+	loading_time_remaining = total
 
 func preparation_next_step():
 	current_preparation.push_back([])
@@ -38,7 +67,13 @@ func _ready():
 	reset_prepation()
 
 func _process(delta):
-	if is_interact_free():
+	if loading_time_remaining > 0:
+		loading_time_remaining -= delta
+		refresh_loading_ratio()
+		if loading_time_remaining < 0:
+			reset_loading()
+	
+	if super.is_interact_free():
 		return
 	
 	var available_ingredients = INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step];
@@ -94,10 +129,17 @@ func on_interact_end():
 			
 		var menu_item_instance = MENU_ITEM_SCENE.instantiate()
 		menu_item_instance.menu_item_name = preparation_name
-		drop_zone.add_object(menu_item_instance)
+		
+		if current_character.tray.has_free_place():
+			current_character.tray.add_object(menu_item_instance)
+		else:
+			drop_zone.add_object(menu_item_instance)
 		
 		print(preparation_name + " ready")
 		reset_prepation()
+	else:
+		#TODO this should be taken from the menu data
+		start_loading(3)
 	
 
 
