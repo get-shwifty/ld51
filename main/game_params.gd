@@ -1,5 +1,7 @@
 extends Node
 
+const GAME_DURATION = 4*60
+
 var bindings = [
 	{
 		"name" : "WASD/ZQSD",
