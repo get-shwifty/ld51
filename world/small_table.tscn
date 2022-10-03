@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3ccxj4w7hmgi"]
+
+[ext_resource type="Script" path="res://world/table.gd" id="1_rfeft"]
+[ext_resource type="PackedScene" uid="uid://crrr8t57x5bwi" path="res://world/chair.tscn" id="2_637c5"]
+[ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="3_1chtd"]
+[ext_resource type="Texture2D" uid="uid://ib0ag6ua6de3" path="res://assets/graphics/grosse_bulle.png" id="3_3q4l2"]
+[ext_resource type="FontFile" uid="uid://bfaircmxfidlc" path="res://externals/fonts/Fibberish v1.0/fibberish.ttf" id="6_eyau7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kigor"]
+radius = 12.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5f0c"]
+radius = 24.0
+height = 144.0
+
+[node name="SmallTable" type="StaticBody2D" groups=["table"]]
+collision_layer = 34
+collision_mask = 0
+script = ExtResource("1_rfeft")
+
+[node name="Chairs" type="Node2D" parent="."]
+
+[node name="Chair" parent="Chairs" instance=ExtResource("2_637c5")]
+position = Vector2(0, 38)
+rotation = -1.5708
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_kigor")
+
+[node name="CharacterDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterDetector"]
+shape = SubResource("CapsuleShape2D_n5f0c")
+
+[node name="InfoBulle" type="Node2D" parent="."]
+position = Vector2(0, 4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2d" type="Sprite2D" parent="InfoBulle"]
+position = Vector2(0.5, 8.5)
+scale = Vector2(0.840909, 0.34)
+texture = ExtResource("3_3q4l2")
+
+[node name="Label" type="Label" parent="InfoBulle"]
+offset_left = -28.0
+offset_right = 115.0
+offset_bottom = 43.0
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+theme = ExtResource("3_1chtd")
+theme_override_colors/font_color = Color(0.498039, 0.333333, 0.223529, 1)
+theme_override_fonts/font = ExtResource("6_eyau7")
+text = "Espresso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]
+[connection signal="body_exited" from="CharacterDetector" to="." method="_on_character_detector_body_exited"]
