@@ -49,6 +49,7 @@ func _process(delta):
 			buttons_pressed.push_back(1)
 		
 		if buttons_pressed.size() > 0:
+			$Serve.play()
 			for button in buttons_pressed:
 				var menu_item = current_character.tray.remove_object(button)
 				if menu_item != null:

@@ -86,6 +86,7 @@ func launch_game(bindings):
 	game_world.set_players_devices(bindings)
 	ui_background.visible = false
 	game_state = GameState.GAME
+	$Music.play()
 
 func return_to_main_menu():
 	if game_state == GameState.MENU_PAUSE or game_state == GameState.MENU_BINDINGS:
