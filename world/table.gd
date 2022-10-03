@@ -8,7 +8,7 @@ var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client2.tscn")
 ]
 
-var Menu: MenuRessource = preload("res://data/menu/menu.tres")
+@onready var Menu: MenuRessource = GameParams.get_current_menu()
 
 @onready var infoBulle: Node2D = $InfoBulle
 @onready var infoBulleLabel: Label = $InfoBulle/Label

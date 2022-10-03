@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 
-const Menu: MenuRessource = preload("res://data/menu/menu.tres")
+@onready var Menu: MenuRessource = GameParams.get_current_menu()
 
 ### Variables
 
