@@ -35,6 +35,7 @@ func _process(delta):
 
 func create_game():
 	game_world = GAME_WORLD.instantiate();
+	game_world.stop_game();
 	game_slot.add_child(game_world);
 
 func quit_application():
@@ -84,6 +85,7 @@ func pause_game():
 func launch_game(bindings):
 	clear_ui_center_slot()
 	game_world.set_players_devices(bindings)
+	game_world.start_game()
 	ui_background.visible = false
 	game_state = GameState.GAME
 
