@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://d27uf80nceqht" path="res://data/menu/ingredients/coffee.tres" id="1_c1d2j"]
 [ext_resource type="Script" path="res://data/menu/ingredient_quantity_ressource.gd" id="2_oatrc"]
-[ext_resource type="Resource" path="res://data/menu/ingredients/water.tres" id="3_bx70c"]
+[ext_resource type="Resource" uid="uid://bp3uppwdllcso" path="res://data/menu/ingredients/water.tres" id="3_bx70c"]
 [ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_pq0q4"]
 
 [sub_resource type="Resource" id="Resource_ifxa1"]

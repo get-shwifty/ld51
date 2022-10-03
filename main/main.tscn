@@ -45,7 +45,6 @@ theme = ExtResource("2_x7jhr")
 stream = ExtResource("3_c3s36")
 volume_db = -4.996
 autoplay = true
-stream_paused = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0sp2b")
