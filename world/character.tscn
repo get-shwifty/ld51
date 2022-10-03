@@ -111,14 +111,13 @@ position = Vector2(-40, 0)
 shape = SubResource("CircleShape2D_mhu7m")
 
 [node name="InfoBulleMenuItems" type="Node2D" parent="."]
-visible = false
-position = Vector2(-40, 0)
+position = Vector2(-40, 7)
 z_index = 1002
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulleMenuItems"]
-position = Vector2(-0.499999, -0.500001)
-scale = Vector2(1.29545, 1.1)
+position = Vector2(-0.499999, -8)
+scale = Vector2(1.29545, 0.8)
 texture = ExtResource("3_wsu55")
 
 [node name="Background_arrows" type="Sprite2D" parent="InfoBulleMenuItems"]
@@ -134,21 +133,17 @@ position = Vector2(18, -1)
 metadata/_edit_group_ = true
 
 [node name="pos3" type="Node2D" parent="InfoBulleMenuItems"]
-position = Vector2(-1, 15)
-metadata/_edit_group_ = true
-
-[node name="pos4" type="Node2D" parent="InfoBulleMenuItems"]
 position = Vector2(-20, 0)
 metadata/_edit_group_ = true
 
 [node name="InfoBulleCoffeeMachine" type="Node2D" parent="."]
-position = Vector2(-40, 0)
+position = Vector2(-40, 7)
 z_index = 1002
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulleCoffeeMachine"]
-position = Vector2(-0.499999, -0.500001)
-scale = Vector2(1.29545, 1.1)
+position = Vector2(-0.499999, -8)
+scale = Vector2(1.29545, 0.8)
 texture = ExtResource("3_wsu55")
 
 [node name="Background_arrows" type="Sprite2D" parent="InfoBulleCoffeeMachine"]
@@ -156,7 +151,7 @@ position = Vector2(-1.78814e-07, -2.08616e-07)
 texture = ExtResource("4_7tvo3")
 
 [node name="pos1" type="Node2D" parent="InfoBulleCoffeeMachine"]
-position = Vector2(-1, -22)
+position = Vector2(-20, 0)
 metadata/_edit_group_ = true
 
 [node name="pos2" type="Node2D" parent="InfoBulleCoffeeMachine"]
@@ -164,9 +159,5 @@ position = Vector2(18, -1)
 metadata/_edit_group_ = true
 
 [node name="pos3" type="Node2D" parent="InfoBulleCoffeeMachine"]
-position = Vector2(-1, 15)
-metadata/_edit_group_ = true
-
-[node name="pos4" type="Node2D" parent="InfoBulleCoffeeMachine"]
-position = Vector2(-20, 0)
+position = Vector2(-1, -22)
 metadata/_edit_group_ = true

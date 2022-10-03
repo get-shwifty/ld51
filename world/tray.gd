@@ -4,7 +4,7 @@ class_name Tray
 @onready var sprite: Sprite2D = $Sprite2d
 @onready var objects_poses: Node2D = $Objects
 
-var objects = [null, null, null, null]
+var objects = [null, null, null]
 
 func _ready():
 	if is_empty():

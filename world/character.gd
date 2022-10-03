@@ -121,7 +121,20 @@ func put_objects_on(other_tray: Tray):
 
 ### Graphics
 
+func set_texture(info_bulle):
+	match current_device:
+		DevicesHelper.KEYBOARD_ARROWS:
+			infoBulleMenuItems.find_child("Background_arrows").texture = null
+		DevicesHelper.KEYBOARD_ZQSD:
+			infoBulleMenuItems.find_child("Background_arrows").texture = null
+		DevicesHelper.CONTROLLER1:
+			infoBulleMenuItems.find_child("Background_arrows").texture = null
+		DevicesHelper.CONTROLLER2:
+			infoBulleMenuItems.find_child("Background_arrows").texture = null
+
 func update_infobulle():
+	set_texture(infoBulleMenuItems)
+	
 	var positions = infoBulleMenuItems.find_children("pos?")
 	for i in range(len(tray.objects)):
 		var menu_item_instance = tray.get_object_at(i)
@@ -159,13 +172,13 @@ func update_infobubble_coffee_machine(available_ingredients):
 	
 	if available_ingredients.size() > 0:
 		var instance = available_ingredients[0].icon.instantiate()
-		positions[3].add_child(instance)
+		positions[0].add_child(instance)
 	if available_ingredients.size() > 1:
 		positions[1].add_child(available_ingredients[1].icon.instantiate())
 	if available_ingredients.size() > 2:
-		positions[0].add_child(available_ingredients[2].icon.instantiate())
-	if available_ingredients.size() > 3:
-		positions[2].add_child(available_ingredients[3].icon.instantiate())
+		positions[2].add_child(available_ingredients[2].icon.instantiate())
+	#if available_ingredients.size() > 3:
+	#	positions[2].add_child(available_ingredients[3].icon.instantiate())
 
 
 func anim_walk():

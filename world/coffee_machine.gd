@@ -80,18 +80,18 @@ func _process(delta):
 	var available_ingredients = INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step];
 	var available_number = available_ingredients.size()
 	
-	if Input.is_action_just_pressed(get_input_name("left")):
+	if Input.is_action_just_pressed(get_input_name("action_left")):
 		if available_number > 0:
 			add_ingredient(available_ingredients[0])
-	if Input.is_action_just_pressed(get_input_name("right")):
+	if Input.is_action_just_pressed(get_input_name("action_right")):
 		if available_number > 1:
 			add_ingredient(available_ingredients[1])
-	if Input.is_action_just_pressed(get_input_name("up")):
+	if Input.is_action_just_pressed(get_input_name("action_up")):
 		if available_number > 2:
 			add_ingredient(available_ingredients[2])
-	if Input.is_action_just_pressed(get_input_name("down")):
-		if available_number > 3:
-			add_ingredient(available_ingredients[3])
+	#if Input.is_action_just_pressed(get_input_name("down")):
+	#	if available_number > 3:
+	#		add_ingredient(available_ingredients[3])
 
 func add_ingredient(ingredient : IngredientRessource):
 	current_preparation[-1].push_back(ingredient)

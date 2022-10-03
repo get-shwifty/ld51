@@ -24,10 +24,7 @@ shape = SubResource("CircleShape2D_uqupl")
 position = Vector2(0, -7)
 
 [node name="Marker2d2" type="Marker2D" parent="Objects"]
-position = Vector2(7, 0)
+position = Vector2(7, 6)
 
 [node name="Marker2d3" type="Marker2D" parent="Objects"]
-position = Vector2(0, 8)
-
-[node name="Marker2d4" type="Marker2D" parent="Objects"]
-position = Vector2(-8, 0)
+position = Vector2(-8, 6)

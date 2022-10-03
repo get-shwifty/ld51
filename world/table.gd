@@ -56,13 +56,13 @@ func is_interact_free():
 func _process(delta):
 	if current_character != null and current_clients.size() > 0:
 		var buttons_pressed = []
-		if Input.is_action_just_pressed(get_input_name("up")):
+		if Input.is_action_just_pressed(get_input_name("action_up")):
 			buttons_pressed.push_back(0)
-		if Input.is_action_just_pressed(get_input_name("down")):
+		#if Input.is_action_just_pressed(get_input_name("action_down")):
+		#	buttons_pressed.push_back(2)
+		if Input.is_action_just_pressed(get_input_name("action_left")):
 			buttons_pressed.push_back(2)
-		if Input.is_action_just_pressed(get_input_name("left")):
-			buttons_pressed.push_back(3)
-		if Input.is_action_just_pressed(get_input_name("right")):
+		if Input.is_action_just_pressed(get_input_name("action_right")):
 			buttons_pressed.push_back(1)
 		
 		if buttons_pressed.size() > 0:
