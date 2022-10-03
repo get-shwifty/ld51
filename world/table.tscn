@@ -21,19 +21,19 @@ script = ExtResource("1_rfeft")
 
 [node name="Chairs" type="Node2D" parent="."]
 
-[node name="Chair" parent="Chairs" instance=ExtResource("2_637c5")]
-
-[node name="Chair2" parent="Chairs" instance=ExtResource("2_637c5")]
+[node name="Chair1" parent="Chairs" instance=ExtResource("2_637c5")]
 position = Vector2(0, -38)
 rotation = 1.5708
 
-[node name="Chair3" parent="Chairs" instance=ExtResource("2_637c5")]
+[node name="Chair2" parent="Chairs" instance=ExtResource("2_637c5")]
 position = Vector2(38, 0)
 rotation = -3.14159
 
-[node name="Chair4" parent="Chairs" instance=ExtResource("2_637c5")]
+[node name="Chair3" parent="Chairs" instance=ExtResource("2_637c5")]
 position = Vector2(0, 38)
 rotation = -1.5708
+
+[node name="Chair4" parent="Chairs" instance=ExtResource("2_637c5")]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("2_tbbdu")

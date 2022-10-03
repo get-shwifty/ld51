@@ -35,14 +35,26 @@ func _ready():
 		receipes.push_back(dish.recipe.name)
 	infoBulle.visible = false
 
+func are_clients_on_table():
+	for chair in chairs:
+		if chair.active == true and chair.in_table == false:
+			return false
+	return true
+
+func are_client_out():
+	for chair in chairs:
+		if chair.active == true:
+			return false
+	return true
+
 func is_empty():
-	return current_clients.size() == 0
+	return current_clients.size() == 0 and nb_clients == 0
 
 func is_interact_free():
-	return super() and !is_empty() and nb_clients > 0
+	return super() and current_clients.size() > 0 and nb_clients > 0 and are_clients_on_table()
 
 func _process(delta):
-	if current_character != null and !is_empty():
+	if current_character != null and current_clients.size() > 0:
 		var buttons_pressed = []
 		if Input.is_action_just_pressed(get_input_name("up")):
 			buttons_pressed.push_back(0)
@@ -91,17 +103,21 @@ func _process(delta):
 	if drinking_timer != null and drinking_timer.get_time_left() <= 0:
 		# table is done!
 		for i in range(chairs.size()):
-			if chairs[i].client_scene != null:
-				chairs[i].remove_child(chairs[i].client_scene)
-				chairs[i].client_scene = null
+			if chairs[i].in_table == true:
+				chairs[i].move_out_client()
 		
 		for coffee in coffees.get_children():
 			for child in coffee.get_children():
 				coffee.remove_child(child)
 		
 		drinking_timer = null
-		nb_clients = 0
 		update_infobulle()
+	
+	if current_clients.size() == 0 and drinking_timer == null and nb_clients > 0:
+		if are_client_out():
+			nb_clients = 0
+	
+	update_infobulle()
 
 func create_clients(nb):
 	nb_clients = nb
@@ -109,13 +125,12 @@ func create_clients(nb):
 	for i in range(nb_clients):
 		current_clients.push_back(receipes[randi() % len(receipes)])
 		var client_scene = clients_scenes[randi() % len(clients_scenes)].instantiate()
-		chairs[i].client_scene = client_scene
-		chairs[i].add_child(client_scene)
+		chairs[i].move_in_client(client_scene)
 	
 	update_infobulle()
 
 func update_infobulle():
-	infoBulle.visible = !is_empty() and \
+	infoBulle.visible = current_clients.size() > 0 and are_clients_on_table() and \
 		len(characterDetector.get_overlapping_bodies()) > 0
 	if infoBulle.visible:
 		infoBulleLabel.text = ""
