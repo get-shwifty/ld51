@@ -115,8 +115,10 @@ func on_interact_end():
 	for recipe in recipes:
 		print(recipe.name)
 	
-	if current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
+	if current_preparation_step == 0 and current_preparation[0].size() == 0:
 		info_bubble.visible = false
+		reset_prepation() #nothing prepared, leave the machine like you didn't interact with it
+	elif current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
 		var preparation_name = "unknown"
 		
 		if recipes.size() == 0:
@@ -135,6 +137,7 @@ func on_interact_end():
 			drop_zone.add_object(menu_item_instance)
 		
 		print(preparation_name + " ready")
+		info_bubble.visible = false
 		reset_prepation()
 	else:
 		#TODO this should be taken from the menu data
