@@ -1,8 +1,8 @@
 extends Node2D
 
 const NB_RECIPES_PER_LINE = 6
-const RECIPE_W = 72
-const RECIPE_H = 24
+const RECIPE_W = 96
+const RECIPE_H = 32
 
 var Menu: MenuRessource = preload("res://data/menu/menu.tres")
 var RecipeScene: PackedScene = preload("res://world/recipe.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkyinapyyyua5"]
+[gd_scene load_steps=7 format=3 uid="uid://bkyinapyyyua5"]
 
 [ext_resource type="PackedScene" uid="uid://chotcx7805h2j" path="res://world/recipe.tscn" id="1_r343m"]
 [ext_resource type="Script" path="res://world/recipes.gd" id="1_ua00c"]
@@ -10,16 +10,28 @@ colors = PackedColorArray(0.54902, 0.133333, 0.0313726, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_27sl1"]
 gradient = SubResource("Gradient_upn3h")
 
+[sub_resource type="Gradient" id="Gradient_k7w4j"]
+offsets = PackedFloat32Array(0.909864)
+colors = PackedColorArray(0.748865, 0.569844, 0.460678, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ey00s"]
+gradient = SubResource("Gradient_k7w4j")
+
 [node name="Manual" type="Node2D"]
 top_level = true
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-position = Vector2(288, 32.25)
-scale = Vector2(2.25, 64.5)
+position = Vector2(288, 32)
+scale = Vector2(2.25, 64)
 texture = SubResource("GradientTexture1D_27sl1")
 
+[node name="Sprite2d2" type="Sprite2D" parent="."]
+position = Vector2(287.5, 30.5)
+scale = Vector2(8.85938, 0.953125)
+texture = SubResource("GradientTexture2D_ey00s")
+
 [node name="Recipes" type="Node2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(8, 3)
 script = ExtResource("1_ua00c")
 metadata/_edit_group_ = true
 
