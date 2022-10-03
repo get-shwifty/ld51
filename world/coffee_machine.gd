@@ -69,6 +69,7 @@ func _ready():
 	reset_prepation()
 
 func _process(delta):
+	handle_info_bubble_movement()
 	if loading_time_remaining > 0:
 		loading_time_remaining -= delta
 		refresh_loading_ratio()
@@ -94,6 +95,9 @@ func _process(delta):
 	#		add_ingredient(available_ingredients[3])
 
 func add_ingredient(ingredient : IngredientRessource):
+	if current_preparation[-1].size() == 8:
+		return;
+	
 	current_preparation[-1].push_back(ingredient)
 	var icon =  TextureRect.new();
 	icon.set_texture(ingredient.icon_texture)
@@ -102,7 +106,19 @@ func add_ingredient(ingredient : IngredientRessource):
 	print("Adding ingredient "+ ingredient.name)
 
 func handle_info_bubble_movement():
+	var additional_ratio = 1
+	var amplitude = 2
+	if loading_time_remaining > 0:
+		additional_ratio = 3
+	elif loading_time_remaining < 0:
+		additional_ratio = 5
+		amplitude = 4
+	
+	var base_ratio = 0.001
 	var now = Time.get_ticks_msec()
+	var position = $InfoBubbleRoot.position
+	position.x = position.x + (cos(now*base_ratio*additional_ratio)+1)*amplitude
+	$InfoBubble.set_position(position)
 	
 
 
