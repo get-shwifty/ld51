@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=38 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://p5gbprpiqgig" path="res://assets/graphics/comptoir_fenetre.png" id="7_lplvu"]
 [ext_resource type="Theme" uid="uid://cqr3y35uwudr6" path="res://ui/ui_theme.tres" id="8_7m88b"]
 [ext_resource type="PackedScene" uid="uid://bkyinapyyyua5" path="res://world/manual.tscn" id="8_bv1ey"]
+[ext_resource type="Texture2D" uid="uid://jb4hgb0dc7sk" path="res://assets/graphics/cadre_porte.png" id="9_gkfgf"]
 [ext_resource type="Script" path="res://world/hud.gd" id="9_jxdwe"]
 [ext_resource type="Texture2D" uid="uid://cqtgdrwr4xqu0" path="res://white.png" id="10_k283k"]
 [ext_resource type="Shader" path="res://new_look_shader.gdshader" id="12_3erq7"]
+[ext_resource type="PackedScene" uid="uid://dngmn70kndugw" path="res://world/door.tscn" id="16_8it30"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_otvvd"]
 shader = ExtResource("12_3erq7")
@@ -372,6 +374,11 @@ rotation = 1.64211
 position = Vector2(232, 52)
 texture = ExtResource("7_lplvu")
 
+[node name="Top_Door" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(26, 160)
+texture = ExtResource("9_gkfgf")
+
 [node name="Trays" type="Node2D" parent="."]
 
 [node name="Tray" parent="Trays" instance=ExtResource("3_wgn7p")]
@@ -474,6 +481,9 @@ offset_bottom = 29.0
 theme = ExtResource("8_7m88b")
 theme_override_colors/font_color = Color(0.027451, 0.329412, 0.360784, 1)
 text = "Combo x1"
+
+[node name="Door" parent="." instance=ExtResource("16_8it30")]
+position = Vector2(39, 149)
 
 [editable path="Tables/Table"]
 [editable path="Tables/Table/Chairs/Chair1"]

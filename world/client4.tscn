@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnhg08w2n5d3e"]
+[gd_scene load_steps=9 format=3 uid="uid://bnhg08w2n5d3e"]
 
 [ext_resource type="Texture2D" uid="uid://cvnf3yxjt182d" path="res://assets/graphics/client_4.png" id="1_5yfkp"]
 
@@ -35,8 +35,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Sprite2d" type="AnimatedSprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1o1l"]
+radius = 12.0
+
+[node name="Client4" type="CharacterBody2D"]
 rotation = 3.14159
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_ygvny")
 animation = &"walk"
 playing = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r1o1l")

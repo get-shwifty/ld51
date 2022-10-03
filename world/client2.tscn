@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://m0pjwkrhosvh"]
+[gd_scene load_steps=10 format=3 uid="uid://m0pjwkrhosvh"]
 
+[ext_resource type="Script" path="res://world/client.gd" id="1_0r2ww"]
 [ext_resource type="Texture2D" uid="uid://cptuumeawi5ft" path="res://assets/graphics/client_2.png" id="1_8tv43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e61k8"]
@@ -35,8 +36,19 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Sprite2d" type="AnimatedSprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yus0x"]
+radius = 12.0
+
+[node name="Client2" type="CharacterBody2D"]
 rotation = 3.14159
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_0r2ww")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_q5vkm")
 animation = &"walk"
 playing = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yus0x")
