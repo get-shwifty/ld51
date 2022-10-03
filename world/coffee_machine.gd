@@ -133,7 +133,7 @@ func on_interact_end():
 			push_error("Too many recipes are matching, this should not be possible")
 			
 		var menu_item_instance = MENU_ITEM_SCENE.instantiate()
-		menu_item_instance.menu_item_name = preparation_name
+		menu_item_instance.set_menu_item_name(preparation_name)
 		
 		if current_character.tray.has_free_place():
 			current_character.tray.add_object(menu_item_instance)
