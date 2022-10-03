@@ -44,6 +44,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2d" type="CollisionShape2D" parent="TakeablePos"]
 shape = SubResource("RectangleShape2D_ftmsb")
 
+[node name="InfoBubbleRoot" type="Marker2D" parent="."]
+
 [node name="InfoBubble" type="Node2D" parent="."]
 visible = false
 position = Vector2(23, 0)
