@@ -4,6 +4,10 @@ const SPEED = 130.0
 
 @onready var Menu: MenuRessource = GameParams.get_current_menu()
 
+@onready var keys_arrows = preload("res://assets/graphics/touches_fleches.png")
+@onready var keys_zqsd = preload("res://assets/graphics/touches_clavier.png")
+@onready var keys_ctrl = preload("res://assets/graphics/touches_manettes.png")
+
 ### Variables
 
 @onready var rotationNode: Node2D = $Rotation
@@ -124,13 +128,16 @@ func put_objects_on(other_tray: Tray):
 func set_texture(info_bulle):
 	match current_device:
 		DevicesHelper.KEYBOARD_ARROWS:
-			infoBulleMenuItems.find_child("Background_arrows").texture = null
+			print("arrows")
+			info_bulle.find_child("Background_arrows").texture = keys_arrows
 		DevicesHelper.KEYBOARD_ZQSD:
-			infoBulleMenuItems.find_child("Background_arrows").texture = null
+			print("zqsd")
+			info_bulle.find_child("Background_arrows").texture = keys_zqsd
 		DevicesHelper.CONTROLLER1:
-			infoBulleMenuItems.find_child("Background_arrows").texture = null
+			print("ctrl1")
+			info_bulle.find_child("Background_arrows").texture = keys_ctrl
 		DevicesHelper.CONTROLLER2:
-			infoBulleMenuItems.find_child("Background_arrows").texture = null
+			info_bulle.find_child("Background_arrows").texture = keys_ctrl
 
 func update_infobulle():
 	set_texture(infoBulleMenuItems)
@@ -164,6 +171,8 @@ func hide_infobubble_coffee_machine():
 	infobubleCoffeeMachine.visible = false
 
 func update_infobubble_coffee_machine(available_ingredients):
+	set_texture(infobubleCoffeeMachine)
+	
 	var positions = infobubleCoffeeMachine.find_children("pos?")
 
 	for i in range(0,positions.size()):
