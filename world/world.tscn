@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=35 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
@@ -40,11 +40,77 @@ size = Vector2(176, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wox6"]
 size = Vector2(64, 32)
 
+[sub_resource type="Curve2D" id="Curve2D_n3l2y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2.0013, 356, 0, 0, 0, 0, -1.99893, 296, 0, 0, 0, 0, -25.9993, 180, 0, 0, 0, 0, -25.9995, 132, 0, 0, 0, 0, -17.9997, 80.0001, 0, 0, 0, 0, -1.99985, 40, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 6, -3.05176e-05)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_3ti0s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 418, 39.9989, 0, 0, 0, 0, 342, 39.9991, 0, 0, 0, 0, 262, 47.9993, 0, 0, 0, 0, 194, 67.9995, 0, 0, 0, 0, 126, 67.9997, 0, 0, 0, 0, 42.0002, 59.9999, 0, 0, 0, 0, 10.0001, 48, 0, 0, 0, 0, 2.00009, 36, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, -1.52588e-05)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_ykri3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 78.0015, -404, 0, 0, 0, 0, 78.0011, -292, 0, 0, 0, 0, 74.0009, -260, 0, 0, 0, 0, 50.0009, -248, 0, 0, 0, 0, 18.0008, -232, 0, 0, 0, 0, -5.99921, -220, 0, 0, 0, 0, -17.9993, -196, 0, 0, 0, 0, -21.9994, -156, 0, 0, 0, 0, -17.9996, -124, 0, 0, 0, 0, -13.9996, -96.0001, 0, 0, 0, 0, -5.99977, -64, 0, 0, 0, 0, -1.99983, -44, 0, 0, 0, 0, 2.00008, -20, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, 0)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_75uc5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -390, -40, 0, 0, 0, 0, -218, -40, 0, 0, 0, 0, -150, -60, 0, 0, 0, 0, -118, -64, 0, 0, 0, 0, -86, -56, 0, 0, 0, 0, -50, -44, 0, 0, 0, 0, -14, -32, 0, 0, 0, 0, -2, -24, 0, 0, 0, 0, 2, -12, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="Curve2D_s2wb7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2.00073, 200, 0, 0, 0, 0, -1.99947, 148, 0, 0, 0, 0, -1.99982, 52, 0, 0, 0, 0, 2.00008, 20, 0, 0, 0, 0, 2, -1.52588e-05, 0, 0, 0, 0, 6, -3.05176e-05)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_l60oq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 262, 35.9993, 0, 0, 0, 0, 186, 39.9995, 0, 0, 0, 0, 138, 43.9996, 0, 0, 0, 0, 74.0001, 55.9998, 0, 0, 0, 0, 50.0002, 59.9999, 0, 0, 0, 0, 34.0002, 59.9999, 0, 0, 0, 0, 18.0001, 56, 0, 0, 0, 0, 10.0001, 48, 0, 0, 0, 0, 6.00009, 36, 0, 0, 0, 0, 2.00005, 20, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, -1.52588e-05)
+}
+point_count = 12
+
+[sub_resource type="Curve2D" id="Curve2D_6lm3b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 74.0009, -248, 0, 0, 0, 0, 78.0005, -148, 0, 0, 0, 0, 74.0004, -104, 0, 0, 0, 0, 26.0003, -79.9999, 0, 0, 0, 0, 18.0002, -67.9999, 0, 0, 0, 0, 10.0002, -56, 0, 0, 0, 0, 6.00015, -40, 0, 0, 0, 0, 2.00008, -20, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, 1.52588e-05)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_g7di7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -234, -36, 0, 0, 0, 0, -110, -40, 0, 0, 0, 0, -66, -36, 0, 0, 0, 0, -34, -32, 0, 0, 0, 0, -10, -24, 0, 0, 0, 0, 2, -20, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, 0)
+}
+point_count = 8
+
 [sub_resource type="Curve2D" id="Curve2D_7n01c"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -87.9995, -144, 0, 0, 0, 0, -87.9998, -52.0003, 0, 0, 0, 0, -55.9999, -36.0002, 0, 0, 0, 0, 4.00008, -20, 0, 0, 0, 0, 4, 1.52588e-05, 0, 0, 0, 0, 8.18182, 3.05176e-05)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_0sumd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -83.9993, -200, 0, 0, 0, 0, -87.9995, -148, 0, 0, 0, 0, -87.9996, -104, 0, 0, 0, 0, -63.9998, -56.0002, 0, 0, 0, 0, -31.9999, -36.0001, 0, 0, 0, 0, 9.15527e-05, -24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1.52588e-05)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_8ylfd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -87.9991, -260, 0, 0, 0, 0, -87.9994, -156, 0, 0, 0, 0, -63.9996, -108, 0, 0, 0, 0, -35.9998, -56.0001, 0, 0, 0, 0, -15.9999, -28.0001, 0, 0, 0, 0, 8.39233e-05, -24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1.52588e-05)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_v5j7y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -83.9986, -388, 0, 0, 0, 0, -87.9988, -332, 0, 0, 0, 0, -87.999, -284, 0, 0, 0, 0, -51.9993, -188, 0, 0, 0, 0, -31.9996, -116, 0, 0, 0, 0, 0.000160217, -44, 0, 0, 0, 0, 8.39233e-05, -24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3.05176e-05)
+}
+point_count = 9
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -116,8 +182,64 @@ shape = SubResource("RectangleShape2D_4wox6")
 [node name="Table" parent="Tables" instance=ExtResource("2_6ndcl")]
 position = Vector2(324, 200)
 
+[node name="Path2d" parent="Tables/Table/Chairs/Chair1" index="2"]
+curve = SubResource("Curve2D_n3l2y")
+
+[node name="PathFollow2d" parent="Tables/Table/Chairs/Chair1/Path2d" index="0"]
+position = Vector2(2.0013, 356)
+rotation = -1.63737
+
+[node name="Path2d" parent="Tables/Table/Chairs/Chair2" index="2"]
+curve = SubResource("Curve2D_3ti0s")
+
+[node name="PathFollow2d" parent="Tables/Table/Chairs/Chair2/Path2d" index="0"]
+position = Vector2(418, 39.9989)
+rotation = 3.14159
+
+[node name="Path2d" parent="Tables/Table/Chairs/Chair3" index="2"]
+curve = SubResource("Curve2D_ykri3")
+
+[node name="PathFollow2d" parent="Tables/Table/Chairs/Chair3/Path2d" index="0"]
+position = Vector2(78.0015, -404)
+rotation = 1.5708
+
+[node name="Path2d" parent="Tables/Table/Chairs/Chair4" index="2"]
+curve = SubResource("Curve2D_75uc5")
+
+[node name="PathFollow2d" parent="Tables/Table/Chairs/Chair4/Path2d" index="0"]
+position = Vector2(-390, -40)
+rotation = 0.0
+
 [node name="Table2" parent="Tables" instance=ExtResource("2_6ndcl")]
 position = Vector2(168, 200)
+
+[node name="Path2d" parent="Tables/Table2/Chairs/Chair1" index="2"]
+curve = SubResource("Curve2D_s2wb7")
+
+[node name="PathFollow2d" parent="Tables/Table2/Chairs/Chair1/Path2d" index="0"]
+position = Vector2(2.00073, 200)
+rotation = -1.64757
+
+[node name="Path2d" parent="Tables/Table2/Chairs/Chair2" index="2"]
+curve = SubResource("Curve2D_l60oq")
+
+[node name="PathFollow2d" parent="Tables/Table2/Chairs/Chair2/Path2d" index="0"]
+position = Vector2(262, 35.9993)
+rotation = 3.089
+
+[node name="Path2d" parent="Tables/Table2/Chairs/Chair3" index="2"]
+curve = SubResource("Curve2D_6lm3b")
+
+[node name="PathFollow2d" parent="Tables/Table2/Chairs/Chair3/Path2d" index="0"]
+position = Vector2(74.0009, -248)
+rotation = 1.53083
+
+[node name="Path2d" parent="Tables/Table2/Chairs/Chair4" index="2"]
+curve = SubResource("Curve2D_g7di7")
+
+[node name="PathFollow2d" parent="Tables/Table2/Chairs/Chair4/Path2d" index="0"]
+position = Vector2(-234, -36)
+rotation = -0.0322496
 
 [node name="SmallTable" parent="Tables" instance=ExtResource("4_g0efd")]
 position = Vector2(112, 40)
@@ -134,11 +256,32 @@ rotation = 1.5708
 [node name="SmallTable2" parent="Tables" instance=ExtResource("4_g0efd")]
 position = Vector2(168, 40)
 
+[node name="Path2d" parent="Tables/SmallTable2/Chairs/Chair" index="2"]
+curve = SubResource("Curve2D_0sumd")
+
+[node name="PathFollow2d" parent="Tables/SmallTable2/Chairs/Chair/Path2d" index="0"]
+position = Vector2(-83.9993, -200)
+rotation = 1.64757
+
 [node name="SmallTable3" parent="Tables" instance=ExtResource("4_g0efd")]
 position = Vector2(224, 40)
 
+[node name="Path2d" parent="Tables/SmallTable3/Chairs/Chair" index="2"]
+curve = SubResource("Curve2D_8ylfd")
+
+[node name="PathFollow2d" parent="Tables/SmallTable3/Chairs/Chair/Path2d" index="0"]
+position = Vector2(-87.9991, -260)
+rotation = 1.5708
+
 [node name="SmallTable4" parent="Tables" instance=ExtResource("4_g0efd")]
 position = Vector2(352, 40)
+
+[node name="Path2d" parent="Tables/SmallTable4/Chairs/Chair" index="2"]
+curve = SubResource("Curve2D_v5j7y")
+
+[node name="PathFollow2d" parent="Tables/SmallTable4/Chairs/Chair/Path2d" index="0"]
+position = Vector2(-83.9986, -388)
+rotation = 1.64211
 
 [node name="Comptoirs" type="Sprite2D" parent="."]
 position = Vector2(232, 52)
@@ -214,6 +357,7 @@ theme = ExtResource("8_7m88b")
 script = ExtResource("9_jxdwe")
 
 [node name="ComboLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 413.0
 offset_top = 10.0
 offset_right = 491.0
@@ -221,6 +365,7 @@ offset_bottom = 36.0
 text = "Combo x1"
 
 [node name="TimeLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 425.0
 offset_top = 10.0
 offset_right = 527.0
@@ -229,6 +374,7 @@ text = "07:00"
 horizontal_alignment = 2
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 362.0
 offset_top = 25.0
 offset_right = 517.0
@@ -236,5 +382,21 @@ offset_bottom = 42.0
 text = "100$"
 horizontal_alignment = 2
 
+[editable path="Tables/Table"]
+[editable path="Tables/Table/Chairs/Chair1"]
+[editable path="Tables/Table/Chairs/Chair2"]
+[editable path="Tables/Table/Chairs/Chair3"]
+[editable path="Tables/Table/Chairs/Chair4"]
+[editable path="Tables/Table2"]
+[editable path="Tables/Table2/Chairs/Chair1"]
+[editable path="Tables/Table2/Chairs/Chair2"]
+[editable path="Tables/Table2/Chairs/Chair3"]
+[editable path="Tables/Table2/Chairs/Chair4"]
 [editable path="Tables/SmallTable"]
 [editable path="Tables/SmallTable/Chairs/Chair"]
+[editable path="Tables/SmallTable2"]
+[editable path="Tables/SmallTable2/Chairs/Chair"]
+[editable path="Tables/SmallTable3"]
+[editable path="Tables/SmallTable3/Chairs/Chair"]
+[editable path="Tables/SmallTable4"]
+[editable path="Tables/SmallTable4/Chairs/Chair"]

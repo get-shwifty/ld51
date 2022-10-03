@@ -1,8 +1,8 @@
 extends Node
 class_name World
 
-const START_FIRST_CLIENT = 1000
-const SPAWN_INTERVAL = 1000
+const START_FIRST_CLIENT = 3000
+const SPAWN_INTERVAL = 10000
 
 var character_scene: PackedScene = preload("res://world/character.tscn")
 

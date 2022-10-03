@@ -107,7 +107,9 @@ func _process(delta):
 	
 	if current_clients.size() == 0 and drinking_timer == null and nb_clients > 0:
 		if are_client_out():
-			pass # nb_clients = 0
+			nb_clients = 0
+	
+	update_infobulle()
 
 func create_clients(nb):
 	nb_clients = nb
@@ -120,7 +122,7 @@ func create_clients(nb):
 	update_infobulle()
 
 func update_infobulle():
-	infoBulle.visible = current_clients.size() > 0 and \
+	infoBulle.visible = current_clients.size() > 0 and are_clients_on_table() and \
 		len(characterDetector.get_overlapping_bodies()) > 0
 	if infoBulle.visible:
 		infoBulleLabel.text = ""
