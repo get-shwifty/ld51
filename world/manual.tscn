@@ -5,7 +5,7 @@
 
 [sub_resource type="Gradient" id="Gradient_upn3h"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.772549, 0.407843, 0, 1)
+colors = PackedColorArray(0.54902, 0.133333, 0.0313726, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_27sl1"]
 gradient = SubResource("Gradient_upn3h")
@@ -19,7 +19,7 @@ scale = Vector2(2.25, 64.5)
 texture = SubResource("GradientTexture1D_27sl1")
 
 [node name="Recipes" type="Node2D" parent="."]
-position = Vector2(8, 4)
+position = Vector2(8, 0)
 script = ExtResource("1_ua00c")
 metadata/_edit_group_ = true
 
