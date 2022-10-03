@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnhg08w2n5d3e"]
+
+[ext_resource type="Texture2D" uid="uid://cvnf3yxjt182d" path="res://assets/graphics/client_4.png" id="1_5yfkp"]
+
+[node name="Sprite2d" type="Sprite2D"]
+rotation = 3.14159
+texture = ExtResource("1_5yfkp")
+hframes = 4

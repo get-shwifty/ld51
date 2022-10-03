@@ -8,8 +8,13 @@ var receipes: Array[String] = []
 
 var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client1.tscn"),
-	preload("res://world/client2.tscn")
+	preload("res://world/client2.tscn"),
+	preload("res://world/client3.tscn"),
+	preload("res://world/client4.tscn")
 ]
+
+signal coffee_served(coffee_name)
+signal bad_coffee_served()
 
 @onready var Menu: MenuRessource = GameParams.get_current_menu()
 
@@ -61,11 +66,13 @@ func _process(delta):
 			buttons_pressed.push_back(1)
 		
 		if buttons_pressed.size() > 0:
+			$Serve.play()
 			for button in buttons_pressed:
 				var menu_item = current_character.tray.remove_object(button)
 				if menu_item != null:
 					var remove_index = current_clients.find(menu_item.menu_item_name)
 					if remove_index >= 0:
+						coffee_served.emit(menu_item.menu_item_name)
 						# remove coffee from the table list
 						current_clients.remove_at(remove_index)
 						
@@ -78,6 +85,7 @@ func _process(delta):
 							var free_place = free_places[randi() % free_places.size()]
 							free_place.add_child(menu_item)
 					else:
+						bad_coffee_served.emit()
 						print("TODO feedback bad menu item delivered")
 
 			update_infobulle()

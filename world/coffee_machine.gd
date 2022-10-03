@@ -72,7 +72,8 @@ func _process(delta):
 	if loading_time_remaining > 0:
 		loading_time_remaining -= delta
 		refresh_loading_ratio()
-	
+		if loading_time_remaining <= 0:
+			$Finish.play()
 	if super.is_interact_free():
 		return
 	
@@ -97,6 +98,7 @@ func add_ingredient(ingredient : IngredientRessource):
 	var icon =  TextureRect.new();
 	icon.set_texture(ingredient.icon_texture)
 	info_bubble_ingredients.add_child(icon)
+	$Ingredient.play()
 	print("Adding ingredient "+ ingredient.name)
 
 

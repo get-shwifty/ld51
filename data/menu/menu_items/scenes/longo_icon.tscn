@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgepq2oao6pb8"]
+
+[ext_resource type="Texture2D" uid="uid://cnm3ohbipihdv" path="res://assets/graphics/long.png" id="1_q10gp"]
+
+[node name="longo_icon" type="Sprite2D"]
+texture = ExtResource("1_q10gp")

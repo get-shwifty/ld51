@@ -6,6 +6,7 @@ class_name HUD
 @onready var score_label : Label = $ScoreLabel;
 
 func format_time_string(time):
+	time = int(floor(time))
 	var minutes = time % 60
 	var hours = time /60
 	var res = "{hours}:{minutes}".format({"hours":"%02d" % hours, "minutes":"%02d" % minutes})
@@ -21,10 +22,13 @@ func set_combo(combo):
 	if combo == 0:
 		combo_label.set_text("")
 	else:
-		combo_label.set_test("Combo x"+str(combo))
+		combo_label.set_text("Combo x"+str(combo))
 
 func set_score(score):
-	score_label.set_text(str(score)+"$")
+	if score == 0:
+		score_label.set_text("")
+	else:
+		score_label.set_text(str(score))
 
 func _ready():
 	set_time_progression(0)

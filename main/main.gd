@@ -3,7 +3,7 @@ extends Node
 const UI_MENU_MAIN : PackedScene = preload("res://ui/menu_main.tscn")
 const UI_MENU_PAUSE : PackedScene = preload("res://ui/menu_pause.tscn")
 const UI_MENU_BINDINGS : PackedScene = preload("res://ui/menu_bindings.tscn")
-#const END_LEVEL_SCENE = preload("res://scenes/ui/LevelEnd.tscn")
+const UI_MENU_SHIFT_END : PackedScene = preload("res://ui/menu_shift_end.tscn")
 
 const GAME_WORLD : PackedScene = preload("res://world/world.tscn")
 
@@ -15,7 +15,7 @@ var game_slot : Node = null;
 #var ui_pause_menu : MenuPause = null;
 var game_world : World = null;
 
-enum GameState { BOOTING, MENU_MAIN, MENU_BINDINGS, MENU_PAUSE, GAME}
+enum GameState { BOOTING, MENU_MAIN, MENU_BINDINGS, MENU_PAUSE, MENU_SHIFT_END, GAME}
 var game_state : GameState = GameState.BOOTING;
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +35,7 @@ func _process(delta):
 
 func create_game():
 	game_world = GAME_WORLD.instantiate();
+	game_world.stop_game();
 	game_slot.add_child(game_world);
 
 func quit_application():
@@ -84,11 +85,14 @@ func pause_game():
 func launch_game(bindings):
 	clear_ui_center_slot()
 	game_world.set_players_devices(bindings)
+	game_world.start_game()
+	game_world.shift_finished.connect(shift_end)
 	ui_background.visible = false
 	game_state = GameState.GAME
+	$Music.play()
 
 func return_to_main_menu():
-	if game_state == GameState.MENU_PAUSE or game_state == GameState.MENU_BINDINGS:
+	if game_state == GameState.MENU_PAUSE or game_state == GameState.MENU_BINDINGS or game_state == GameState.MENU_SHIFT_END:
 		if game_state == GameState.MENU_PAUSE:
 			game_world.resume_game()
 		open_main_menu()
@@ -105,6 +109,19 @@ func resume_game():
 	else:
 		push_error("cannot resume game because it isn't paused")
 
+func shift_end(final_score):
+	if game_state == GameState.GAME:
+		clear_ui_center_slot()
+		ui_background.visible = true
+		
+		var ui_shift_end_menu = UI_MENU_SHIFT_END.instantiate()
+		ui_shift_end_menu.set_final_score(final_score)
+		ui_shift_end_menu.return_to_main_menu.connect(return_to_main_menu)
+		ui_center_slot.add_child(ui_shift_end_menu)
+		
+		game_state = GameState.MENU_SHIFT_END
+	else:
+		push_error("cannot end shift because game isn't running")
 
 
 func clear_ui_center_slot():

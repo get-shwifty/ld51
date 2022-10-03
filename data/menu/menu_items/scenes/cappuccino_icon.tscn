@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp20h8i0qmw0u"]
+
+[ext_resource type="Texture2D" uid="uid://bvho4ie7jw03k" path="res://assets/graphics/cappucino.png" id="1_aqt8q"]
+
+[node name="cappuccino_icon" type="Sprite2D"]
+texture = ExtResource("1_aqt8q")

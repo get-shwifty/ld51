@@ -6,19 +6,47 @@ const SPAWN_INTERVAL = 10000
 
 var character_scene: PackedScene = preload("res://world/character.tscn")
 
+signal shift_finished(total_score)
+
 @onready var tables : Node2D = $Tables
 @onready var last_clients_spawn = Time.get_ticks_msec() - SPAWN_INTERVAL + START_FIRST_CLIENT
-@onready var hud : HUD
+@onready var hud : HUD = $HUD;
 
+var is_game_started = true;
 var score = 0
 var combo = 0
 var time_passed = 0
 
+func _ready():
+	for t in $Tables.get_children():
+		t.bad_coffee_served.connect(bad_coffee_served)
+		t.coffee_served.connect(coffee_served)
+
+func bad_coffee_served():
+	combo = 0
+	refresh_HUD()
+
+func coffee_served(name):
+	combo += 1
+	score += 10 * combo
+	refresh_HUD()
+
 func refresh_HUD():
-	$HUD.set_time
+	hud.set_combo(combo)
+	hud.set_score(score)
+	hud.set_time_progression(time_passed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not is_game_started:
+		return
+	
+	time_passed += delta;
+	refresh_HUD();
+	if time_passed >= GameParams.GAME_DURATION:
+		shift_finished.emit(score)
+		stop_game()
+	
 	var now = Time.get_ticks_msec()
 	if Time.get_ticks_msec() - last_clients_spawn > SPAWN_INTERVAL:
 		last_clients_spawn = now
@@ -45,6 +73,12 @@ func set_players_devices(devices):
 		character.player_num = str(i)
 		character.global_position = find_child("CharacterPos" + str(i)).global_position
 		add_child(character)
+
+func start_game():
+	is_game_started = true;
+
+func stop_game():
+	is_game_started = false;
 
 func pause_game():
 	get_tree().paused = true;

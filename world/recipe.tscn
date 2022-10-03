@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://43gydkbxwip4" path="res://data/menu/ingredients/scenes/milk_icon.tscn" id="7_x6gvq"]
 
 [node name="Recipe" type="Node2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_udsq4")
 
 [node name="Label" type="Label" parent="."]
