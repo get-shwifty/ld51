@@ -5,17 +5,17 @@
 [ext_resource type="Resource" uid="uid://bp3uppwdllcso" path="res://data/menu/ingredients/water.tres" id="3_bx70c"]
 [ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_pq0q4"]
 
-[sub_resource type="Resource" id="Resource_ifxa1"]
+[sub_resource type="Resource" id="Resource_a5bss"]
 script = ExtResource("2_oatrc")
 ingredient = ExtResource("1_c1d2j")
 quantity = 2
 
-[sub_resource type="Resource" id="Resource_86bvc"]
+[sub_resource type="Resource" id="Resource_yo5j7"]
 script = ExtResource("2_oatrc")
 ingredient = ExtResource("3_bx70c")
 quantity = 2
 
 [resource]
 script = ExtResource("4_pq0q4")
-ingredients = [SubResource("Resource_ifxa1"), SubResource("Resource_86bvc")]
+ingredients = [SubResource("Resource_a5bss"), SubResource("Resource_yo5j7")]
 preparationTime = 5
