@@ -24,7 +24,7 @@ float vignetting(vec2 uv){
 }
 
 void fragment() {
-	vec3 current_color = texture(TEXTURE, UV).xyz;
+	vec3 current_color = textureLod(SCREEN_TEXTURE, SCREEN_UV,0.0).xyz;
 	
 	{
 		//Desaturate and shift hue
