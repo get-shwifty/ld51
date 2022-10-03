@@ -1,10 +1,29 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bpuh40qruqfy3"]
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bpuh40qruqfy3"]
 
 [ext_resource type="Resource" uid="uid://cwgufalsi8l52" path="res://data/menu/menu_items/espresso.tres" id="1_6guax"]
 [ext_resource type="Script" path="res://data/menu/menu_ressource.gd" id="1_xj60i"]
 [ext_resource type="Resource" uid="uid://48qalbstd0d" path="res://data/menu/menu_items/coffee_failed.tres" id="2_b3nin"]
+[ext_resource type="Script" path="res://data/menu/menu_item_ressource.gd" id="2_f3dd3"]
 [ext_resource type="Resource" uid="uid://ujojis702qfj" path="res://data/menu/menu_items/cafe_au_lait.tres" id="3_inhqf"]
+
+[sub_resource type="Resource" id="Resource_57umt"]
+script = ExtResource("2_f3dd3")
+recipe = ExtResource("1_6guax")
+probability = 1.0
+points = 10
+
+[sub_resource type="Resource" id="Resource_3jp1g"]
+script = ExtResource("2_f3dd3")
+recipe = ExtResource("3_inhqf")
+probability = 1.0
+points = 10
+
+[sub_resource type="Resource" id="Resource_qyk0o"]
+script = ExtResource("2_f3dd3")
+recipe = ExtResource("2_b3nin")
+probability = null
+points = null
 
 [resource]
 script = ExtResource("1_xj60i")
-recipes = [ExtResource("1_6guax"), ExtResource("3_inhqf"), ExtResource("2_b3nin")]
+recipes = [SubResource("Resource_57umt"), SubResource("Resource_3jp1g"), SubResource("Resource_qyk0o")]

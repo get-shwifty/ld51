@@ -3,44 +3,57 @@
 [ext_resource type="Script" path="res://ui/binding_selection.gd" id="1_08gfy"]
 
 [node name="BindingSelectionPlayer1" type="VBoxContainer"]
+custom_minimum_size = Vector2i(200, 0)
 offset_left = 220.0
 offset_right = 356.0
 offset_bottom = 87.0
 alignment = 1
 script = ExtResource("1_08gfy")
 
+[node name="Title" type="Label" parent="."]
+offset_right = 200.0
+offset_bottom = 26.0
+text = "Player 0 controls"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 144.0
-offset_bottom = 31.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 61.0
 alignment = 1
 
 [node name="ButtonLeft" type="Button" parent="HBoxContainer"]
-offset_right = 18.0
+offset_left = 28.0
+offset_right = 46.0
 offset_bottom = 31.0
 text = "<"
 
 [node name="LabelBindingName" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2i(100, 0)
-offset_left = 22.0
+offset_left = 50.0
 offset_top = 2.0
-offset_right = 122.0
+offset_right = 150.0
 offset_bottom = 28.0
 text = "controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonRight" type="Button" parent="HBoxContainer"]
-offset_left = 126.0
-offset_right = 144.0
+offset_left = 154.0
+offset_right = 172.0
 offset_bottom = 31.0
 text = ">"
 
 [node name="LabelBindingDescription" type="Label" parent="."]
-offset_top = 35.0
-offset_right = 144.0
-offset_bottom = 87.0
-text = "move : blablabla
-interact : blablabl"
+offset_left = 15.0
+offset_top = 65.0
+offset_right = 184.0
+offset_bottom = 143.0
+size_flags_horizontal = 4
+text = "Move : Left Stick
+Selection: ABXY
+Interact: Right Trigger"
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="HBoxContainer/ButtonRight" to="." method="_on_button_right_pressed"]

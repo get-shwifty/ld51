@@ -10,22 +10,22 @@ var bindings = [
 	{
 		"name" : "WASD/ZQSD",
 		"id" : DevicesHelper.KEYBOARD_ZQSD,
-		"description" : "blabla"
+		"description" : "Move: WASD\\ZQSD\nSelection : WASD\\ZQSD\nInteract: Tab"
 	},
 	{
 		"name" : "Arrow keys",
 		"id" : DevicesHelper.KEYBOARD_ARROWS,
-		"description" : "blibli"
+		"description" : "Move: Arrow Keys\nSelection : Arrow Keys\nInteract: Tab"
 	},
 	{
 		"name" : "Controller 1",
 		"id" : DevicesHelper.CONTROLLER1,
-		"description" : "blublu"
+		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
 	},
 	{
 		"name" : "Controller 2",
 		"id" : DevicesHelper.CONTROLLER2,
-		"description" : "blublu"
+		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
 	},
 ]
 
@@ -35,13 +35,16 @@ var selection_widgets = []
 
 func set_number_of_players(nb):
 	players_nb = nb
-	for child in $PanelContainer/HBoxContainer/HBoxContainer.get_children():
+	for child in $PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer.get_children():
 		child.queue_free()
 	selection_widgets.clear()
 	for i  in range(0, players_nb):
 		var current_widget = BINDING_SELECTION.instantiate()
+		current_widget.set_player_index(i +1)
 		current_widget.set_bindings_list(bindings)
-		$PanelContainer/HBoxContainer/HBoxContainer.add_child(current_widget)
+		current_widget.current_binding_index = i
+		current_widget.refresh_bindings_display()
+		$PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer.add_child(current_widget)
 		selection_widgets.push_back(current_widget)
 		
 

@@ -70,8 +70,6 @@ func _process(delta):
 	if loading_time_remaining > 0:
 		loading_time_remaining -= delta
 		refresh_loading_ratio()
-		if loading_time_remaining < 0:
-			reset_loading()
 	
 	if super.is_interact_free():
 		return
@@ -102,6 +100,7 @@ func add_ingredient(ingredient : IngredientRessource):
 
 func on_interact_start():
 	info_bubble.visible = true
+	reset_loading()
 	preparation_next_step()
 	current_character.update_infobubble_coffee_machine(INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step])
 	current_character.display_infobubble_coffee_machine()
@@ -114,16 +113,18 @@ func on_interact_end():
 	
 	print("quiting coffee machine, recipes available below :")
 	for recipe in recipes:
-		print(recipe.name)
+		print(recipe.recipe.name)
 	
-	if current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
+	if current_preparation_step == 0 and current_preparation[0].size() == 0:
 		info_bubble.visible = false
+		reset_prepation() #nothing prepared, leave the machine like you didn't interact with it
+	elif current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
 		var preparation_name = "unknown"
 		
 		if recipes.size() == 0:
 			preparation_name = FAILED_RECIPE.name
 		elif recipes.size() == 1:
-			preparation_name = recipes[0].name
+			preparation_name = recipes[0].recipe.name
 		else:
 			push_error("Too many recipes are matching, this should not be possible")
 			
@@ -136,6 +137,7 @@ func on_interact_end():
 			drop_zone.add_object(menu_item_instance)
 		
 		print(preparation_name + " ready")
+		info_bubble.visible = false
 		reset_prepation()
 	else:
 		#TODO this should be taken from the menu data
@@ -144,8 +146,8 @@ func on_interact_end():
 
 
 
-func get_recipes_matching_current_preparation(recipe_list : Array[RecipeRessource], check_until_step: int = -1):
-	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r, check_until_step))
+func get_recipes_matching_current_preparation(recipe_list : Array[MenuItemRessource], check_until_step: int = -1):
+	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r.recipe, check_until_step))
 
 func do_preparation_match_recipe(preparation, recipe : RecipeRessource, check_until_step: int):
 #	print("evaluating match for " + recipe.name)

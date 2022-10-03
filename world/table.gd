@@ -19,9 +19,9 @@ var current_clients: Array = []
 
 func _ready():
 	for dish in Menu.recipes:
-		if dish.name == "Failed coffee":
+		if dish.recipe.name == "Failed coffee":
 			continue
-		receipes.push_back(dish.name)
+		receipes.push_back(dish.recipe.name)
 	infoBulle.visible = false
 
 func is_empty():

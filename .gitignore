@@ -21,4 +21,7 @@ mono_crash.*.json
 .DS_Store
 *~
 
+# Builds folder
 build/
+dist/
+
