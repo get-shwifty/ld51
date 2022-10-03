@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://43gydkbxwip4"]
+[gd_scene load_steps=2 format=3 uid="uid://43gydkbxwip4"]
+
+[ext_resource type="Texture2D" uid="uid://fjddu75d5feg" path="res://assets/graphics/lait.png" id="1_s2phb"]
 
 [node name="milk_icon" type="Sprite2D"]
+texture = ExtResource("1_s2phb")

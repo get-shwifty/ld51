@@ -12,6 +12,7 @@ const Menu: MenuRessource = preload("res://data/menu/menu.tres")
 @onready var animatedSprite2D: AnimatedSprite2D = $Rotation/AnimatedSprite2D
 @onready var infoBullePos: Marker2D = $Rotation/InfoBullePos
 @onready var infoBulleMenuItems: Node2D = $InfoBulleMenuItems
+@onready var infobubleCoffeeMachine: Node2D = $InfoBulleCoffeeMachine
 
 var current_interact_body = null
 
@@ -32,6 +33,7 @@ func get_input_name(suffix):
 
 func _ready():
 	infoBulleMenuItems.visible = false
+	infobubleCoffeeMachine.visible = false
 
 func comp_nearest(a, b):
 	return to_local(a.global_position).length() < to_local(b.global_position).length()
@@ -139,6 +141,28 @@ func update_infobulle():
 			else:
 				print_debug(menu_item_instance.menu_item_name + " not found")
 
+func display_infobubble_coffee_machine():
+	infobubleCoffeeMachine.visible = true
+
+func hide_infobubble_coffee_machine():
+	infobubleCoffeeMachine.visible = false
+
+func update_infobubble_coffee_machine(available_ingredients):
+	var positions = infobubleCoffeeMachine.find_children("pos?")
+
+	for i in range(0,positions.size()):
+		if positions[i].get_child_count() > 0:
+			positions[i].remove_child(positions[i].get_child(0))
+	
+	if available_ingredients.size() > 0:
+		var instance = available_ingredients[0].icon.instantiate()
+		positions[3].add_child(instance)
+	if available_ingredients.size() > 1:
+		positions[1].add_child(available_ingredients[1].icon.instantiate())
+	if available_ingredients.size() > 2:
+		positions[0].add_child(available_ingredients[2].icon.instantiate())
+	if available_ingredients.size() > 3:
+		positions[2].add_child(available_ingredients[3].icon.instantiate())
 
 ### Physics
 

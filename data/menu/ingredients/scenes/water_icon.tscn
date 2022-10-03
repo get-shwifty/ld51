@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ctacsn4ysuqb8"]
+[gd_scene load_steps=2 format=3 uid="uid://ctacsn4ysuqb8"]
+
+[ext_resource type="Texture2D" uid="uid://cu6s3l82257a7" path="res://assets/graphics/eau.png" id="1_d84lu"]
 
 [node name="water" type="Sprite2D"]
+texture = ExtResource("1_d84lu")
