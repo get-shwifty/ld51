@@ -58,18 +58,18 @@ shape = SubResource("RectangleShape2D_ftmsb")
 [node name="InfoBubbleRoot" type="Marker2D" parent="."]
 
 [node name="InfoBubble" type="Node2D" parent="."]
-visible = false
 position = Vector2(23, 0)
 z_index = 1002
 
 [node name="Background" type="Sprite2D" parent="InfoBubble"]
 position = Vector2(-1, 0)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_ycf31")
 
 [node name="BackgroundLoading" type="Sprite2D" parent="InfoBubble"]
 modulate = Color(0.690196, 0.415686, 0.188235, 0.415686)
 position = Vector2(-1, -9.53674e-07)
-scale = Vector2(1, 0.5)
+scale = Vector2(1.2, 0.6)
 texture = ExtResource("5_ycf31")
 
 [node name="IngredientsIcons" type="GridContainer" parent="InfoBubble"]

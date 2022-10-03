@@ -21,7 +21,6 @@ const INGREDIENTS_AVAILABLE_BY_STEPS = [
 @onready var info_bubble_ingredients: GridContainer = $InfoBubble/IngredientsIcons
 @onready var info_bubble_loading: Node2D = $InfoBubble/BackgroundLoading
 @onready var drop_zone: Takeable = $TakeablePos
-@onready var contour: Takeable = $Contour
 
 #Array[Array[IngredientRessource]] is the type but nested typed collection aren't supported
 var current_preparation = []
@@ -54,7 +53,7 @@ func refresh_loading_ratio():
 	if loading_time_total == 0:
 		loading_scale.y = 0
 	else:
-		loading_scale.y = 1 - loading_time_remaining/loading_time_total;
+		loading_scale.y = 1.2 - (loading_time_remaining/loading_time_total)*1.2;
 	info_bubble_loading.scale = loading_scale
 
 func start_loading(total):
