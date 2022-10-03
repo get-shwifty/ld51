@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2dtfnoim020r"]
 
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="1_1s8rp"]
+[ext_resource type="Texture2D" uid="uid://cph326yt0freg" path="res://assets/graphics/café_raté.png" id="1_j482o"]
 
 [node name="coffee_failed" type="Sprite2D"]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("1_1s8rp")
+texture = ExtResource("1_j482o")
