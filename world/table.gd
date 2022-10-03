@@ -1,6 +1,9 @@
 extends Interactable
 class_name World_Table
 
+const TIMER_DRINKING_MIN = 3.0
+const TIMER_DRINKING_MAX = 8.0
+
 var receipes: Array[String] = []
 
 var clients_scenes: Array[PackedScene] = [
@@ -14,8 +17,11 @@ var clients_scenes: Array[PackedScene] = [
 @onready var infoBulleLabel: Label = $InfoBulle/Label
 @onready var chairs: Array = $Chairs.get_children()
 @onready var characterDetector: Area2D = $CharacterDetector
+@onready var coffees: Node2D = $Coffees
 
 var current_clients: Array = []
+var nb_clients = 0
+var drinking_timer = null
 
 func _ready():
 	for dish in Menu.recipes:
@@ -28,7 +34,7 @@ func is_empty():
 	return current_clients.size() == 0
 
 func is_interact_free():
-	return super() and !is_empty()
+	return super() and !is_empty() and nb_clients > 0
 
 func _process(delta):
 	if current_character != null and !is_empty():
@@ -48,24 +54,49 @@ func _process(delta):
 				if menu_item != null:
 					var remove_index = current_clients.find(menu_item.menu_item_name)
 					if remove_index >= 0:
+						# remove coffee from the table list
 						current_clients.remove_at(remove_index)
+						
+						# add coffee onto the table
+						var free_places = coffees.get_children()
+						free_places.resize(nb_clients)
+						free_places = free_places.filter(func(coffee):
+							return coffee.get_child_count() == 0)
+						if free_places.size() > 0:
+							var free_place = free_places[randi() % free_places.size()]
+							free_place.add_child(menu_item)
 					else:
 						print("TODO feedback bad menu item delivered")
 
 			update_infobulle()
 			current_character.update_infobulle()
 
-			if current_clients.size() == 0:
+			if current_clients.size() == 0 and drinking_timer == null:
 				# table is done!
-				for i in range(chairs.size()):
-					if chairs[i].client_scene != null:
-						chairs[i].remove_child(chairs[i].client_scene)
-						chairs[i].client_scene = null
+				drinking_timer = get_tree().create_timer(
+					randf_range(TIMER_DRINKING_MIN, TIMER_DRINKING_MAX))
+				
 				current_character.end_interact()
 			elif current_character.tray.is_empty():
 				current_character.end_interact()
 
-func create_clients(nb_clients):
+	if drinking_timer != null and drinking_timer.get_time_left() <= 0:
+		# table is done!
+		for i in range(chairs.size()):
+			if chairs[i].client_scene != null:
+				chairs[i].remove_child(chairs[i].client_scene)
+				chairs[i].client_scene = null
+		
+		for coffee in coffees.get_children():
+			for child in coffee.get_children():
+				coffee.remove_child(child)
+		
+		drinking_timer = null
+		nb_clients = 0
+		update_infobulle()
+
+func create_clients(nb):
+	nb_clients = nb
 	current_clients = []
 	for i in range(nb_clients):
 		current_clients.push_back(receipes[randi() % len(receipes)])

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=29 format=3 uid="uid://bpuh40qruqfy3"]
+[gd_resource type="Resource" load_steps=11 format=3 uid="uid://bpuh40qruqfy3"]
 
 [ext_resource type="Resource" uid="uid://cwgufalsi8l52" path="res://data/menu/menu_items/espresso.tres" id="1_6guax"]
 [ext_resource type="Script" path="res://data/menu/menu_ressource.gd" id="1_xj60i"]
@@ -6,15 +6,6 @@
 [ext_resource type="Script" path="res://data/menu/menu_item_ressource.gd" id="2_f3dd3"]
 [ext_resource type="Resource" uid="uid://cpensakuueypq" path="res://data/menu/menu_items/doppio.tres" id="4_who2c"]
 [ext_resource type="Resource" uid="uid://fps24w4dflya" path="res://data/menu/menu_items/lungo.tres" id="5_67t26"]
-[ext_resource type="Resource" uid="uid://bs6mmaafa3wp6" path="res://data/menu/menu_items/macchiato.tres" id="6_yok2f"]
-[ext_resource type="Resource" uid="uid://benye4dud0lsf" path="res://data/menu/menu_items/cappuccino.tres" id="7_qmmgh"]
-[ext_resource type="Resource" uid="uid://bo8gjvge133bq" path="res://data/menu/menu_items/cortado.tres" id="8_t0atl"]
-[ext_resource type="Resource" uid="uid://c3nl46ylbn1e" path="res://data/menu/menu_items/mocha.tres" id="9_bgoiv"]
-[ext_resource type="Resource" uid="uid://i5uaoimun3bt" path="res://data/menu/menu_items/latte.tres" id="10_52a4h"]
-[ext_resource type="Resource" uid="uid://dd0prr3v16nbh" path="res://data/menu/menu_items/hot_chocolate.tres" id="11_ph88w"]
-[ext_resource type="Resource" uid="uid://bdj487jo0qixs" path="res://data/menu/menu_items/flat_white.tres" id="12_8j5mn"]
-[ext_resource type="Resource" uid="uid://c2kvpe2st561m" path="res://data/menu/menu_items/double_latte.tres" id="13_a7bxi"]
-[ext_resource type="Resource" uid="uid://b1ds226g4psia" path="res://data/menu/menu_items/noisette.tres" id="14_oojy1"]
 
 [sub_resource type="Resource" id="Resource_5nbf8"]
 script = ExtResource("2_f3dd3")
@@ -40,60 +31,6 @@ recipe = ExtResource("5_67t26")
 probability = 1.0
 points = 15
 
-[sub_resource type="Resource" id="Resource_0v0i4"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("6_yok2f")
-probability = 1.0
-points = 20
-
-[sub_resource type="Resource" id="Resource_380xi"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("7_qmmgh")
-probability = 1.0
-points = 25
-
-[sub_resource type="Resource" id="Resource_hphpx"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("8_t0atl")
-probability = 1.0
-points = 25
-
-[sub_resource type="Resource" id="Resource_i83nt"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("9_bgoiv")
-probability = 1.0
-points = 20
-
-[sub_resource type="Resource" id="Resource_dg7u4"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("10_52a4h")
-probability = 1.0
-points = 25
-
-[sub_resource type="Resource" id="Resource_vbhfm"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("11_ph88w")
-probability = null
-points = null
-
-[sub_resource type="Resource" id="Resource_cw8ix"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("12_8j5mn")
-probability = null
-points = null
-
-[sub_resource type="Resource" id="Resource_jboy7"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("13_a7bxi")
-probability = null
-points = null
-
-[sub_resource type="Resource" id="Resource_xemmj"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("14_oojy1")
-probability = null
-points = null
-
 [resource]
 script = ExtResource("1_xj60i")
-recipes = [SubResource("Resource_5nbf8"), SubResource("Resource_57umt"), SubResource("Resource_qyk0o"), SubResource("Resource_l7ogn"), SubResource("Resource_0v0i4"), SubResource("Resource_380xi"), SubResource("Resource_hphpx"), SubResource("Resource_i83nt"), SubResource("Resource_dg7u4"), SubResource("Resource_vbhfm"), SubResource("Resource_cw8ix"), SubResource("Resource_jboy7"), SubResource("Resource_xemmj")]
+recipes = [SubResource("Resource_5nbf8"), SubResource("Resource_57umt"), SubResource("Resource_qyk0o"), SubResource("Resource_l7ogn")]
