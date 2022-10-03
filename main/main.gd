@@ -31,7 +31,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		pause_game()
 
-
+func reset_game():
+	game_world.resume_game()
+	for g in game_slot.get_children():
+		g.queue_free()
+	game_world = null
+	create_game()
 
 func create_game():
 	game_world = GAME_WORLD.instantiate();
@@ -93,8 +98,7 @@ func launch_game(bindings):
 
 func return_to_main_menu():
 	if game_state == GameState.MENU_PAUSE or game_state == GameState.MENU_BINDINGS or game_state == GameState.MENU_SHIFT_END:
-		if game_state == GameState.MENU_PAUSE:
-			game_world.resume_game()
+		reset_game()
 		open_main_menu()
 		game_state = GameState.MENU_MAIN
 	else:
