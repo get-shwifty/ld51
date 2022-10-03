@@ -129,7 +129,13 @@ position = Vector2(528, 96)
 [node name="CoffeeMachine" parent="." instance=ExtResource("5_cryh4")]
 position = Vector2(528, 128)
 
-[node name="Character" parent="." instance=ExtResource("1_x6ywh")]
+[node name="Character1" parent="." instance=ExtResource("1_x6ywh")]
 position = Vector2(288, 120)
 motion_mode = 1
 platform_on_leave = 2
+
+[node name="CharacterPos0" type="Marker2D" parent="."]
+position = Vector2(343, 126)
+
+[node name="CharacterPos1" type="Marker2D" parent="."]
+position = Vector2(208, 128)

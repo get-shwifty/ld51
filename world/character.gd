@@ -14,6 +14,8 @@ const Menu: MenuRessource = preload("res://data/menu/menu.tres")
 @onready var infoBulleMenuItems: Node2D = $InfoBulleMenuItems
 @onready var infobubleCoffeeMachine: Node2D = $InfoBulleCoffeeMachine
 
+var player_num: String = "0"
+
 var current_interact_body = null
 
 
@@ -22,7 +24,7 @@ var current_interact_body = null
 
 var current_device = DevicesHelper.KEYBOARD_ARROWS
 
-func set_device_mode(new_device:DevicesHelper):
+func set_device_mode(new_device):
 	current_device = new_device
 
 func get_input_name(suffix):
@@ -82,6 +84,7 @@ func start_interact(body):
 		if !tray.is_empty():
 			infoBulleMenuItems.visible = true
 
+	anim_idle()
 	update_infobulle()
 
 func end_interact():
@@ -164,6 +167,13 @@ func update_infobubble_coffee_machine(available_ingredients):
 	if available_ingredients.size() > 3:
 		positions[2].add_child(available_ingredients[3].icon.instantiate())
 
+
+func anim_walk():
+	animatedSprite2D.play("walk" + player_num)
+
+func anim_idle():
+	animatedSprite2D.play("idle" + player_num)
+
 ### Physics
 
 
@@ -176,11 +186,11 @@ func _physics_process(delta):
 		rotationNode.rotation = direction.angle()
 		infoBulleMenuItems.global_position = infoBullePos.global_position
 		velocity = direction * SPEED
-		animatedSprite2D.play("walk")
+		anim_walk()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		animatedSprite2D.play("idle")
+		anim_idle()
 
 	move_and_slide()
 

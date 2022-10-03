@@ -4,6 +4,8 @@ class_name World
 const START_FIRST_CLIENT = 3000
 const SPAWN_INTERVAL = 10000
 
+var character_scene: PackedScene = preload("res://world/character.tscn")
+
 @onready var tables : Node2D = $Tables
 @onready var last_clients_spawn = Time.get_ticks_msec() - SPAWN_INTERVAL + START_FIRST_CLIENT
 
@@ -25,7 +27,16 @@ func _process(delta):
 			table.create_clients(nb_clients)
 
 func set_players_devices(devices):
-	pass
+	var characters = find_children("Character?")
+	for character in characters:
+		remove_child(character)
+
+	for i in range(devices.size()):
+		var character = character_scene.instantiate()
+		character.set_device_mode(devices[i])
+		character.player_num = str(i)
+		character.global_position = find_child("CharacterPos" + str(i)).global_position
+		add_child(character)
 
 func pause_game():
 	get_tree().paused = true;

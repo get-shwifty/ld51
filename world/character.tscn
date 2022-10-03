@@ -1,13 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://c08qvudql1a8s"]
+[gd_scene load_steps=20 format=3 uid="uid://c08qvudql1a8s"]
 
 [ext_resource type="Script" path="res://world/character.gd" id="1_tv6xs"]
 [ext_resource type="Texture2D" uid="uid://bxaruckojtmav" path="res://assets/graphics/perso_walk.png" id="2_gniaq"]
 [ext_resource type="PackedScene" uid="uid://cgs5g1keivlnc" path="res://world/tray.tscn" id="3_eohyh"]
+[ext_resource type="Texture2D" uid="uid://cwa5opgpb5fgi" path="res://assets/graphics/perso2_walk.png" id="3_ibuah"]
 [ext_resource type="Texture2D" uid="uid://ib0ag6ua6de3" path="res://assets/graphics/grosse_bulle.png" id="3_wsu55"]
 [ext_resource type="Texture2D" uid="uid://cdrlwjhwbh7y3" path="res://assets/graphics/touches_manettes.png" id="4_7tvo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjwuc"]
 atlas = ExtResource("2_gniaq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irr8h"]
+atlas = ExtResource("3_ibuah")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3fal"]
@@ -26,16 +31,42 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_gniaq")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikc7"]
+atlas = ExtResource("3_ibuah")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r0h5"]
+atlas = ExtResource("3_ibuah")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80riw"]
+atlas = ExtResource("3_ibuah")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gpge"]
+atlas = ExtResource("3_ibuah")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vcue"]
 animations = [{
 "frames": [SubResource("AtlasTexture_gjwuc")],
-"loop": true,
-"name": &"idle",
+"loop": false,
+"name": &"idle0",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_irr8h")],
+"loop": false,
+"name": &"idle1",
 "speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m")],
 "loop": true,
-"name": &"walk",
+"name": &"walk0",
+"speed": 8.0
+}, {
+"frames": [SubResource("AtlasTexture_jikc7"), SubResource("AtlasTexture_0r0h5"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_1gpge")],
+"loop": true,
+"name": &"walk1",
 "speed": 8.0
 }]
 
@@ -56,7 +87,7 @@ position = Vector2(7, 2.27374e-13)
 rotation = 3.14159
 scale = Vector2(1.35, 1.35)
 frames = SubResource("SpriteFrames_0vcue")
-animation = &"idle"
+animation = &"walk1"
 playing = true
 offset = Vector2(5, 0)
 
