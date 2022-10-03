@@ -11,9 +11,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p1oup")
 
-[node name="Label" type="Label" parent="."]
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 45)
 offset_right = 576.0
-offset_bottom = 73.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="."]
+offset_top = 49.0
+offset_right = 576.0
+offset_bottom = 122.0
 theme = ExtResource("2_w2dxn")
 text = "Pause
 "
@@ -22,14 +29,14 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="."]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2i(0, 25)
-offset_top = 77.0
+offset_top = 126.0
 offset_right = 576.0
-offset_bottom = 102.0
+offset_bottom = 151.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_top = 106.0
+offset_top = 155.0
 offset_right = 576.0
-offset_bottom = 172.0
+offset_bottom = 221.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 offset_right = 576.0
