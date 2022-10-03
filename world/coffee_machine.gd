@@ -69,6 +69,7 @@ func _ready():
 	reset_prepation()
 
 func _process(delta):
+	handle_info_bubble_movement()
 	if loading_time_remaining > 0:
 		loading_time_remaining -= delta
 		refresh_loading_ratio()
@@ -102,7 +103,19 @@ func add_ingredient(ingredient : IngredientRessource):
 	print("Adding ingredient "+ ingredient.name)
 
 func handle_info_bubble_movement():
+	var additional_ratio = 1
+	var amplitude = 2
+	if loading_time_remaining > 0:
+		additional_ratio = 3
+	elif loading_time_remaining < 0:
+		additional_ratio = 5
+		amplitude = 4
+	
+	var base_ratio = 0.001
 	var now = Time.get_ticks_msec()
+	var position = $InfoBubbleRoot.position
+	position.x = position.x + (cos(now*base_ratio*additional_ratio)+1)*amplitude
+	$InfoBubble.set_position(position)
 	
 
 
