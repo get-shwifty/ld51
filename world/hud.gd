@@ -22,7 +22,7 @@ func set_combo(combo):
 	if combo == 0:
 		combo_label.set_text("")
 	else:
-		combo_label.set_test("Combo x"+str(combo))
+		combo_label.set_text("Combo x"+str(combo))
 
 func set_score(score):
 	if score == 0:

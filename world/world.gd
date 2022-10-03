@@ -15,6 +15,20 @@ var score = 0
 var combo = 0
 var time_passed = 0
 
+func _ready():
+	for t in $Tables.get_children():
+		t.bad_coffee_served.connect(bad_coffee_served)
+		t.coffee_served.connect(coffee_served)
+
+func bad_coffee_served():
+	combo = 0
+	refresh_HUD()
+
+func coffee_served(name):
+	combo += 1
+	score += 10 * combo
+	refresh_HUD()
+
 func refresh_HUD():
 	hud.set_combo(combo)
 	hud.set_score(score)

@@ -11,6 +11,9 @@ var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client2.tscn")
 ]
 
+signal coffee_served(coffee_name)
+signal bad_coffee_served()
+
 @onready var Menu: MenuRessource = GameParams.get_current_menu()
 
 @onready var infoBulle: Node2D = $InfoBulle
@@ -54,6 +57,7 @@ func _process(delta):
 				if menu_item != null:
 					var remove_index = current_clients.find(menu_item.menu_item_name)
 					if remove_index >= 0:
+						coffee_served.emit(menu_item.menu_item_name)
 						# remove coffee from the table list
 						current_clients.remove_at(remove_index)
 						
@@ -66,6 +70,7 @@ func _process(delta):
 							var free_place = free_places[randi() % free_places.size()]
 							free_place.add_child(menu_item)
 					else:
+						bad_coffee_served.emit()
 						print("TODO feedback bad menu item delivered")
 
 			update_infobulle()
