@@ -70,8 +70,6 @@ func _process(delta):
 	if loading_time_remaining > 0:
 		loading_time_remaining -= delta
 		refresh_loading_ratio()
-		if loading_time_remaining < 0:
-			reset_loading()
 	
 	if super.is_interact_free():
 		return
@@ -102,6 +100,7 @@ func add_ingredient(ingredient : IngredientRessource):
 
 func on_interact_start():
 	info_bubble.visible = true
+	reset_loading()
 	preparation_next_step()
 	current_character.update_infobubble_coffee_machine(INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step])
 	current_character.display_infobubble_coffee_machine()
