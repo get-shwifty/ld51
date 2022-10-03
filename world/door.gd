@@ -16,6 +16,8 @@ func close():
 	door.speed_scale = -1
 
 func _on_area_2d_body_entered(body):
+	if area.get_overlapping_bodies().size() == 1:
+		$Ring.play()
 	open()
 
 func _on_area_2d_body_exited(body):
