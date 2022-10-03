@@ -10,44 +10,84 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rnsii")
 
-[node name="Label" type="Label" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 576.0
+offset_bottom = 153.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+offset_right = 576.0
+offset_bottom = 153.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 offset_right = 576.0
 offset_bottom = 26.0
-text = "Choose your bindings"
+text = "Difficulty"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="HBoxContainerDifficulty" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 offset_top = 30.0
 offset_right = 576.0
-offset_bottom = 114.0
+offset_bottom = 61.0
+alignment = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="ButtonLeft" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainerDifficulty"]
+offset_left = 216.0
+offset_right = 234.0
+offset_bottom = 31.0
+text = "<"
+
+[node name="LabelBindingName" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerDifficulty"]
+custom_minimum_size = Vector2i(100, 0)
+offset_left = 238.0
+offset_top = 2.0
+offset_right = 338.0
+offset_bottom = 28.0
+text = "controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRight" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainerDifficulty"]
+offset_left = 342.0
+offset_right = 360.0
+offset_bottom = 31.0
+text = ">"
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(0, 5)
+offset_top = 65.0
 offset_right = 576.0
-offset_bottom = 84.0
+offset_bottom = 70.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+offset_top = 74.0
+offset_right = 576.0
+offset_bottom = 153.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 offset_right = 576.0
 alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2i(0, 10)
+custom_minimum_size = Vector2i(0, 5)
 offset_top = 4.0
 offset_right = 576.0
-offset_bottom = 14.0
+offset_bottom = 9.0
 
-[node name="PlayButton" type="Button" parent="PanelContainer/HBoxContainer"]
-offset_top = 18.0
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+offset_top = 13.0
 offset_right = 576.0
-offset_bottom = 49.0
+offset_bottom = 44.0
 text = "Play
 "
 
-[node name="ReturnButton" type="Button" parent="PanelContainer/HBoxContainer"]
-offset_top = 53.0
+[node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+offset_top = 48.0
 offset_right = 576.0
-offset_bottom = 84.0
+offset_bottom = 79.0
 text = "Return"
 
-[connection signal="pressed" from="PanelContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -9,6 +9,9 @@ func _ready():
 var bindings_list = null;
 var current_binding_index = 0;
 
+func set_player_index(idx):
+	$Title.set_text("Player " + str(idx) + " controls")
+
 func set_bindings_list(bindings):
 	bindings_list = bindings
 	refresh_bindings_display()
