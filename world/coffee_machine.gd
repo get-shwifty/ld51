@@ -95,6 +95,9 @@ func _process(delta):
 			add_ingredient(available_ingredients[3])
 
 func add_ingredient(ingredient : IngredientRessource):
+	if current_preparation[-1].size() == 8:
+		return;
+	
 	current_preparation[-1].push_back(ingredient)
 	var icon =  TextureRect.new();
 	icon.set_texture(ingredient.icon_texture)
