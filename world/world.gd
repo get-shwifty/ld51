@@ -6,6 +6,8 @@ const SPAWN_INTERVAL = 10000
 
 var character_scene: PackedScene = preload("res://world/character.tscn")
 
+signal shift_finished(total_score)
+
 @onready var tables : Node2D = $Tables
 @onready var last_clients_spawn = Time.get_ticks_msec() - SPAWN_INTERVAL + START_FIRST_CLIENT
 @onready var hud : HUD = $HUD;
@@ -41,6 +43,9 @@ func _process(delta):
 	
 	time_passed += delta;
 	refresh_HUD();
+	if time_passed >= GameParams.GAME_DURATION:
+		shift_finished.emit(score)
+		stop_game()
 	
 	var now = Time.get_ticks_msec()
 	if Time.get_ticks_msec() - last_clients_spawn > SPAWN_INTERVAL:
