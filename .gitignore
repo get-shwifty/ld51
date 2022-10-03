@@ -22,5 +22,6 @@ mono_crash.*.json
 *~
 
 # Builds folder
+build/
 dist/
 
