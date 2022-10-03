@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://world/coffee_machine.gd" id="1_g1lg8"]
 [ext_resource type="Texture2D" uid="uid://c422wuup4atrg" path="res://assets/graphics/contour_machine.png" id="2_4fgi4"]
 [ext_resource type="Script" path="res://world/takeable.gd" id="2_57xlb"]
-[ext_resource type="AudioStream" uid="uid://bduucqg22er3l" path="res://assets/sounds/ingredient.ogg" id="5_kd3x8"]
+[ext_resource type="AudioStream" uid="uid://cc8jw01sxaifn" path="res://assets/sounds/ingredient.ogg" id="5_kd3x8"]
 [ext_resource type="Texture2D" uid="uid://crmq1ypd5c2pt" path="res://assets/graphics/petite_bulle.png" id="5_ycf31"]
 [ext_resource type="AudioStream" uid="uid://c41aftqi7jv8w" path="res://assets/sounds/caffe_fini.ogg" id="6_1b2h2"]
 
