@@ -21,6 +21,7 @@ const INGREDIENTS_AVAILABLE_BY_STEPS = [
 @onready var info_bubble_ingredients: GridContainer = $InfoBubble/IngredientsIcons
 @onready var info_bubble_loading: Node2D = $InfoBubble/BackgroundLoading
 @onready var drop_zone: Takeable = $TakeablePos
+@onready var contour: Takeable = $Contour
 
 #Array[Array[IngredientRessource]] is the type but nested typed collection aren't supported
 var current_preparation = []
@@ -185,4 +186,9 @@ func do_ingredients_match_step(ingredient_list, step : RecipeStepRessource):
 			return false;
 	return true;
 
+func _on_area_2d_area_entered(area):
+	$Area2d/Contour.visible = true
 
+func _on_area_2d_area_exited(area):
+	if $Area2d.get_overlapping_areas().size() == 0:
+		$Area2d/Contour.visible = false

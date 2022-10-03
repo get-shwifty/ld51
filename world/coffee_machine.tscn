@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tuakcxd1le3a"]
+[gd_scene load_steps=11 format=3 uid="uid://tuakcxd1le3a"]
 
 [ext_resource type="Texture2D" uid="uid://0w8crk3wb5y3" path="res://assets/graphics/machine.png" id="1_0mj3o"]
 [ext_resource type="Script" path="res://world/coffee_machine.gd" id="1_g1lg8"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://bduucqg22er3l" path="res://assets/sounds/ingredient.ogg" id="5_kd3x8"]
 [ext_resource type="Texture2D" uid="uid://crmq1ypd5c2pt" path="res://assets/graphics/petite_bulle.png" id="5_ycf31"]
 [ext_resource type="AudioStream" uid="uid://c41aftqi7jv8w" path="res://assets/sounds/caffe_fini.ogg" id="6_1b2h2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mklyv"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ivm8"]
 radius = 8.0
@@ -19,11 +22,19 @@ collision_layer = 36
 collision_mask = 0
 script = ExtResource("1_g1lg8")
 
-[node name="contour" type="Sprite2D" parent="."]
-position = Vector2(10.5118, -0.039372)
+[node name="Area2d" type="Area2D" parent="."]
+position = Vector2(8, 0)
+collision_layer = 0
+collision_mask = 16
+
+[node name="Contour" type="Sprite2D" parent="Area2d"]
+visible = false
+position = Vector2(2.5, 0)
 rotation = 3.14159
-scale = Vector2(0.981251, 0.997375)
 texture = ExtResource("2_4fgi4")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("CircleShape2D_mklyv")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(8, 0)
@@ -82,3 +93,6 @@ stream = ExtResource("5_kd3x8")
 
 [node name="Finish" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1b2h2")
+
+[connection signal="area_entered" from="Area2d" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2d" to="." method="_on_area_2d_area_exited"]
