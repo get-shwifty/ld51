@@ -39,6 +39,7 @@ shape = SubResource("RectangleShape2D_ftmsb")
 
 [node name="InfoBubble" type="Node2D" parent="."]
 position = Vector2(23, 0)
+z_index = 1002
 
 [node name="Background" type="Sprite2D" parent="InfoBubble"]
 position = Vector2(-1, 0)

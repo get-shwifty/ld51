@@ -59,12 +59,12 @@ animations = [{
 "name": &"idle1",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_228jh")],
+"frames": [SubResource("AtlasTexture_k3fal"), SubResource("AtlasTexture_228jh"), SubResource("AtlasTexture_41rwo"), SubResource("AtlasTexture_oln5m")],
 "loop": true,
 "name": &"walk0",
 "speed": 8.0
 }, {
-"frames": [SubResource("AtlasTexture_jikc7"), SubResource("AtlasTexture_0r0h5"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_1gpge"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_0r0h5")],
+"frames": [SubResource("AtlasTexture_jikc7"), SubResource("AtlasTexture_0r0h5"), SubResource("AtlasTexture_80riw"), SubResource("AtlasTexture_1gpge")],
 "loop": true,
 "name": &"walk1",
 "speed": 8.0
@@ -113,6 +113,7 @@ shape = SubResource("CircleShape2D_mhu7m")
 [node name="InfoBulleMenuItems" type="Node2D" parent="."]
 visible = false
 position = Vector2(-40, 0)
+z_index = 1002
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulleMenuItems"]
@@ -142,6 +143,7 @@ metadata/_edit_group_ = true
 
 [node name="InfoBulleCoffeeMachine" type="Node2D" parent="."]
 position = Vector2(-40, 0)
+z_index = 1002
 metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="InfoBulleCoffeeMachine"]
