@@ -148,19 +148,19 @@ func get_recipes_matching_current_preparation(recipe_list : Array[RecipeRessourc
 	return recipe_list.filter(func(r): return do_preparation_match_recipe(current_preparation,r, check_until_step))
 
 func do_preparation_match_recipe(preparation, recipe : RecipeRessource, check_until_step: int):
-	print("evaluating match for " + recipe.name)
+#	print("evaluating match for " + recipe.name)
 	var limit = max(recipe.steps.size(), preparation.size())
 	if check_until_step != -1:
 		limit = min(limit,check_until_step+1)
-	print("    step limit is " + str(limit))
+#	print("    step limit is " + str(limit))
 	for i in range(0, limit):
-		print("    evaluating step " + str(i))
+#		print("    evaluating step " + str(i))
 		if preparation.size() <= i:
-			print("        preparation has fewer steps than recipe")
+#			print("        preparation has fewer steps than recipe")
 			return false
 		if recipe.steps.size() <= i:
 			if preparation[i].size() != 0:
-				print("        preparation has more steps than recipe")
+#				print("        preparation has more steps than recipe")
 				return false
 			else:
 				continue
