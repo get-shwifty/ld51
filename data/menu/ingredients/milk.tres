@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cco24jp45at0h"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cco24jp45at0h"]
 
 [ext_resource type="PackedScene" uid="uid://43gydkbxwip4" path="res://data/menu/ingredients/scenes/milk_icon.tscn" id="1_pdott"]
 [ext_resource type="Script" path="res://data/menu/ingredient_ressource.gd" id="1_qfb6r"]
+[ext_resource type="Texture2D" uid="uid://fjddu75d5feg" path="res://assets/graphics/lait.png" id="2_m4hm1"]
 
 [resource]
 script = ExtResource("1_qfb6r")
 name = "milk"
 icon = ExtResource("1_pdott")
+icon_texture = ExtResource("2_m4hm1")

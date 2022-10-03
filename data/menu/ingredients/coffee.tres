@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d27uf80nceqht"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d27uf80nceqht"]
 
 [ext_resource type="PackedScene" uid="uid://cqfauyr2446s3" path="res://data/menu/ingredients/scenes/coffee_icon.tscn" id="1_6f801"]
 [ext_resource type="Script" path="res://data/menu/ingredient_ressource.gd" id="1_g3yu0"]
+[ext_resource type="Texture2D" uid="uid://b0sigaav2qmwo" path="res://assets/graphics/café.png" id="2_44h3m"]
 
 [resource]
 script = ExtResource("1_g3yu0")
 name = "coffee"
 icon = ExtResource("1_6f801")
+icon_texture = ExtResource("2_44h3m")

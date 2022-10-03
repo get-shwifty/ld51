@@ -16,6 +16,7 @@ const INGREDIENTS_AVAILABLE_BY_STEPS = [
 ]
 
 @onready var info_bubble:Node2D = $InfoBubble
+@onready var info_bubble_ingredients: GridContainer = $InfoBubble/IngredientsIcons
 @onready var drop_zone: Takeable = $TakeablePos
 
 #Array[Array[IngredientRessource]] is the type but nested typed collection aren't supported
@@ -25,6 +26,8 @@ var current_preparation_step = -1
 func reset_prepation():
 	current_preparation = []
 	current_preparation_step = -1
+	for child in info_bubble_ingredients.get_children():
+		child.queue_free()
 
 func preparation_next_step():
 	current_preparation.push_back([])
@@ -56,6 +59,9 @@ func _process(delta):
 
 func add_ingredient(ingredient : IngredientRessource):
 	current_preparation[-1].push_back(ingredient)
+	var icon =  TextureRect.new();
+	icon.set_texture(ingredient.icon_texture)
+	info_bubble_ingredients.add_child(icon)
 	print("Adding ingredient "+ ingredient.name)
 
 
@@ -67,8 +73,6 @@ func on_interact_start():
 	print("interact coffee machine : prepation step " + str(current_preparation_step))
 
 func on_interact_end():
-	info_bubble.visible = false
-	
 	var recipes = get_recipes_matching_current_preparation(MENU.recipes, current_preparation_step)
 	
 	current_character.hide_infobubble_coffee_machine()
@@ -78,6 +82,7 @@ func on_interact_end():
 		print(recipe.name)
 	
 	if current_preparation_step + 1 == INGREDIENTS_AVAILABLE_BY_STEPS.size():
+		info_bubble.visible = false
 		var preparation_name = "unknown"
 		
 		if recipes.size() == 0:
