@@ -40,7 +40,7 @@ void fragment() {
 		float inverse_vignette_effect = 1.0-vignette_effect;
 		vec3 HSVColor = RGBtoHSV(current_color);
 		HSVColor.b = HSVColor.b*vignette_effect;
-		HSVColor.g = HSVColor.g+inverse_vignette_effect*0.5;
+		HSVColor.g = HSVColor.g+inverse_vignette_effect*(0.55+0.2*cos(TIME*1.0));
 		current_color = HSVtoRGB(HSVColor);
 	}
 
