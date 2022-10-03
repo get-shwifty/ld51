@@ -37,7 +37,7 @@ var difficulties = [
 	{
 		"name" : "Java lover",
 		"id" : "medium",
-		"menu" : preload("res://data/menu/menu.tres")
+		"menu" : preload("res://data/menu/menu_medium.tres")
 	},
 	{
 		"name" : "Brewing chef",

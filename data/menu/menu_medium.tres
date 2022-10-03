@@ -1,0 +1,64 @@
+[gd_resource type="Resource" load_steps=19 format=3 uid="uid://l2p3vq6dbufv"]
+
+[ext_resource type="Resource" uid="uid://cwgufalsi8l52" path="res://data/menu/menu_items/espresso.tres" id="1_g841h"]
+[ext_resource type="Script" path="res://data/menu/menu_ressource.gd" id="1_w3yyy"]
+[ext_resource type="Script" path="res://data/menu/menu_item_ressource.gd" id="2_csnfu"]
+[ext_resource type="Resource" uid="uid://cpensakuueypq" path="res://data/menu/menu_items/doppio.tres" id="3_ldaef"]
+[ext_resource type="Resource" uid="uid://fps24w4dflya" path="res://data/menu/menu_items/lungo.tres" id="4_uupoe"]
+[ext_resource type="Resource" uid="uid://b1ds226g4psia" path="res://data/menu/menu_items/noisette.tres" id="5_awnle"]
+[ext_resource type="Resource" uid="uid://c3nl46ylbn1e" path="res://data/menu/menu_items/mocha.tres" id="6_7ems5"]
+[ext_resource type="Resource" uid="uid://benye4dud0lsf" path="res://data/menu/menu_items/cappuccino.tres" id="7_aw5ax"]
+[ext_resource type="Resource" uid="uid://dd0prr3v16nbh" path="res://data/menu/menu_items/hot_chocolate.tres" id="8_kipey"]
+[ext_resource type="Resource" uid="uid://48qalbstd0d" path="res://data/menu/menu_items/coffee_failed.tres" id="9_s5b2j"]
+
+[sub_resource type="Resource" id="Resource_dpnj3"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("9_s5b2j")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_0rdhf"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("3_ldaef")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_iy2ra"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("4_uupoe")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_6qwqc"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("5_awnle")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_5dbca"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("6_7ems5")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_ekqia"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("7_aw5ax")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_q71v7"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("8_kipey")
+probability = null
+points = null
+
+[sub_resource type="Resource" id="Resource_3hh53"]
+script = ExtResource("2_csnfu")
+recipe = ExtResource("1_g841h")
+probability = null
+points = null
+
+[resource]
+script = ExtResource("1_w3yyy")
+recipes = [SubResource("Resource_dpnj3"), SubResource("Resource_0rdhf"), SubResource("Resource_iy2ra"), SubResource("Resource_6qwqc"), SubResource("Resource_5dbca"), SubResource("Resource_ekqia"), SubResource("Resource_q71v7"), SubResource("Resource_3hh53")]
