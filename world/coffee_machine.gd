@@ -101,14 +101,27 @@ func add_ingredient(ingredient : IngredientRessource):
 	$Ingredient.play()
 	print("Adding ingredient "+ ingredient.name)
 
+func handle_info_bubble_movement():
+	var now = Time.get_ticks_msec()
+	
+
 
 func on_interact_start():
 	info_bubble.visible = true
 	reset_loading()
 	preparation_next_step()
+	
+	#hack for ludum dare
+	if GameParams.get_current_difficulty().id == "easy":
+		if current_preparation_step == 1:
+			current_character.call_deferred("end_interact")
+			return;
+	
 	current_character.update_infobubble_coffee_machine(INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step])
 	current_character.display_infobubble_coffee_machine()
 	print("interact coffee machine : prepation step " + str(current_preparation_step))
+	
+	
 
 func on_interact_end():
 	var recipes = get_recipes_matching_current_preparation(Menu.recipes, current_preparation_step)
