@@ -1,6 +1,6 @@
 extends Node2D
 
-var Menu: MenuRessource = preload("res://data/menu/menu.tres")
+var Menu: MenuRessource = GameParams.get_current_menu()
 
 @onready var label: Label = $Label
 @onready var iconMarker: Marker2D = $Icon
