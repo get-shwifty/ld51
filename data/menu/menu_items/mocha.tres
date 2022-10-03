@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=15 format=3 uid="uid://c3nl46ylbn1e"]
 
-[ext_resource type="PackedScene" uid="uid://ch4h01gsh8jvg" path="res://data/menu/menu_items/scenes/espresso_icon.tscn" id="1_r12ry"]
+[ext_resource type="PackedScene" uid="uid://xgny6lkffijo" path="res://data/menu/menu_items/scenes/mocachino_icon.tscn" id="1_jv6u4"]
 [ext_resource type="Script" path="res://data/menu/recipe_ressource.gd" id="2_4jfic"]
 [ext_resource type="Resource" uid="uid://d27uf80nceqht" path="res://data/menu/ingredients/coffee.tres" id="3_5ewh6"]
 [ext_resource type="Script" path="res://data/menu/recipe_step_ressource.gd" id="4_l1mle"]
@@ -42,5 +42,5 @@ preparationTime = null
 [resource]
 script = ExtResource("2_4jfic")
 name = "Mocha"
-icon = ExtResource("1_r12ry")
+icon = ExtResource("1_jv6u4")
 steps = [SubResource("Resource_0pym3"), SubResource("Resource_y402o")]

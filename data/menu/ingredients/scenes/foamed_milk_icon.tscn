@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bunubilbxgvyq"]
+[gd_scene load_steps=2 format=3 uid="uid://bunubilbxgvyq"]
 
-[ext_resource type="Texture2D" uid="uid://fjddu75d5feg" path="res://assets/graphics/lait.png" id="1_s2phb"]
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="2_ap2gf"]
+[ext_resource type="Texture2D" uid="uid://cgf2lsupetll5" path="res://assets/graphics/mousse_lait.png" id="1_ns30m"]
 
 [node name="foamed_milk_icon" type="Sprite2D"]
-texture = ExtResource("1_s2phb")
-
-[node name="Sprite2d" type="Sprite2D" parent="."]
-position = Vector2(1.78814e-07, 4)
-scale = Vector2(0.0625, 0.03125)
-texture = ExtResource("2_ap2gf")
+texture = ExtResource("1_ns30m")

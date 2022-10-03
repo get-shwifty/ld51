@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djbkn4c06fbe3"]
 
-[ext_resource type="Texture2D" uid="uid://bvho4ie7jw03k" path="res://assets/graphics/cappucino.png" id="1_2ohyh"]
+[ext_resource type="Texture2D" uid="uid://ds0d2180cycbk" path="res://assets/graphics/latte.png" id="1_gfw4f"]
 
 [node name="cafe_au_lait_icon" type="Sprite2D"]
-texture = ExtResource("1_2ohyh")
+texture = ExtResource("1_gfw4f")

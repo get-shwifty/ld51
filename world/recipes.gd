@@ -2,7 +2,7 @@ extends Node2D
 
 const NB_RECIPES_PER_LINE = 6
 const RECIPE_W = 96
-const RECIPE_H = 32
+const RECIPE_H = 30
 
 var RecipeScene: PackedScene = preload("res://world/recipe.tscn")
 

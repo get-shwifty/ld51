@@ -40,6 +40,12 @@ recipe = ExtResource("5_67t26")
 probability = 1.0
 points = 15
 
+[sub_resource type="Resource" id="Resource_xemmj"]
+script = ExtResource("2_f3dd3")
+recipe = ExtResource("14_oojy1")
+probability = null
+points = null
+
 [sub_resource type="Resource" id="Resource_0v0i4"]
 script = ExtResource("2_f3dd3")
 recipe = ExtResource("6_yok2f")
@@ -88,12 +94,6 @@ recipe = ExtResource("13_a7bxi")
 probability = null
 points = null
 
-[sub_resource type="Resource" id="Resource_xemmj"]
-script = ExtResource("2_f3dd3")
-recipe = ExtResource("14_oojy1")
-probability = null
-points = null
-
 [resource]
 script = ExtResource("1_xj60i")
-recipes = [SubResource("Resource_5nbf8"), SubResource("Resource_57umt"), SubResource("Resource_qyk0o"), SubResource("Resource_l7ogn"), SubResource("Resource_0v0i4"), SubResource("Resource_380xi"), SubResource("Resource_hphpx"), SubResource("Resource_i83nt"), SubResource("Resource_dg7u4"), SubResource("Resource_vbhfm"), SubResource("Resource_cw8ix"), SubResource("Resource_jboy7"), SubResource("Resource_xemmj")]
+recipes = [SubResource("Resource_5nbf8"), SubResource("Resource_57umt"), SubResource("Resource_qyk0o"), SubResource("Resource_l7ogn"), SubResource("Resource_xemmj"), SubResource("Resource_0v0i4"), SubResource("Resource_380xi"), SubResource("Resource_hphpx"), SubResource("Resource_i83nt"), SubResource("Resource_dg7u4"), SubResource("Resource_vbhfm"), SubResource("Resource_cw8ix"), SubResource("Resource_jboy7")]

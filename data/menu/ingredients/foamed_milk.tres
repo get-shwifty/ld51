@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://data/menu/ingredient_ressource.gd" id="1_qfb6r"]
 [ext_resource type="PackedScene" uid="uid://bunubilbxgvyq" path="res://data/menu/ingredients/scenes/foamed_milk_icon.tscn" id="1_t68i1"]
-[ext_resource type="Texture2D" uid="uid://q77gkv3b2cs2" path="res://icon.svg" id="2_0ogx1"]
+[ext_resource type="Texture2D" uid="uid://cgf2lsupetll5" path="res://assets/graphics/mousse_lait.png" id="2_vrpi4"]
 
 [resource]
 script = ExtResource("1_qfb6r")
 name = "Foamed milk"
 icon = ExtResource("1_t68i1")
-icon_texture = ExtResource("2_0ogx1")
+icon_texture = ExtResource("2_vrpi4")
