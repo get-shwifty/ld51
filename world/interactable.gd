@@ -17,8 +17,8 @@ func on_interact_start():
 	pass
 
 func end_interact():
-	current_character = null
 	on_interact_end()
+	current_character = null
 
 func on_interact_end():
 	pass

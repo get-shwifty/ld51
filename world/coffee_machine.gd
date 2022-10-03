@@ -62,12 +62,16 @@ func add_ingredient(ingredient : IngredientRessource):
 func on_interact_start():
 	info_bubble.visible = true
 	preparation_next_step()
+	current_character.update_infobubble_coffee_machine(INGREDIENTS_AVAILABLE_BY_STEPS[current_preparation_step])
+	current_character.display_infobubble_coffee_machine()
 	print("interact coffee machine : prepation step " + str(current_preparation_step))
 
 func on_interact_end():
 	info_bubble.visible = false
 	
 	var recipes = get_recipes_matching_current_preparation(MENU.recipes, current_preparation_step)
+	
+	current_character.hide_infobubble_coffee_machine()
 	
 	print("quiting coffee machine, recipes available below :")
 	for recipe in recipes:
