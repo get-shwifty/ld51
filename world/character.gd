@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 
-@onready var Menu: MenuRessource = GameParams.get_current_menu()
-
 @onready var keys_arrows = preload("res://assets/graphics/touches_fleches.png")
 @onready var keys_zqsd = preload("res://assets/graphics/touches_clavier.png")
 @onready var keys_ctrl = preload("res://assets/graphics/touches_manettes.png")
@@ -21,7 +19,6 @@ const SPEED = 130.0
 var player_num: String = "0"
 
 var current_interact_body = null
-
 
 ### Device Management
 
@@ -150,7 +147,7 @@ func update_infobulle():
 			if positions[i].get_child_count() > 0:
 				positions[i].remove_child(positions[i].get_child(0))
 		else:
-			var menu_item = Menu.recipes.filter(func(dish):
+			var menu_item = GameParams.get_current_menu().recipes.filter(func(dish):
 				return dish.recipe.name == menu_item_instance.menu_item_name).front()
 			if menu_item:
 				if positions[i].get_child_count() > 0:

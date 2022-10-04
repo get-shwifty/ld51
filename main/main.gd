@@ -29,7 +29,10 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		pause_game()
+		if game_state == GameState.GAME:
+			pause_game()
+		elif game_state == GameState.MENU_PAUSE:
+			resume_game()
 
 func reset_game():
 	game_world.resume_game()

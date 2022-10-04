@@ -11,17 +11,17 @@ var bindings = [
 	{
 		"name" : "Arrow keys",
 		"id" : DevicesHelper.KEYBOARD_ARROWS,
-		"description" : "Move: Arrow Keys\nSelection : Arrow Keys\nInteract: Tab"
+		"description" : "Move: Arrow Keys\nSelection : Arrow Keys\nInteract: Enter"
 	},
 	{
 		"name" : "Controller 1",
 		"id" : DevicesHelper.CONTROLLER1,
-		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
+		"description" : "Move : Left Stick\nSelection: BXY\nInteract: A"
 	},
 	{
 		"name" : "Controller 2",
 		"id" : DevicesHelper.CONTROLLER2,
-		"description" : "Move : Left Stick\nSelection: ABXY\nInteract: Right Trigger"
+		"description" : "Move : Left Stick\nSelection: BXY\nInteract: A"
 	},
 ]
 

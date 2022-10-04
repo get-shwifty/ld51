@@ -1,14 +1,12 @@
 extends Node2D
 
-var Menu: MenuRessource = GameParams.get_current_menu()
-
 @onready var label: Label = $Label
 @onready var iconMarker: Marker2D = $Icon
 @onready var ingredientsMarker: Marker2D = $Ingredients
 
 # Called when the node enters the scene tree for the first time.
 func set_receipe(receipe_name):
-	var menu_item: MenuItemRessource = Menu.recipes.filter(func(menu_item):
+	var menu_item: MenuItemRessource = GameParams.get_current_menu().recipes.filter(func(menu_item):
 		return menu_item.recipe.name == receipe_name).front()
 	
 	if menu_item == null:

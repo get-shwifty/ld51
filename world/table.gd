@@ -4,8 +4,6 @@ class_name World_Table
 const TIMER_DRINKING_MIN = 3.0
 const TIMER_DRINKING_MAX = 8.0
 
-var receipes: Array[String] = []
-
 var clients_scenes: Array[PackedScene] = [
 	preload("res://world/client1.tscn"),
 	preload("res://world/client2.tscn"),
@@ -15,8 +13,6 @@ var clients_scenes: Array[PackedScene] = [
 
 signal coffee_served(coffee_name)
 signal bad_coffee_served()
-
-@onready var Menu: MenuRessource = GameParams.get_current_menu()
 
 @onready var infoBulle: Node2D = $InfoBulle
 @onready var infoBulleLabel: Label = $InfoBulle/Label
@@ -28,11 +24,15 @@ var current_clients: Array = []
 var nb_clients = 0
 var drinking_timer = null
 
-func _ready():
-	for dish in Menu.recipes:
+func get_filtered_recipies():
+	var recipies : Array[String] = []
+	for dish in GameParams.get_current_menu().recipes:
 		if dish.recipe.name == "Failed coffee":
 			continue
-		receipes.push_back(dish.recipe.name)
+		recipies.push_back(dish.recipe.name)
+	return recipies
+
+func _ready():
 	infoBulle.visible = false
 
 func are_clients_on_table():
@@ -123,7 +123,7 @@ func create_clients(nb):
 	nb_clients = nb
 	current_clients = []
 	for i in range(nb_clients):
-		current_clients.push_back(receipes[randi() % len(receipes)])
+		current_clients.push_back(get_filtered_recipies()[randi() % len(get_filtered_recipies())])
 		var client_scene = clients_scenes[randi() % len(clients_scenes)].instantiate()
 		chairs[i].move_in_client(client_scene)
 	

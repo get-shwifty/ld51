@@ -140,7 +140,7 @@ func on_interact_start():
 	
 
 func on_interact_end():
-	var recipes = get_recipes_matching_current_preparation(Menu.recipes, current_preparation_step)
+	var recipes = get_recipes_matching_current_preparation(GameParams.get_current_menu().recipes, current_preparation_step)
 	
 	current_character.hide_infobubble_coffee_machine()
 	
