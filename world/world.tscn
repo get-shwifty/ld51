@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://clf4fwpa5msnv"]
+[gd_scene load_steps=46 format=3 uid="uid://clf4fwpa5msnv"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_k0fyf"]
 [ext_resource type="PackedScene" uid="uid://c08qvudql1a8s" path="res://world/character.tscn" id="1_x6ywh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqtgdrwr4xqu0" path="res://white.png" id="10_k283k"]
 [ext_resource type="Shader" path="res://new_look_shader.gdshader" id="12_3erq7"]
 [ext_resource type="PackedScene" uid="uid://dngmn70kndugw" path="res://world/door.tscn" id="16_8it30"]
+[ext_resource type="Texture2D" uid="uid://swu2g7odd5k2" path="res://assets/graphics/chat.png" id="17_6cehi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_otvvd"]
 shader = ExtResource("12_3erq7")
@@ -114,6 +115,38 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -83.9986, -388, 0, 0, 0, 0, -87.9988, -332, 0, 0, 0, 0, -87.999, -284, 0, 0, 0, 0, -51.9993, -188, 0, 0, 0, 0, -31.9996, -116, 0, 0, 0, 0, 0.000160217, -44, 0, 0, 0, 0, 8.39233e-05, -24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3.05176e-05)
 }
 point_count = 9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as26r"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sts1r"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3jbm"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnq1d"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fejmo"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k84yh"]
+atlas = ExtResource("17_6cehi")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pok1o"]
+animations = [{
+"frames": [SubResource("AtlasTexture_as26r"), SubResource("AtlasTexture_sts1r"), SubResource("AtlasTexture_i3jbm"), SubResource("AtlasTexture_dnq1d"), SubResource("AtlasTexture_fejmo"), SubResource("AtlasTexture_k84yh")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="World" type="Node2D"]
 process_mode = 1
@@ -484,6 +517,12 @@ text = "Combo x1"
 
 [node name="Door" parent="." instance=ExtResource("16_8it30")]
 position = Vector2(39, 149)
+
+[node name="Chat" type="AnimatedSprite2D" parent="."]
+position = Vector2(354, 283)
+scale = Vector2(1.37047, 1.39063)
+frames = SubResource("SpriteFrames_pok1o")
+playing = true
 
 [editable path="Tables/Table"]
 [editable path="Tables/Table/Chairs/Chair1"]
